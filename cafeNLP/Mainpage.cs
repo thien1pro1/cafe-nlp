@@ -102,7 +102,8 @@ namespace cafeNLP
 
         private void cbbCatelory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //cbbCatelory.SelectedText;
+            cbbFood.Items.Clear();
+            cbbFood.Text = "";
             cbbFood.Enabled = true;
             SelectBox obj = cbbCatelory.SelectedItem as SelectBox;
             if (obj != null)
