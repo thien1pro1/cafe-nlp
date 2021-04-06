@@ -91,6 +91,7 @@
     <Compile Include="OrderInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectBox.cs" />
     <Compile Include="Signup.cs">
       <SubType>Form</SubType>
     </Compile>

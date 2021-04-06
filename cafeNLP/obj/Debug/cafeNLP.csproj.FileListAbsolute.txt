@@ -11,4 +11,4 @@ D:\.net\project\cafeNLP\obj\Debug\cafeNLP.Signup.resources
 D:\.net\project\cafeNLP\bin\Debug\69024-bunifu_ui_v1.52.dll
 D:\.net\project\cafeNLP\obj\Debug\cafeNLP.Account.resources
 D:\.net\project\cafeNLP\obj\Debug\cafeNLP.Admin.resources
-D:\.net\project\cafeNLP\obj\Debug\cafeNLP.SelectCate.resources
+D:\.net\project\cafeNLP\obj\Debug\cafeNLP.Mainpage.resources

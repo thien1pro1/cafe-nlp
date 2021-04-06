@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup39 = new System.Windows.Forms.ListViewGroup("ListViewGroupsfsf", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup40 = new System.Windows.Forms.ListViewGroup("ListViewGrsdfsfsoup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem77 = new System.Windows.Forms.ListViewItem("fvfsf");
-            System.Windows.Forms.ListViewItem listViewItem78 = new System.Windows.Forms.ListViewItem("sdfsfs");
-            System.Windows.Forms.ListViewItem listViewItem79 = new System.Windows.Forms.ListViewItem("sdfsf");
-            System.Windows.Forms.ListViewItem listViewItem80 = new System.Windows.Forms.ListViewItem("sdfsfsf");
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.nbudFood = new System.Windows.Forms.NumericUpDown();
@@ -41,11 +35,28 @@
             this.cbbFood = new System.Windows.Forms.ComboBox();
             this.cbbCatelory = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.btnDiscount = new System.Windows.Forms.Button();
             this.btnCheckOut = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lsvBill = new System.Windows.Forms.ListView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnTable16 = new System.Windows.Forms.Button();
+            this.btnTable14 = new System.Windows.Forms.Button();
+            this.btnTable15 = new System.Windows.Forms.Button();
+            this.btnTable13 = new System.Windows.Forms.Button();
+            this.btnTable12 = new System.Windows.Forms.Button();
+            this.btnTable10 = new System.Windows.Forms.Button();
+            this.btnTable11 = new System.Windows.Forms.Button();
+            this.btnTable9 = new System.Windows.Forms.Button();
+            this.btnTable8 = new System.Windows.Forms.Button();
+            this.btnTable6 = new System.Windows.Forms.Button();
+            this.btnTable7 = new System.Windows.Forms.Button();
+            this.btnTable5 = new System.Windows.Forms.Button();
+            this.btnTable4 = new System.Windows.Forms.Button();
+            this.btnTable2 = new System.Windows.Forms.Button();
+            this.btnTable3 = new System.Windows.Forms.Button();
+            this.btnTable1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,25 +65,6 @@
             this.hiệnẢnhĐạiDiệnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnTable1 = new System.Windows.Forms.Button();
-            this.btnTable3 = new System.Windows.Forms.Button();
-            this.btnTable2 = new System.Windows.Forms.Button();
-            this.btnTable4 = new System.Windows.Forms.Button();
-            this.btnTable8 = new System.Windows.Forms.Button();
-            this.btnTable6 = new System.Windows.Forms.Button();
-            this.btnTable7 = new System.Windows.Forms.Button();
-            this.btnTable5 = new System.Windows.Forms.Button();
-            this.btnTable12 = new System.Windows.Forms.Button();
-            this.btnTable10 = new System.Windows.Forms.Button();
-            this.btnTable11 = new System.Windows.Forms.Button();
-            this.btnTable9 = new System.Windows.Forms.Button();
-            this.btnTable16 = new System.Windows.Forms.Button();
-            this.btnTable14 = new System.Windows.Forms.Button();
-            this.btnTable15 = new System.Windows.Forms.Button();
-            this.btnTable13 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.SST = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.TenSP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nbudFood)).BeginInit();
@@ -165,6 +157,14 @@
             this.panel4.Size = new System.Drawing.Size(595, 82);
             this.panel4.TabIndex = 4;
             // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(188, 48);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(231, 34);
+            this.comboBox2.TabIndex = 8;
+            // 
             // btnDiscount
             // 
             this.btnDiscount.Location = new System.Drawing.Point(188, 7);
@@ -194,21 +194,6 @@
             // 
             // lsvBill
             // 
-            this.lsvBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.SST,
-            this.TenSP});
-            listViewGroup39.Header = "ListViewGroupsfsf";
-            listViewGroup39.Name = "listViewGroup1";
-            listViewGroup40.Header = "ListViewGrsdfsfsoup";
-            listViewGroup40.Name = "listViewGroup2sdfs";
-            this.lsvBill.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup39,
-            listViewGroup40});
-            this.lsvBill.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem77,
-            listViewItem78,
-            listViewItem79,
-            listViewItem80});
             this.lsvBill.Location = new System.Drawing.Point(3, 3);
             this.lsvBill.Name = "lsvBill";
             this.lsvBill.Size = new System.Drawing.Size(589, 330);
@@ -238,6 +223,166 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(611, 525);
             this.panel1.TabIndex = 3;
+            // 
+            // btnTable16
+            // 
+            this.btnTable16.Location = new System.Drawing.Point(446, 381);
+            this.btnTable16.Name = "btnTable16";
+            this.btnTable16.Size = new System.Drawing.Size(123, 86);
+            this.btnTable16.TabIndex = 15;
+            this.btnTable16.Text = "Bàn 16";
+            this.btnTable16.UseVisualStyleBackColor = true;
+            this.btnTable16.Click += new System.EventHandler(this.btnTable16_Click);
+            // 
+            // btnTable14
+            // 
+            this.btnTable14.Location = new System.Drawing.Point(165, 381);
+            this.btnTable14.Name = "btnTable14";
+            this.btnTable14.Size = new System.Drawing.Size(123, 86);
+            this.btnTable14.TabIndex = 14;
+            this.btnTable14.Text = "Bàn 14";
+            this.btnTable14.UseVisualStyleBackColor = true;
+            this.btnTable14.Click += new System.EventHandler(this.btnTable14_Click);
+            // 
+            // btnTable15
+            // 
+            this.btnTable15.Location = new System.Drawing.Point(305, 381);
+            this.btnTable15.Name = "btnTable15";
+            this.btnTable15.Size = new System.Drawing.Size(123, 86);
+            this.btnTable15.TabIndex = 13;
+            this.btnTable15.Text = "Bàn 15";
+            this.btnTable15.UseVisualStyleBackColor = true;
+            this.btnTable15.Click += new System.EventHandler(this.btnTable15_Click);
+            // 
+            // btnTable13
+            // 
+            this.btnTable13.Location = new System.Drawing.Point(24, 381);
+            this.btnTable13.Name = "btnTable13";
+            this.btnTable13.Size = new System.Drawing.Size(123, 86);
+            this.btnTable13.TabIndex = 12;
+            this.btnTable13.Text = "Bàn 13";
+            this.btnTable13.UseVisualStyleBackColor = true;
+            this.btnTable13.Click += new System.EventHandler(this.btnTable13_Click);
+            // 
+            // btnTable12
+            // 
+            this.btnTable12.Location = new System.Drawing.Point(446, 264);
+            this.btnTable12.Name = "btnTable12";
+            this.btnTable12.Size = new System.Drawing.Size(123, 86);
+            this.btnTable12.TabIndex = 11;
+            this.btnTable12.Text = "Bàn 12";
+            this.btnTable12.UseVisualStyleBackColor = true;
+            this.btnTable12.Click += new System.EventHandler(this.btnTable12_Click);
+            // 
+            // btnTable10
+            // 
+            this.btnTable10.Location = new System.Drawing.Point(165, 264);
+            this.btnTable10.Name = "btnTable10";
+            this.btnTable10.Size = new System.Drawing.Size(123, 86);
+            this.btnTable10.TabIndex = 10;
+            this.btnTable10.Text = "Bàn 10";
+            this.btnTable10.UseVisualStyleBackColor = true;
+            this.btnTable10.Click += new System.EventHandler(this.btnTable10_Click);
+            // 
+            // btnTable11
+            // 
+            this.btnTable11.Location = new System.Drawing.Point(305, 264);
+            this.btnTable11.Name = "btnTable11";
+            this.btnTable11.Size = new System.Drawing.Size(123, 86);
+            this.btnTable11.TabIndex = 9;
+            this.btnTable11.Text = "Bàn 11";
+            this.btnTable11.UseVisualStyleBackColor = true;
+            this.btnTable11.Click += new System.EventHandler(this.btnTable11_Click);
+            // 
+            // btnTable9
+            // 
+            this.btnTable9.Location = new System.Drawing.Point(24, 264);
+            this.btnTable9.Name = "btnTable9";
+            this.btnTable9.Size = new System.Drawing.Size(123, 86);
+            this.btnTable9.TabIndex = 8;
+            this.btnTable9.Text = "Bàn 9";
+            this.btnTable9.UseVisualStyleBackColor = true;
+            this.btnTable9.Click += new System.EventHandler(this.btnTable9_Click);
+            // 
+            // btnTable8
+            // 
+            this.btnTable8.Location = new System.Drawing.Point(446, 141);
+            this.btnTable8.Name = "btnTable8";
+            this.btnTable8.Size = new System.Drawing.Size(123, 86);
+            this.btnTable8.TabIndex = 7;
+            this.btnTable8.Text = "Bàn 8";
+            this.btnTable8.UseVisualStyleBackColor = true;
+            this.btnTable8.Click += new System.EventHandler(this.btnTable8_Click);
+            // 
+            // btnTable6
+            // 
+            this.btnTable6.Location = new System.Drawing.Point(165, 141);
+            this.btnTable6.Name = "btnTable6";
+            this.btnTable6.Size = new System.Drawing.Size(123, 86);
+            this.btnTable6.TabIndex = 6;
+            this.btnTable6.Text = "Bàn 6";
+            this.btnTable6.UseVisualStyleBackColor = true;
+            this.btnTable6.Click += new System.EventHandler(this.btnTable6_Click);
+            // 
+            // btnTable7
+            // 
+            this.btnTable7.Location = new System.Drawing.Point(305, 141);
+            this.btnTable7.Name = "btnTable7";
+            this.btnTable7.Size = new System.Drawing.Size(123, 86);
+            this.btnTable7.TabIndex = 5;
+            this.btnTable7.Text = "Bàn 7";
+            this.btnTable7.UseVisualStyleBackColor = true;
+            this.btnTable7.Click += new System.EventHandler(this.btnTable7_Click);
+            // 
+            // btnTable5
+            // 
+            this.btnTable5.Location = new System.Drawing.Point(24, 141);
+            this.btnTable5.Name = "btnTable5";
+            this.btnTable5.Size = new System.Drawing.Size(123, 86);
+            this.btnTable5.TabIndex = 4;
+            this.btnTable5.Text = "Bàn 5";
+            this.btnTable5.UseVisualStyleBackColor = true;
+            this.btnTable5.Click += new System.EventHandler(this.btnTable5_Click);
+            // 
+            // btnTable4
+            // 
+            this.btnTable4.Location = new System.Drawing.Point(446, 19);
+            this.btnTable4.Name = "btnTable4";
+            this.btnTable4.Size = new System.Drawing.Size(123, 86);
+            this.btnTable4.TabIndex = 3;
+            this.btnTable4.Text = "Bàn 4";
+            this.btnTable4.UseVisualStyleBackColor = true;
+            this.btnTable4.Click += new System.EventHandler(this.btnTable4_Click);
+            // 
+            // btnTable2
+            // 
+            this.btnTable2.Location = new System.Drawing.Point(165, 19);
+            this.btnTable2.Name = "btnTable2";
+            this.btnTable2.Size = new System.Drawing.Size(123, 86);
+            this.btnTable2.TabIndex = 2;
+            this.btnTable2.Text = "Bàn 2";
+            this.btnTable2.UseVisualStyleBackColor = true;
+            this.btnTable2.Click += new System.EventHandler(this.btnTable2_Click);
+            // 
+            // btnTable3
+            // 
+            this.btnTable3.Location = new System.Drawing.Point(305, 19);
+            this.btnTable3.Name = "btnTable3";
+            this.btnTable3.Size = new System.Drawing.Size(123, 86);
+            this.btnTable3.TabIndex = 1;
+            this.btnTable3.Text = "Bàn 3";
+            this.btnTable3.UseVisualStyleBackColor = true;
+            this.btnTable3.Click += new System.EventHandler(this.btnTable3_Click);
+            // 
+            // btnTable1
+            // 
+            this.btnTable1.Location = new System.Drawing.Point(24, 19);
+            this.btnTable1.Name = "btnTable1";
+            this.btnTable1.Size = new System.Drawing.Size(123, 86);
+            this.btnTable1.TabIndex = 0;
+            this.btnTable1.Text = "Bàn 1";
+            this.btnTable1.UseVisualStyleBackColor = true;
+            this.btnTable1.Click += new System.EventHandler(this.btnTable1_Click);
             // 
             // label6
             // 
@@ -316,183 +461,6 @@
             this.adminToolStripMenuItem1.Text = "Admin";
             this.adminToolStripMenuItem1.Click += new System.EventHandler(this.adminToolStripMenuItem1_Click);
             // 
-            // btnTable1
-            // 
-            this.btnTable1.Location = new System.Drawing.Point(24, 19);
-            this.btnTable1.Name = "btnTable1";
-            this.btnTable1.Size = new System.Drawing.Size(123, 86);
-            this.btnTable1.TabIndex = 0;
-            this.btnTable1.Text = "Bàn 1";
-            this.btnTable1.UseVisualStyleBackColor = true;
-            this.btnTable1.Click += new System.EventHandler(this.btnTable1_Click);
-            // 
-            // btnTable3
-            // 
-            this.btnTable3.Location = new System.Drawing.Point(305, 19);
-            this.btnTable3.Name = "btnTable3";
-            this.btnTable3.Size = new System.Drawing.Size(123, 86);
-            this.btnTable3.TabIndex = 1;
-            this.btnTable3.Text = "Bàn 3";
-            this.btnTable3.UseVisualStyleBackColor = true;
-            this.btnTable3.Click += new System.EventHandler(this.btnTable3_Click);
-            // 
-            // btnTable2
-            // 
-            this.btnTable2.Location = new System.Drawing.Point(165, 19);
-            this.btnTable2.Name = "btnTable2";
-            this.btnTable2.Size = new System.Drawing.Size(123, 86);
-            this.btnTable2.TabIndex = 2;
-            this.btnTable2.Text = "Bàn 2";
-            this.btnTable2.UseVisualStyleBackColor = true;
-            this.btnTable2.Click += new System.EventHandler(this.btnTable2_Click);
-            // 
-            // btnTable4
-            // 
-            this.btnTable4.Location = new System.Drawing.Point(446, 19);
-            this.btnTable4.Name = "btnTable4";
-            this.btnTable4.Size = new System.Drawing.Size(123, 86);
-            this.btnTable4.TabIndex = 3;
-            this.btnTable4.Text = "Bàn 4";
-            this.btnTable4.UseVisualStyleBackColor = true;
-            this.btnTable4.Click += new System.EventHandler(this.btnTable4_Click);
-            // 
-            // btnTable8
-            // 
-            this.btnTable8.Location = new System.Drawing.Point(446, 141);
-            this.btnTable8.Name = "btnTable8";
-            this.btnTable8.Size = new System.Drawing.Size(123, 86);
-            this.btnTable8.TabIndex = 7;
-            this.btnTable8.Text = "Bàn 8";
-            this.btnTable8.UseVisualStyleBackColor = true;
-            this.btnTable8.Click += new System.EventHandler(this.btnTable8_Click);
-            // 
-            // btnTable6
-            // 
-            this.btnTable6.Location = new System.Drawing.Point(165, 141);
-            this.btnTable6.Name = "btnTable6";
-            this.btnTable6.Size = new System.Drawing.Size(123, 86);
-            this.btnTable6.TabIndex = 6;
-            this.btnTable6.Text = "Bàn 6";
-            this.btnTable6.UseVisualStyleBackColor = true;
-            this.btnTable6.Click += new System.EventHandler(this.btnTable6_Click);
-            // 
-            // btnTable7
-            // 
-            this.btnTable7.Location = new System.Drawing.Point(305, 141);
-            this.btnTable7.Name = "btnTable7";
-            this.btnTable7.Size = new System.Drawing.Size(123, 86);
-            this.btnTable7.TabIndex = 5;
-            this.btnTable7.Text = "Bàn 7";
-            this.btnTable7.UseVisualStyleBackColor = true;
-            this.btnTable7.Click += new System.EventHandler(this.btnTable7_Click);
-            // 
-            // btnTable5
-            // 
-            this.btnTable5.Location = new System.Drawing.Point(24, 141);
-            this.btnTable5.Name = "btnTable5";
-            this.btnTable5.Size = new System.Drawing.Size(123, 86);
-            this.btnTable5.TabIndex = 4;
-            this.btnTable5.Text = "Bàn 5";
-            this.btnTable5.UseVisualStyleBackColor = true;
-            this.btnTable5.Click += new System.EventHandler(this.btnTable5_Click);
-            // 
-            // btnTable12
-            // 
-            this.btnTable12.Location = new System.Drawing.Point(446, 264);
-            this.btnTable12.Name = "btnTable12";
-            this.btnTable12.Size = new System.Drawing.Size(123, 86);
-            this.btnTable12.TabIndex = 11;
-            this.btnTable12.Text = "Bàn 12";
-            this.btnTable12.UseVisualStyleBackColor = true;
-            this.btnTable12.Click += new System.EventHandler(this.btnTable12_Click);
-            // 
-            // btnTable10
-            // 
-            this.btnTable10.Location = new System.Drawing.Point(165, 264);
-            this.btnTable10.Name = "btnTable10";
-            this.btnTable10.Size = new System.Drawing.Size(123, 86);
-            this.btnTable10.TabIndex = 10;
-            this.btnTable10.Text = "Bàn 10";
-            this.btnTable10.UseVisualStyleBackColor = true;
-            this.btnTable10.Click += new System.EventHandler(this.btnTable10_Click);
-            // 
-            // btnTable11
-            // 
-            this.btnTable11.Location = new System.Drawing.Point(305, 264);
-            this.btnTable11.Name = "btnTable11";
-            this.btnTable11.Size = new System.Drawing.Size(123, 86);
-            this.btnTable11.TabIndex = 9;
-            this.btnTable11.Text = "Bàn 11";
-            this.btnTable11.UseVisualStyleBackColor = true;
-            this.btnTable11.Click += new System.EventHandler(this.btnTable11_Click);
-            // 
-            // btnTable9
-            // 
-            this.btnTable9.Location = new System.Drawing.Point(24, 264);
-            this.btnTable9.Name = "btnTable9";
-            this.btnTable9.Size = new System.Drawing.Size(123, 86);
-            this.btnTable9.TabIndex = 8;
-            this.btnTable9.Text = "Bàn 9";
-            this.btnTable9.UseVisualStyleBackColor = true;
-            this.btnTable9.Click += new System.EventHandler(this.btnTable9_Click);
-            // 
-            // btnTable16
-            // 
-            this.btnTable16.Location = new System.Drawing.Point(446, 381);
-            this.btnTable16.Name = "btnTable16";
-            this.btnTable16.Size = new System.Drawing.Size(123, 86);
-            this.btnTable16.TabIndex = 15;
-            this.btnTable16.Text = "Bàn 16";
-            this.btnTable16.UseVisualStyleBackColor = true;
-            this.btnTable16.Click += new System.EventHandler(this.btnTable16_Click);
-            // 
-            // btnTable14
-            // 
-            this.btnTable14.Location = new System.Drawing.Point(165, 381);
-            this.btnTable14.Name = "btnTable14";
-            this.btnTable14.Size = new System.Drawing.Size(123, 86);
-            this.btnTable14.TabIndex = 14;
-            this.btnTable14.Text = "Bàn 14";
-            this.btnTable14.UseVisualStyleBackColor = true;
-            this.btnTable14.Click += new System.EventHandler(this.btnTable14_Click);
-            // 
-            // btnTable15
-            // 
-            this.btnTable15.Location = new System.Drawing.Point(305, 381);
-            this.btnTable15.Name = "btnTable15";
-            this.btnTable15.Size = new System.Drawing.Size(123, 86);
-            this.btnTable15.TabIndex = 13;
-            this.btnTable15.Text = "Bàn 15";
-            this.btnTable15.UseVisualStyleBackColor = true;
-            this.btnTable15.Click += new System.EventHandler(this.btnTable15_Click);
-            // 
-            // btnTable13
-            // 
-            this.btnTable13.Location = new System.Drawing.Point(24, 381);
-            this.btnTable13.Name = "btnTable13";
-            this.btnTable13.Size = new System.Drawing.Size(123, 86);
-            this.btnTable13.TabIndex = 12;
-            this.btnTable13.Text = "Bàn 13";
-            this.btnTable13.UseVisualStyleBackColor = true;
-            this.btnTable13.Click += new System.EventHandler(this.btnTable13_Click);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(188, 48);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(231, 34);
-            this.comboBox2.TabIndex = 8;
-            // 
-            // SST
-            // 
-            this.SST.Tag = "1";
-            this.SST.Text = "SST";
-            // 
-            // TenSP
-            // 
-            this.TenSP.Text = "Tên sản phẩm";
-            // 
             // Mainpage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
@@ -559,7 +527,5 @@
         private System.Windows.Forms.Button btnTable2;
         private System.Windows.Forms.Button btnTable3;
         private System.Windows.Forms.Button btnTable1;
-        private System.Windows.Forms.ColumnHeader SST;
-        private System.Windows.Forms.ColumnHeader TenSP;
     }
 }

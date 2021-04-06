@@ -52,14 +52,13 @@ namespace cafeNLP
             SqlDataReader dr = com.ExecuteReader();
             cbbCatelory.DisplayMember = "Text";
             cbbCatelory.ValueMember = "Value";
-         
-            string rs = "";
             while (dr.Read())
             {
 
                 cbbCatelory.Items.Add(new SelectBox { Text = dr.GetString(1), Value = dr.GetString(0) });
 
             }
+            dr.Dispose();
            
 
         }
@@ -108,8 +107,17 @@ namespace cafeNLP
             SelectBox obj = cbbCatelory.SelectedItem as SelectBox;
             if (obj != null)
             {
-                Console.Write(obj.Text);
-                Console.Write(obj.Value);
+                SqlCommand com = new SqlCommand("Select * FROM Food where caletoryFood =" + obj.Value, ConDB.con);
+                SqlDataReader dr1 = com.ExecuteReader();
+                cbbFood.DisplayMember = "Text";
+                cbbFood.ValueMember = "Value";
+                while (dr1.Read())
+                {
+
+                    cbbFood.Items.Add(new SelectBox { Text = dr1.GetString(1), Value = dr1.GetString(0) });
+
+                }
+                dr1.Dispose();
             }
            
         }
