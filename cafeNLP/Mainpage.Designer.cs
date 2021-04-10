@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("ggfgfdg");
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("fgdfgfdg");
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("fgdfgfg");
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbShowName = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -43,12 +40,12 @@
             this.btnDiscount = new System.Windows.Forms.Button();
             this.btnCheckOut = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lsvBill = new System.Windows.Forms.ListView();
-            this.MS1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ss = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.sdfr1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listOrder = new System.Windows.Forms.ListView();
+            this.stt = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nameOfFood = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.qty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.total = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnTable16 = new System.Windows.Forms.Button();
             this.btnTable14 = new System.Windows.Forms.Button();
@@ -74,9 +71,6 @@
             this.hiệnẢnhĐạiDiệnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nbudFood)).BeginInit();
@@ -140,7 +134,7 @@
             0,
             0});
             this.nbudFood.Name = "nbudFood";
-            this.nbudFood.Size = new System.Drawing.Size(98, 33);
+            this.nbudFood.Size = new System.Drawing.Size(63, 40);
             this.nbudFood.TabIndex = 5;
             this.nbudFood.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nbudFood.Value = new decimal(new int[] {
@@ -165,7 +159,7 @@
             this.cbbFood.FormattingEnabled = true;
             this.cbbFood.Location = new System.Drawing.Point(3, 43);
             this.cbbFood.Name = "cbbFood";
-            this.cbbFood.Size = new System.Drawing.Size(218, 34);
+            this.cbbFood.Size = new System.Drawing.Size(331, 40);
             this.cbbFood.TabIndex = 3;
             this.cbbFood.SelectedIndexChanged += new System.EventHandler(this.cbbFood_SelectedIndexChanged);
             // 
@@ -175,7 +169,7 @@
             this.cbbCatelory.FormattingEnabled = true;
             this.cbbCatelory.Location = new System.Drawing.Point(3, 4);
             this.cbbCatelory.Name = "cbbCatelory";
-            this.cbbCatelory.Size = new System.Drawing.Size(218, 34);
+            this.cbbCatelory.Size = new System.Drawing.Size(331, 40);
             this.cbbCatelory.TabIndex = 2;
             this.cbbCatelory.SelectedIndexChanged += new System.EventHandler(this.cbbCatelory_SelectedIndexChanged);
             // 
@@ -194,7 +188,7 @@
             this.cbbDiscount.FormattingEnabled = true;
             this.cbbDiscount.Location = new System.Drawing.Point(188, 48);
             this.cbbDiscount.Name = "cbbDiscount";
-            this.cbbDiscount.Size = new System.Drawing.Size(231, 34);
+            this.cbbDiscount.Size = new System.Drawing.Size(231, 40);
             this.cbbDiscount.TabIndex = 8;
             this.cbbDiscount.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -219,58 +213,57 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.lsvBill);
+            this.panel3.Controls.Add(this.listOrder);
             this.panel3.Location = new System.Drawing.Point(629, 215);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(595, 336);
             this.panel3.TabIndex = 4;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
-            // lsvBill
+            // listOrder
             // 
-            this.lsvBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.MS1,
-            this.ss,
-            this.sdfr1,
-            this.columnHeader1,
-            this.columnHeader2});
-            this.lsvBill.GridLines = true;
-            this.lsvBill.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.lsvBill.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem7,
-            listViewItem8,
-            listViewItem9});
-            this.lsvBill.LabelWrap = false;
-            this.lsvBill.Location = new System.Drawing.Point(3, 3);
-            this.lsvBill.Name = "lsvBill";
-            this.lsvBill.Size = new System.Drawing.Size(589, 330);
-            this.lsvBill.TabIndex = 0;
-            this.lsvBill.UseCompatibleStateImageBehavior = false;
-            this.lsvBill.View = System.Windows.Forms.View.Details;
-            this.lsvBill.SelectedIndexChanged += new System.EventHandler(this.lsvBill_SelectedIndexChanged);
+            this.listOrder.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.stt,
+            this.nameOfFood,
+            this.price,
+            this.qty,
+            this.total});
+            this.listOrder.FullRowSelect = true;
+            this.listOrder.GridLines = true;
+            this.listOrder.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listOrder.HideSelection = false;
+            this.listOrder.LabelWrap = false;
+            this.listOrder.Location = new System.Drawing.Point(3, 3);
+            this.listOrder.MultiSelect = false;
+            this.listOrder.Name = "listOrder";
+            this.listOrder.Size = new System.Drawing.Size(589, 330);
+            this.listOrder.TabIndex = 0;
+            this.listOrder.UseCompatibleStateImageBehavior = false;
+            this.listOrder.View = System.Windows.Forms.View.Details;
+            this.listOrder.SelectedIndexChanged += new System.EventHandler(this.lsvBill_SelectedIndexChanged);
             // 
-            // MS1
+            // stt
             // 
-            this.MS1.Text = "STT";
-            this.MS1.Width = 100;
+            this.stt.Text = "STT";
+            this.stt.Width = 100;
             // 
-            // ss
+            // nameOfFood
             // 
-            this.ss.Text = "Tên món";
-            this.ss.Width = 160;
+            this.nameOfFood.Text = "Tên món";
+            this.nameOfFood.Width = 160;
             // 
-            // sdfr1
+            // price
             // 
-            this.sdfr1.Text = "Giá";
+            this.price.Text = "Giá";
             // 
-            // columnHeader1
+            // qty
             // 
-            this.columnHeader1.Text = "Số lượng";
+            this.qty.Text = "Số lượng";
             // 
-            // columnHeader2
+            // total
             // 
-            this.columnHeader2.Text = "Tiền";
-            this.columnHeader2.Width = 100;
+            this.total.Text = "Tiền";
+            this.total.Width = 100;
             // 
             // panel1
             // 
@@ -477,6 +470,7 @@
             this.menuStrip1.AllowMerge = false;
             this.menuStrip1.AutoSize = false;
             this.menuStrip1.BackgroundImage = global::cafeNLP.Properties.Resources.xanh;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adminToolStripMenuItem,
             this.thôngTinTàiKhoảnToolStripMenuItem,
@@ -494,7 +488,7 @@
             this.adminToolStripMenuItem.BackgroundImage = global::cafeNLP.Properties.Resources.xanh;
             this.adminToolStripMenuItem.Enabled = false;
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(64, 36);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(83, 36);
             this.adminToolStripMenuItem.Text = "               ";
             this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
             // 
@@ -507,27 +501,27 @@
             this.thôngTinTàiKhoảnToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thôngTinTàiKhoảnToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.thôngTinTàiKhoảnToolStripMenuItem.Name = "thôngTinTàiKhoảnToolStripMenuItem";
-            this.thôngTinTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(124, 36);
+            this.thôngTinTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(158, 36);
             this.thôngTinTàiKhoảnToolStripMenuItem.Text = "Thông tin tài khoản";
             this.thôngTinTàiKhoảnToolStripMenuItem.Click += new System.EventHandler(this.thôngTinTàiKhoảnToolStripMenuItem_Click);
             // 
             // thôngTinCáNhânToolStripMenuItem
             // 
             this.thôngTinCáNhânToolStripMenuItem.Name = "thôngTinCáNhânToolStripMenuItem";
-            this.thôngTinCáNhânToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.thôngTinCáNhânToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
             this.thôngTinCáNhânToolStripMenuItem.Text = "Thông tin cá nhân";
             this.thôngTinCáNhânToolStripMenuItem.Click += new System.EventHandler(this.thôngTinCáNhânToolStripMenuItem_Click);
             // 
             // hiệnẢnhĐạiDiệnToolStripMenuItem
             // 
             this.hiệnẢnhĐạiDiệnToolStripMenuItem.Name = "hiệnẢnhĐạiDiệnToolStripMenuItem";
-            this.hiệnẢnhĐạiDiệnToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.hiệnẢnhĐạiDiệnToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
             this.hiệnẢnhĐạiDiệnToolStripMenuItem.Text = "Hiện ảnh đại diện";
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
@@ -536,37 +530,13 @@
             this.adminToolStripMenuItem1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adminToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.adminToolStripMenuItem1.Name = "adminToolStripMenuItem1";
-            this.adminToolStripMenuItem1.Size = new System.Drawing.Size(54, 36);
+            this.adminToolStripMenuItem1.Size = new System.Drawing.Size(70, 36);
             this.adminToolStripMenuItem1.Text = "Admin";
             this.adminToolStripMenuItem1.Click += new System.EventHandler(this.adminToolStripMenuItem1_Click);
             // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(227, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 34);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Danh mục";
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(227, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 34);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Tên món";
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(479, 4);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 34);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Số Lượng";
-            // 
             // Mainpage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1236, 679);
@@ -605,7 +575,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.ListView lsvBill;
+        private System.Windows.Forms.ListView listOrder;
         private System.Windows.Forms.ComboBox cbbFood;
         private System.Windows.Forms.ComboBox cbbCatelory;
         private System.Windows.Forms.NumericUpDown nbudFood;
@@ -630,11 +600,11 @@
         private System.Windows.Forms.Button btnTable2;
         private System.Windows.Forms.Button btnTable3;
         private System.Windows.Forms.Button btnTable1;
-        private System.Windows.Forms.ColumnHeader MS1;
-        private System.Windows.Forms.ColumnHeader ss;
-        private System.Windows.Forms.ColumnHeader sdfr1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader stt;
+        private System.Windows.Forms.ColumnHeader nameOfFood;
+        private System.Windows.Forms.ColumnHeader price;
+        private System.Windows.Forms.ColumnHeader qty;
+        private System.Windows.Forms.ColumnHeader total;
         private System.Windows.Forms.Label lbShowName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

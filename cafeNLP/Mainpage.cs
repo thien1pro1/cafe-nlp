@@ -24,6 +24,25 @@ namespace cafeNLP
             o.idTable = id;
             cbbCatelory.Enabled = true;
             cbbFood.Enabled = false;
+            SqlCommand comOrder = new SqlCommand("select * from TempOrder where idTable = @id", ConDB.con);
+            comOrder.Parameters.AddWithValue("@id", id);
+            // show list order
+            listOrder.Items.Clear();
+            try
+            {
+                SqlDataReader dr = comOrder.ExecuteReader();
+                while (dr.Read())
+                {
+                    listOrder.Items.Add(new ListViewItem(new string[] { "2", "2", "3" }));
+                }
+                dr.Dispose();
+               
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, " Thông Báo");
+            }
+
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -74,15 +93,8 @@ namespace cafeNLP
 
             }
             dr1.Dispose();
-            /*
-            SqlCommand com1 = new SqlCommand("Select showname FROM Account where username = '" + UserInfo.userName + "'", ConDB.con);
-            SqlDataReader dr1 = com1.ExecuteReader();
-            while (dr1.Read())
-            {
-                lbShowName.Text = dr1.GetString(2);
-            }
-            dr1.Dispose();
-            */
+
+            
         }
 
         private void thôngTinTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
