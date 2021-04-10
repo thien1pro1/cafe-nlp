@@ -93,8 +93,8 @@ namespace cafeNLP
                     //check da nhap thong tin chua
                     //Console.WriteLine(":)))))))))))))");
                     MessageBox.Show("Sai tài khoản hoặc mật khẩu!", "Thông báo");
-
                     dr1.Dispose();
+                    
                 }
                 else
                 {
@@ -105,13 +105,14 @@ namespace cafeNLP
                     this.Hide();
                     mb.ShowDialog();
                     this.Show();
+                    
                 }
 
                
             }
             catch(Exception ex)
             {
-               
+                
             }
         }
 

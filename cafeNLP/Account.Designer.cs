@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtRePass = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -38,13 +38,13 @@
             this.txtNewPass = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.txtPassưord = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txbAccount = new System.Windows.Forms.TextBox();
+            this.txtAccount = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -57,8 +57,8 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnUpdate);
+            this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel4);
@@ -69,26 +69,27 @@
             this.panel1.Size = new System.Drawing.Size(628, 348);
             this.panel1.TabIndex = 0;
             // 
-            // button2
+            // btnUpdate
             // 
-            this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(317, 308);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(127, 32);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Cập nhập";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnUpdate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(317, 308);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(127, 32);
+            this.btnUpdate.TabIndex = 4;
+            this.btnUpdate.Text = "Cập nhập";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btnCancel
             // 
-            this.button1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(471, 308);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 32);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Thoát";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCancel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(471, 308);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(127, 32);
+            this.btnCancel.TabIndex = 3;
+            this.btnCancel.Text = "Thoát";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel6
             // 
@@ -148,21 +149,21 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.txtPassưord);
+            this.panel4.Controls.Add(this.txtPassword);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Location = new System.Drawing.Point(3, 125);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(622, 55);
             this.panel4.TabIndex = 2;
             // 
-            // txtPassưord
+            // txtPassword
             // 
-            this.txtPassưord.Font = new System.Drawing.Font("Calibri Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassưord.Location = new System.Drawing.Point(143, 16);
-            this.txtPassưord.Multiline = true;
-            this.txtPassưord.Name = "txtPassưord";
-            this.txtPassưord.Size = new System.Drawing.Size(452, 28);
-            this.txtPassưord.TabIndex = 1;
+            this.txtPassword.Font = new System.Drawing.Font("Calibri Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(143, 16);
+            this.txtPassword.Multiline = true;
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(452, 28);
+            this.txtPassword.TabIndex = 1;
             // 
             // label3
             // 
@@ -204,23 +205,23 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.txbAccount);
+            this.panel2.Controls.Add(this.txtAccount);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(622, 55);
             this.panel2.TabIndex = 0;
             // 
-            // txbAccount
+            // txtAccount
             // 
-            this.txbAccount.Font = new System.Drawing.Font("Calibri Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbAccount.Location = new System.Drawing.Point(143, 16);
-            this.txbAccount.Multiline = true;
-            this.txbAccount.Name = "txbAccount";
-            this.txbAccount.ReadOnly = true;
-            this.txbAccount.Size = new System.Drawing.Size(452, 28);
-            this.txbAccount.TabIndex = 1;
-            this.txbAccount.TextChanged += new System.EventHandler(this.txbAccount_TextChanged);
+            this.txtAccount.Font = new System.Drawing.Font("Calibri Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAccount.Location = new System.Drawing.Point(143, 16);
+            this.txtAccount.Multiline = true;
+            this.txtAccount.Name = "txtAccount";
+            this.txtAccount.ReadOnly = true;
+            this.txtAccount.Size = new System.Drawing.Size(452, 28);
+            this.txtAccount.TabIndex = 1;
+            this.txtAccount.TextChanged += new System.EventHandler(this.txbAccount_TextChanged);
             // 
             // label1
             // 
@@ -244,6 +245,7 @@
             this.label6.Size = new System.Drawing.Size(253, 64);
             this.label6.TabIndex = 1;
             this.label6.Text = "THÔNG TIN CÁ NHÂN";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // Account
             // 
@@ -283,14 +285,14 @@
         private System.Windows.Forms.TextBox txtNewPass;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox txtPassưord;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txbAccount;
+        private System.Windows.Forms.TextBox txtAccount;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnCancel;
     }
 }
