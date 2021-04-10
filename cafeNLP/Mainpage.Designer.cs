@@ -113,6 +113,9 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Controls.Add(this.label2);
+            this.panel5.Controls.Add(this.label1);
             this.panel5.Controls.Add(this.nbudFood);
             this.panel5.Controls.Add(this.btnAddFood);
             this.panel5.Controls.Add(this.cbbFood);
@@ -124,7 +127,7 @@
             // 
             // nbudFood
             // 
-            this.nbudFood.Location = new System.Drawing.Point(514, 24);
+            this.nbudFood.Location = new System.Drawing.Point(484, 41);
             this.nbudFood.Minimum = new decimal(new int[] {
             1,
             0,
@@ -133,6 +136,7 @@
             this.nbudFood.Name = "nbudFood";
             this.nbudFood.Size = new System.Drawing.Size(63, 40);
             this.nbudFood.TabIndex = 5;
+            this.nbudFood.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nbudFood.Value = new decimal(new int[] {
             1,
             0,
@@ -141,7 +145,7 @@
             // 
             // btnAddFood
             // 
-            this.btnAddFood.Location = new System.Drawing.Point(368, 3);
+            this.btnAddFood.Location = new System.Drawing.Point(326, 7);
             this.btnAddFood.Name = "btnAddFood";
             this.btnAddFood.Size = new System.Drawing.Size(121, 73);
             this.btnAddFood.TabIndex = 4;
@@ -602,5 +606,8 @@
         private System.Windows.Forms.ColumnHeader qty;
         private System.Windows.Forms.ColumnHeader total;
         private System.Windows.Forms.Label lbShowName;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
     }
 }
