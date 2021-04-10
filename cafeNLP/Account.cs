@@ -26,5 +26,16 @@ namespace cafeNLP
         {
             this.Close();
         }
+
+        private void txbAccount_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Account_Load(object sender, EventArgs e)
+        {
+            txtUserName.Text = UserInfo.userName;
+            Console.WriteLine(UserInfo.userName);
+        }
     }
 }

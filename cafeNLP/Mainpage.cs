@@ -59,8 +59,30 @@ namespace cafeNLP
 
             }
             dr.Dispose();
-           
 
+            //discount_button
+            SelectBox objDiscount = cbbDiscount.SelectedItem as SelectBox;
+
+            SqlCommand com1 = new SqlCommand("Select * FROM Discount ", ConDB.con);
+            SqlDataReader dr1 = com1.ExecuteReader();
+            cbbDiscount.DisplayMember = "Text";
+            cbbDiscount.ValueMember = "Value";
+            while (dr1.Read())
+            {
+
+                cbbDiscount.Items.Add(new SelectBox { Text = dr1.GetString(1), Value = dr1.GetString(0) });
+
+            }
+            dr1.Dispose();
+            /*
+            SqlCommand com1 = new SqlCommand("Select showname FROM Account where username = '" + UserInfo.userName + "'", ConDB.con);
+            SqlDataReader dr1 = com1.ExecuteReader();
+            while (dr1.Read())
+            {
+                lbShowName.Text = dr1.GetString(2);
+            }
+            dr1.Dispose();
+            */
         }
 
         private void thôngTinTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,12 +125,12 @@ namespace cafeNLP
         private void cbbCatelory_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbbFood.Items.Clear();
+            SelectBox obj = cbbCatelory.SelectedItem as SelectBox;
             cbbFood.Text = "";
             cbbFood.Enabled = true;
-            SelectBox obj = cbbCatelory.SelectedItem as SelectBox;
             if (obj != null)
             {
-                SqlCommand com = new SqlCommand("Select * FROM Food where caletoryFood =" + obj.Value, ConDB.con);
+                SqlCommand com = new SqlCommand("Select * FROM Food where caletoryFood ='" + obj.Value + "'", ConDB.con);
                 SqlDataReader dr1 = com.ExecuteReader();
                 cbbFood.DisplayMember = "Text";
                 cbbFood.ValueMember = "Value";
@@ -120,7 +142,7 @@ namespace cafeNLP
                 }
                 dr1.Dispose();
             }
-           
+
         }
 
         private void lsvBill_SelectedIndexChanged(object sender, EventArgs e)
@@ -151,9 +173,7 @@ namespace cafeNLP
 
         private void cbbFood_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.Write(cbbCatelory.SelectedIndex);
-            Console.Write(cbbCatelory.SelectedValue);
-            Console.Write("haha");
+            
         }
 
         private void btnTable4_Click(object sender, EventArgs e)
@@ -219,6 +239,26 @@ namespace cafeNLP
         private void btnTable16_Click(object sender, EventArgs e)
         {
             setOrder("16");
+        }
+
+        private void btnAddFood_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDiscount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

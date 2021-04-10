@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,7 @@ namespace cafeNLP
         {
             ConDB con = new ConDB();
             con.Connection();
+           
         }
 
         private void Login_Activated(object sender, EventArgs e)
@@ -56,7 +58,7 @@ namespace cafeNLP
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
-                txtpwd.UseSystemPasswordChar = true;
+                txtPwd.UseSystemPasswordChar = true;
            
         }
 
@@ -67,10 +69,55 @@ namespace cafeNLP
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Mainpage mb = new Mainpage();
-            this.Hide();
-            mb.ShowDialog();
-            this.Show();
+            if (txtUserName.Text.Equals(""))
+            {
+                MessageBox.Show("Vui lòng nhập tài khoản", "Thông báo");
+                return;
+            }
+            else if (txtPwd.Text.Equals(""))
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu", "Thông báo");
+                return;
+            }
+
+
+            try
+            {
+            
+                SqlCommand com = new SqlCommand("select * FROM Account where username = '" + txtUserName.Text + "' and pwd ='"+txtPwd.Text+"'", ConDB.con);
+                SqlDataReader dr1 = com.ExecuteReader();
+
+              
+                if (!dr1.Read())
+                {
+                    //check da nhap thong tin chua
+                    //Console.WriteLine(":)))))))))))))");
+                    MessageBox.Show("Sai tài khoản hoặc mật khẩu!", "Thông báo");
+
+                    dr1.Dispose();
+                }
+                else
+                {
+                    UserInfo.userName = dr1.GetString(1);
+                    Console.WriteLine(dr1.Read());
+                    dr1.Dispose();
+                    Mainpage mb = new Mainpage();
+                    this.Hide();
+                    mb.ShowDialog();
+                    this.Show();
+                }
+
+               
+            }
+            catch(Exception ex)
+            {
+               
+            }
+        }
+
+        private void txtUserName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

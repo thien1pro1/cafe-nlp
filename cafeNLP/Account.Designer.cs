@@ -220,6 +220,7 @@
             this.txbAccount.ReadOnly = true;
             this.txbAccount.Size = new System.Drawing.Size(452, 28);
             this.txbAccount.TabIndex = 1;
+            this.txbAccount.TextChanged += new System.EventHandler(this.txbAccount_TextChanged);
             // 
             // label1
             // 
@@ -254,6 +255,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Account";
             this.Text = "Account";
+            this.Load += new System.EventHandler(this.Account_Load);
             this.panel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();

@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.CheckBox chbshowpwd;
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtUserName = new System.Windows.Forms.TextBox();
-            this.txtpwd = new System.Windows.Forms.TextBox();
+            this.txtPwd = new System.Windows.Forms.TextBox();
             this.linklaquenmk = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -52,26 +52,26 @@
             chbshowpwd.UseVisualStyleBackColor = true;
             chbshowpwd.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // button1
+            // btnLogin
             // 
-            this.button1.BackgroundImage = global::cafeNLP.Properties.Resources.xanh;
-            this.button1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(310, 226);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(165, 53);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Đăng nhập";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnLogin.BackgroundImage = global::cafeNLP.Properties.Resources.xanh;
+            this.btnLogin.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Location = new System.Drawing.Point(310, 226);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(165, 53);
+            this.btnLogin.TabIndex = 0;
+            this.btnLogin.Text = "Đăng nhập";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(chbshowpwd);
             this.panel1.Controls.Add(this.txtUserName);
-            this.panel1.Controls.Add(this.txtpwd);
+            this.panel1.Controls.Add(this.txtPwd);
             this.panel1.Controls.Add(this.linklaquenmk);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Location = new System.Drawing.Point(0, 110);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(598, 349);
@@ -87,17 +87,18 @@
             this.txtUserName.Size = new System.Drawing.Size(408, 45);
             this.txtUserName.TabIndex = 4;
             this.txtUserName.UseSystemPasswordChar = true;
+            this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
             // 
-            // txtpwd
+            // txtPwd
             // 
-            this.txtpwd.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpwd.Location = new System.Drawing.Point(67, 148);
-            this.txtpwd.Multiline = true;
-            this.txtpwd.Name = "txtpwd";
-            this.txtpwd.Size = new System.Drawing.Size(408, 45);
-            this.txtpwd.TabIndex = 3;
-            this.txtpwd.UseSystemPasswordChar = true;
-            this.txtpwd.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtPwd.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPwd.Location = new System.Drawing.Point(67, 148);
+            this.txtPwd.Multiline = true;
+            this.txtPwd.Name = "txtPwd";
+            this.txtPwd.Size = new System.Drawing.Size(408, 45);
+            this.txtPwd.TabIndex = 3;
+            this.txtPwd.UseSystemPasswordChar = true;
+            this.txtPwd.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // linklaquenmk
             // 
@@ -148,12 +149,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel linklaquenmk;
         private System.Windows.Forms.TextBox txtUserName;
-        private System.Windows.Forms.TextBox txtpwd;
+        private System.Windows.Forms.TextBox txtPwd;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
