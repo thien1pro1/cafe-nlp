@@ -24,16 +24,18 @@ namespace cafeNLP
             o.idTable = id;
             cbbCatelory.Enabled = true;
             cbbFood.Enabled = false;
-            SqlCommand comOrder = new SqlCommand("select * from TempOrder where idTable = @id", ConDB.con);
+            SqlCommand comOrder = new SqlCommand("select f.nameFood, f.priceFood, t.SL from TempOrder as t join Food as f on t.idSP = f.codeFood where t.idTable = @id", ConDB.con);
             comOrder.Parameters.AddWithValue("@id", id);
             // show list order
             listOrder.Items.Clear();
             try
             {
                 SqlDataReader dr = comOrder.ExecuteReader();
+                string index = "1";
                 while (dr.Read())
                 {
-                    listOrder.Items.Add(new ListViewItem(new string[] { "2", "2", "3" }));
+                    listOrder.Items.Add(new ListViewItem(new string[] {  dr.GetString(0), dr.GetInt32(1).ToString(), dr.GetInt32(2).ToString() }));
+                    //index = (Int32.Parse(index) + 1).ToString();
                 }
                 dr.Dispose();
                
