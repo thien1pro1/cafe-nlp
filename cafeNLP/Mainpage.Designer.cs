@@ -113,9 +113,6 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.label3);
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Controls.Add(this.label1);
             this.panel5.Controls.Add(this.nbudFood);
             this.panel5.Controls.Add(this.btnAddFood);
             this.panel5.Controls.Add(this.cbbFood);
@@ -145,9 +142,9 @@
             // 
             // btnAddFood
             // 
-            this.btnAddFood.Location = new System.Drawing.Point(326, 7);
+            this.btnAddFood.Location = new System.Drawing.Point(357, 35);
             this.btnAddFood.Name = "btnAddFood";
-            this.btnAddFood.Size = new System.Drawing.Size(121, 73);
+            this.btnAddFood.Size = new System.Drawing.Size(121, 46);
             this.btnAddFood.TabIndex = 4;
             this.btnAddFood.Text = "Thêm món";
             this.btnAddFood.UseVisualStyleBackColor = true;
@@ -204,9 +201,9 @@
             // 
             // btnCheckOut
             // 
-            this.btnCheckOut.Location = new System.Drawing.Point(464, 6);
+            this.btnCheckOut.Location = new System.Drawing.Point(464, 7);
             this.btnCheckOut.Name = "btnCheckOut";
-            this.btnCheckOut.Size = new System.Drawing.Size(128, 73);
+            this.btnCheckOut.Size = new System.Drawing.Size(128, 47);
             this.btnCheckOut.TabIndex = 5;
             this.btnCheckOut.Text = "Thanh toán";
             this.btnCheckOut.UseVisualStyleBackColor = true;
