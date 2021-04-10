@@ -256,11 +256,12 @@
             // qty
             // 
             this.qty.Text = "Số lượng";
+            this.qty.Width = 150;
             // 
             // total
             // 
             this.total.Text = "Tiền";
-            this.total.Width = 100;
+            this.total.Width = 115;
             // 
             // panel1
             // 

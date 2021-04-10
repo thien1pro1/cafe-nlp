@@ -31,11 +31,11 @@ namespace cafeNLP
             try
             {
                 SqlDataReader dr = comOrder.ExecuteReader();
-                string index = "1";
+                int index = 1;
                 while (dr.Read())
                 {
-                    listOrder.Items.Add(new ListViewItem(new string[] {  dr.GetString(0), dr.GetInt32(1).ToString(), dr.GetInt32(2).ToString() }));
-                    //index = (Int32.Parse(index) + 1).ToString();
+                    listOrder.Items.Add(new ListViewItem(new string[] { index.ToString(),  dr.GetString(0), dr.GetInt32(1).ToString(), dr.GetInt32(2).ToString(), (dr.GetInt32(1) * dr.GetInt32(2)).ToString() }));
+                    index += 1;
                 }
                 dr.Dispose();
                
