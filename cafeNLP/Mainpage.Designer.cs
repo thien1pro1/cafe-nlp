@@ -31,7 +31,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbShowName = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.nbudFood = new System.Windows.Forms.NumericUpDown();
+            this.btnQty = new System.Windows.Forms.NumericUpDown();
             this.btnAddFood = new System.Windows.Forms.Button();
             this.cbbFood = new System.Windows.Forms.ComboBox();
             this.cbbCatelory = new System.Windows.Forms.ComboBox();
@@ -73,7 +73,7 @@
             this.adminToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nbudFood)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnQty)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -113,7 +113,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.nbudFood);
+            this.panel5.Controls.Add(this.btnQty);
             this.panel5.Controls.Add(this.btnAddFood);
             this.panel5.Controls.Add(this.cbbFood);
             this.panel5.Controls.Add(this.cbbCatelory);
@@ -122,19 +122,19 @@
             this.panel5.Size = new System.Drawing.Size(595, 86);
             this.panel5.TabIndex = 5;
             // 
-            // nbudFood
+            // btnQty
             // 
-            this.nbudFood.Location = new System.Drawing.Point(484, 41);
-            this.nbudFood.Minimum = new decimal(new int[] {
+            this.btnQty.Location = new System.Drawing.Point(484, 41);
+            this.btnQty.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.nbudFood.Name = "nbudFood";
-            this.nbudFood.Size = new System.Drawing.Size(63, 40);
-            this.nbudFood.TabIndex = 5;
-            this.nbudFood.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nbudFood.Value = new decimal(new int[] {
+            this.btnQty.Name = "btnQty";
+            this.btnQty.Size = new System.Drawing.Size(63, 40);
+            this.btnQty.TabIndex = 5;
+            this.btnQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnQty.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -549,7 +549,7 @@
             this.Load += new System.EventHandler(this.Mainpage_Load);
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nbudFood)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnQty)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -576,7 +576,7 @@
         private System.Windows.Forms.ListView listOrder;
         private System.Windows.Forms.ComboBox cbbFood;
         private System.Windows.Forms.ComboBox cbbCatelory;
-        private System.Windows.Forms.NumericUpDown nbudFood;
+        private System.Windows.Forms.NumericUpDown btnQty;
         private System.Windows.Forms.Button btnAddFood;
         private System.Windows.Forms.Button btnDiscount;
         private System.Windows.Forms.Button btnCheckOut;

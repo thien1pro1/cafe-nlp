@@ -1,29 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace cafeNLP
 {
-  
+
     public partial class Mainpage : Form
     {
+        OrderInfo orderI;
         public Mainpage()
         {
             InitializeComponent();
         }
-        public void setOrder(string id)
+        public void reloadListItem(string id)
         {
-            OrderInfo o = new OrderInfo();
-            o.idTable = id;
-            cbbCatelory.Enabled = true;
-            cbbFood.Enabled = false;
             SqlCommand comOrder = new SqlCommand("select f.nameFood, f.priceFood, t.SL from TempOrder as t join Food as f on t.idSP = f.codeFood where t.idTable = @id", ConDB.con);
             comOrder.Parameters.AddWithValue("@id", id);
             // show list order
@@ -34,17 +24,24 @@ namespace cafeNLP
                 int index = 1;
                 while (dr.Read())
                 {
-                    listOrder.Items.Add(new ListViewItem(new string[] { index.ToString(),  dr.GetString(0), dr.GetInt32(1).ToString(), dr.GetInt32(2).ToString(), (dr.GetInt32(1) * dr.GetInt32(2)).ToString() }));
+                    listOrder.Items.Add(new ListViewItem(new string[] { index.ToString(), dr.GetString(0), dr.GetInt32(1).ToString(), dr.GetInt32(2).ToString(), (dr.GetInt32(1) * dr.GetInt32(2)).ToString() }));
                     index += 1;
                 }
                 dr.Dispose();
-               
-            }catch(Exception ex)
+
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, " Thông Báo");
             }
-
-
+        }
+        public void setOrder(string id)
+        {
+            this.orderI = new OrderInfo();
+            this.orderI.idTable = id;
+            cbbCatelory.Enabled = true;
+            cbbFood.Enabled = false;
+            reloadListItem(id);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -69,6 +66,7 @@ namespace cafeNLP
 
         private void Mainpage_Load(object sender, EventArgs e)
         {
+            btnAddFood.Enabled = false;
             SqlCommand com = new SqlCommand("Select * FROM Catelory", ConDB.con);
             SqlDataReader dr = com.ExecuteReader();
             cbbCatelory.DisplayMember = "Text";
@@ -187,7 +185,11 @@ namespace cafeNLP
 
         private void cbbFood_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            Console.WriteLine(cbbFood.SelectedText);
+            if (cbbFood.SelectedText != null)
+            {
+                btnAddFood.Enabled = true;
+            }
         }
 
         private void btnTable4_Click(object sender, EventArgs e)
@@ -257,6 +259,96 @@ namespace cafeNLP
 
         private void btnAddFood_Click(object sender, EventArgs e)
         {
+            SelectBox selectedFood = cbbFood.Items[cbbFood.SelectedIndex] as SelectBox;
+            int qty = Int32.Parse(btnQty.Value.ToString());
+
+            // get price of food
+            SqlCommand com2 = new SqlCommand("Select * from Food where codeFood = @id", ConDB.con);
+            com2.Parameters.AddWithValue("@id", selectedFood.Value);
+            int priceFood = 0;
+            try
+            {
+                SqlDataReader drFood = com2.ExecuteReader();
+        
+                if (!drFood.Read())
+                {
+                    throw new Exception("Error fetch price of this food");
+                }
+
+                priceFood = drFood.GetInt32(2);
+
+                drFood.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Thông báo");
+                return;
+            }
+
+    
+            try
+            {
+                //get if exist food in tempOrder
+                SqlCommand com3 = new SqlCommand("Select count(*) from TempOrder where idTable = @idTable and idSP = @idSP", ConDB.con);
+                com3.Parameters.AddWithValue("@idSP", selectedFood.Value);
+                com3.Parameters.AddWithValue("@idTable", this.orderI.idTable);
+                Int32 count = (Int32)com3.ExecuteScalar();
+
+                if (count == 0)
+                {
+                    //add food into temporder
+                    SqlCommand com = new SqlCommand("insert into temporder (idtable, idsp, sl) values (@idtable, @idsp, @qty)", ConDB.con);
+                    com.Parameters.AddWithValue("@idtable", this.orderI.idTable);
+                    com.Parameters.AddWithValue("@idsp", selectedFood.Value);
+                    com.Parameters.AddWithValue("@qty", qty);
+                    try
+                    {
+
+                        SqlDataReader dr = com.ExecuteReader();
+
+                        listOrder.Items.Add(new ListViewItem(new string[] { (listOrder.Items.Count + 1).ToString(), selectedFood.Text, priceFood.ToString(), qty.ToString(), (priceFood * qty).ToString() }));
+
+
+                        dr.Dispose();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "thông báo");
+                    }
+
+                }
+                else
+                {
+                    //add food into temporder
+                    SqlCommand comUp = new SqlCommand("update temporder set  sl = @qty where idtable = @idtable and idsp = @idsp", ConDB.con);
+                    comUp.Parameters.AddWithValue("@idtable", this.orderI.idTable);
+                    comUp.Parameters.AddWithValue("@idsp", selectedFood.Value);
+                    comUp.Parameters.AddWithValue("@qty", qty);
+                    try
+                    {
+
+                        SqlDataReader dr2 = comUp.ExecuteReader();
+                        dr2.Dispose();
+
+                        reloadListItem(this.orderI.idTable);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "thông báo");
+                    }
+                }
+                btnQty.Value = 1;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Thông báo");
+                return;
+            }
+
+
 
         }
 
