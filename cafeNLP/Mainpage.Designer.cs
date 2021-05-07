@@ -167,8 +167,7 @@
             // 
             // btnCheckOut
             // 
-            this.btnCheckOut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCheckOut.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnCheckOut.Location = new System.Drawing.Point(368, 320);
             this.btnCheckOut.Name = "btnCheckOut";
             this.btnCheckOut.Size = new System.Drawing.Size(128, 47);
@@ -259,7 +258,7 @@
             this.panel1.Controls.Add(this.btnTable2);
             this.panel1.Controls.Add(this.btnTable3);
             this.panel1.Controls.Add(this.btnTable1);
-            this.panel1.Location = new System.Drawing.Point(24, 146);
+            this.panel1.Location = new System.Drawing.Point(24, 162);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1521, 739);
             this.panel1.TabIndex = 3;
@@ -443,13 +442,14 @@
             // label6
             // 
             this.label6.AllowDrop = true;
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label6.Font = new System.Drawing.Font("Calibri", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label6.Image = global::cafeNLP.Properties.Resources.sanh;
             this.label6.Location = new System.Drawing.Point(482, 22);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(320, 54);
+            this.label6.Size = new System.Drawing.Size(320, 44);
             this.label6.TabIndex = 2;
             this.label6.Text = "TRANG CHỦ NLP";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;

@@ -62,6 +62,7 @@ namespace cafeNLP
             btnTable13.BackColor = id == "13" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
             btnTable14.BackColor = id == "14" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
             btnTable15.BackColor = id == "15" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
+            btnTable16.BackColor = id == "16" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
