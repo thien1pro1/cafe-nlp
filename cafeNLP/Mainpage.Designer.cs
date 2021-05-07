@@ -36,8 +36,6 @@
             this.cbbFood = new System.Windows.Forms.ComboBox();
             this.cbbCatelory = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.cbbDiscount = new System.Windows.Forms.ComboBox();
-            this.btnDiscount = new System.Windows.Forms.Button();
             this.btnCheckOut = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.listOrder = new System.Windows.Forms.ListView();
@@ -96,7 +94,7 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Location = new System.Drawing.Point(0, 28);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1236, 653);
+            this.panel2.Size = new System.Drawing.Size(1236, 658);
             this.panel2.TabIndex = 52;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -131,7 +129,7 @@
             0,
             0});
             this.btnQty.Name = "btnQty";
-            this.btnQty.Size = new System.Drawing.Size(63, 40);
+            this.btnQty.Size = new System.Drawing.Size(63, 33);
             this.btnQty.TabIndex = 5;
             this.btnQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnQty.Value = new decimal(new int[] {
@@ -152,61 +150,43 @@
             // 
             // cbbFood
             // 
+            this.cbbFood.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbFood.Enabled = false;
             this.cbbFood.FormattingEnabled = true;
             this.cbbFood.Location = new System.Drawing.Point(3, 43);
             this.cbbFood.Name = "cbbFood";
-            this.cbbFood.Size = new System.Drawing.Size(331, 40);
+            this.cbbFood.Size = new System.Drawing.Size(331, 34);
             this.cbbFood.TabIndex = 3;
             this.cbbFood.SelectedIndexChanged += new System.EventHandler(this.cbbFood_SelectedIndexChanged);
             // 
             // cbbCatelory
             // 
+            this.cbbCatelory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbCatelory.Enabled = false;
             this.cbbCatelory.FormattingEnabled = true;
             this.cbbCatelory.Location = new System.Drawing.Point(3, 4);
             this.cbbCatelory.Name = "cbbCatelory";
-            this.cbbCatelory.Size = new System.Drawing.Size(331, 40);
+            this.cbbCatelory.Size = new System.Drawing.Size(331, 34);
             this.cbbCatelory.TabIndex = 2;
             this.cbbCatelory.SelectedIndexChanged += new System.EventHandler(this.cbbCatelory_SelectedIndexChanged);
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.cbbDiscount);
-            this.panel4.Controls.Add(this.btnDiscount);
             this.panel4.Controls.Add(this.btnCheckOut);
             this.panel4.Location = new System.Drawing.Point(629, 557);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(595, 82);
             this.panel4.TabIndex = 4;
             // 
-            // cbbDiscount
-            // 
-            this.cbbDiscount.FormattingEnabled = true;
-            this.cbbDiscount.Location = new System.Drawing.Point(188, 48);
-            this.cbbDiscount.Name = "cbbDiscount";
-            this.cbbDiscount.Size = new System.Drawing.Size(231, 40);
-            this.cbbDiscount.TabIndex = 8;
-            this.cbbDiscount.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
-            // btnDiscount
-            // 
-            this.btnDiscount.Location = new System.Drawing.Point(188, 7);
-            this.btnDiscount.Name = "btnDiscount";
-            this.btnDiscount.Size = new System.Drawing.Size(231, 35);
-            this.btnDiscount.TabIndex = 7;
-            this.btnDiscount.Text = "Chương trình khuyến mãi";
-            this.btnDiscount.UseVisualStyleBackColor = true;
-            this.btnDiscount.Click += new System.EventHandler(this.btnDiscount_Click);
-            // 
             // btnCheckOut
             // 
-            this.btnCheckOut.Location = new System.Drawing.Point(464, 7);
+            this.btnCheckOut.Location = new System.Drawing.Point(237, 18);
             this.btnCheckOut.Name = "btnCheckOut";
             this.btnCheckOut.Size = new System.Drawing.Size(128, 47);
             this.btnCheckOut.TabIndex = 5;
             this.btnCheckOut.Text = "Thanh toán";
             this.btnCheckOut.UseVisualStyleBackColor = true;
+            this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
             // 
             // panel3
             // 
@@ -286,7 +266,7 @@
             this.panel1.Controls.Add(this.btnTable1);
             this.panel1.Location = new System.Drawing.Point(12, 114);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(611, 525);
+            this.panel1.Size = new System.Drawing.Size(611, 530);
             this.panel1.TabIndex = 3;
             // 
             // btnTable16
@@ -476,7 +456,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuStrip1.Size = new System.Drawing.Size(1236, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(1236, 21);
             this.menuStrip1.TabIndex = 53;
             this.menuStrip1.Text = "Menu";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -486,7 +466,7 @@
             this.adminToolStripMenuItem.BackgroundImage = global::cafeNLP.Properties.Resources.xanh;
             this.adminToolStripMenuItem.Enabled = false;
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(83, 36);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(64, 36);
             this.adminToolStripMenuItem.Text = "               ";
             this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
             // 
@@ -499,27 +479,27 @@
             this.thôngTinTàiKhoảnToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thôngTinTàiKhoảnToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.thôngTinTàiKhoảnToolStripMenuItem.Name = "thôngTinTàiKhoảnToolStripMenuItem";
-            this.thôngTinTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(158, 36);
+            this.thôngTinTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(124, 36);
             this.thôngTinTàiKhoảnToolStripMenuItem.Text = "Thông tin tài khoản";
             this.thôngTinTàiKhoảnToolStripMenuItem.Click += new System.EventHandler(this.thôngTinTàiKhoảnToolStripMenuItem_Click);
             // 
             // thôngTinCáNhânToolStripMenuItem
             // 
             this.thôngTinCáNhânToolStripMenuItem.Name = "thôngTinCáNhânToolStripMenuItem";
-            this.thôngTinCáNhânToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.thôngTinCáNhânToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.thôngTinCáNhânToolStripMenuItem.Text = "Thông tin cá nhân";
             this.thôngTinCáNhânToolStripMenuItem.Click += new System.EventHandler(this.thôngTinCáNhânToolStripMenuItem_Click);
             // 
             // hiệnẢnhĐạiDiệnToolStripMenuItem
             // 
             this.hiệnẢnhĐạiDiệnToolStripMenuItem.Name = "hiệnẢnhĐạiDiệnToolStripMenuItem";
-            this.hiệnẢnhĐạiDiệnToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.hiệnẢnhĐạiDiệnToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.hiệnẢnhĐạiDiệnToolStripMenuItem.Text = "Hiện ảnh đại diện";
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
@@ -528,16 +508,16 @@
             this.adminToolStripMenuItem1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adminToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.adminToolStripMenuItem1.Name = "adminToolStripMenuItem1";
-            this.adminToolStripMenuItem1.Size = new System.Drawing.Size(70, 36);
+            this.adminToolStripMenuItem1.Size = new System.Drawing.Size(54, 36);
             this.adminToolStripMenuItem1.Text = "Admin";
             this.adminToolStripMenuItem1.Click += new System.EventHandler(this.adminToolStripMenuItem1_Click);
             // 
             // Mainpage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1236, 679);
+            this.ClientSize = new System.Drawing.Size(1545, 848);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
@@ -578,10 +558,8 @@
         private System.Windows.Forms.ComboBox cbbCatelory;
         private System.Windows.Forms.NumericUpDown btnQty;
         private System.Windows.Forms.Button btnAddFood;
-        private System.Windows.Forms.Button btnDiscount;
         private System.Windows.Forms.Button btnCheckOut;
         private System.Windows.Forms.ToolStripMenuItem hiệnẢnhĐạiDiệnToolStripMenuItem;
-        private System.Windows.Forms.ComboBox cbbDiscount;
         private System.Windows.Forms.Button btnTable16;
         private System.Windows.Forms.Button btnTable14;
         private System.Windows.Forms.Button btnTable15;

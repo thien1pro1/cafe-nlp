@@ -19,12 +19,13 @@ namespace cafeNLP
         {
             try
             {
+              
                 SqlConnection con = new SqlConnection("Server=localhost;Database=CAFE;Integrated Security=SSPI");
                 con.Open();
                 ConDB.con = con;
             }
             catch(SqlException ex){
-            MessageBox.Show(ex.Message, " Thông Báo");
+                MessageBox.Show(ex.Message, " Thông Báo");
             }
         }
 

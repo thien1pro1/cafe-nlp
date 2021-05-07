@@ -41,7 +41,13 @@ namespace cafeNLP
             this.orderI.idTable = id;
             cbbCatelory.Enabled = true;
             cbbFood.Enabled = false;
+            setColor(id);
             reloadListItem(id);
+        }
+
+        public void setColor(string id)
+        {
+            btnTable1.BackColor = System.Drawing.Color.LightGray;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -78,22 +84,6 @@ namespace cafeNLP
 
             }
             dr.Dispose();
-
-            //discount_button
-            SelectBox objDiscount = cbbDiscount.SelectedItem as SelectBox;
-
-            SqlCommand com1 = new SqlCommand("Select * FROM Discount ", ConDB.con);
-            SqlDataReader dr1 = com1.ExecuteReader();
-            cbbDiscount.DisplayMember = "Text";
-            cbbDiscount.ValueMember = "Value";
-            while (dr1.Read())
-            {
-
-                cbbDiscount.Items.Add(new SelectBox { Text = dr1.GetString(1), Value = dr1.GetString(0) });
-
-            }
-            dr1.Dispose();
-
             
         }
 
@@ -137,6 +127,7 @@ namespace cafeNLP
         private void cbbCatelory_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbbFood.Items.Clear();
+            cbbFood.SelectedIndex = -1;
             SelectBox obj = cbbCatelory.SelectedItem as SelectBox;
             cbbFood.Text = "";
             cbbFood.Enabled = true;
@@ -185,7 +176,7 @@ namespace cafeNLP
 
         private void cbbFood_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.WriteLine(cbbFood.SelectedText);
+       
             if (cbbFood.SelectedText != null)
             {
                 btnAddFood.Enabled = true;
@@ -259,9 +250,14 @@ namespace cafeNLP
 
         private void btnAddFood_Click(object sender, EventArgs e)
         {
+            if (cbbFood.SelectedIndex == -1)
+            {
+                MessageBox.Show("Vui lòng chọn đồ uống", "Thông báo");
+                return;
+            }
             SelectBox selectedFood = cbbFood.Items[cbbFood.SelectedIndex] as SelectBox;
             int qty = Int32.Parse(btnQty.Value.ToString());
-
+      
             // get price of food
             SqlCommand com2 = new SqlCommand("Select * from Food where codeFood = @id", ConDB.con);
             com2.Parameters.AddWithValue("@id", selectedFood.Value);
@@ -365,6 +361,73 @@ namespace cafeNLP
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void btnCheckOut_Click(object sender, EventArgs e)
+        {
+            
+            if(this.orderI == null)
+            {
+                MessageBox.Show("Vui lòng chọn bàn cần thanh toán", "Thông báo");
+                return;
+            }
+            if(listOrder.Items.Count == 0)
+            {
+                MessageBox.Show("Vui lòng đặt món trước khi thanh toán", "Thông báo");
+                return;
+            }
+            // get ID Order
+            int idTable = Int32.Parse(this.orderI.idTable);
+            SqlCommand newOrder = new SqlCommand("Insert into [Order](date, idTable) output inserted.idOrder values (@date, @idTable)", ConDB.con);
+            newOrder.Parameters.AddWithValue("@date",  DateTime.UtcNow.Date.ToString("yyyy/MM/dd"));
+            newOrder.Parameters.AddWithValue("@idTable", idTable);
+            int idOrder = 0;
+            try
+            {
+                idOrder = Int32.Parse(newOrder.ExecuteScalar().ToString());
+                newOrder.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            // get id table
+            SqlCommand comUp = new SqlCommand("select * from temporder where idtable = @idtable", ConDB.con);
+            comUp.Parameters.AddWithValue("@idtable", idTable);
+            try
+            {
+                string sql = "Insert into DetailOrder(idOrder, idSP, SL) values";
+                SqlDataReader dr = comUp.ExecuteReader();
+              
+
+                while (dr.Read())
+                {
+                    sql += "(" + idOrder + "," + dr.GetInt32(1) + "," + dr.GetInt32(2) + "),";
+          
+                }
+           
+                dr.Dispose();
+                sql = sql.Remove(sql.Length - 1);
+                SqlCommand insertDetail = new SqlCommand(sql, ConDB.con);
+                insertDetail.ExecuteNonQuery();
+                insertDetail.Dispose();
+
+                //delele all item  in tempOrder
+                SqlCommand com = new SqlCommand("delete from TempOrder where idTable = @idTable", ConDB.con);
+                com.Parameters.AddWithValue("@idTable", idTable);
+                com.ExecuteNonQuery();
+                com.Dispose();
+                listOrder.Items.Clear();
+                MessageBox.Show("Thanh toán thàn công đơn hàng bàn " + idTable, "Thông báo");
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+          
         }
     }
 }
