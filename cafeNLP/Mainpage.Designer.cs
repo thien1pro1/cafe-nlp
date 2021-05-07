@@ -122,7 +122,7 @@
             // 
             // btnQty
             // 
-            this.btnQty.Location = new System.Drawing.Point(484, 41);
+            this.btnQty.Location = new System.Drawing.Point(510, 32);
             this.btnQty.Minimum = new decimal(new int[] {
             1,
             0,
@@ -140,7 +140,7 @@
             // 
             // btnAddFood
             // 
-            this.btnAddFood.Location = new System.Drawing.Point(357, 35);
+            this.btnAddFood.Location = new System.Drawing.Point(357, 19);
             this.btnAddFood.Name = "btnAddFood";
             this.btnAddFood.Size = new System.Drawing.Size(121, 46);
             this.btnAddFood.TabIndex = 4;
@@ -456,7 +456,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuStrip1.Size = new System.Drawing.Size(1236, 21);
+            this.menuStrip1.Size = new System.Drawing.Size(1545, 21);
             this.menuStrip1.TabIndex = 53;
             this.menuStrip1.Text = "Menu";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -466,7 +466,7 @@
             this.adminToolStripMenuItem.BackgroundImage = global::cafeNLP.Properties.Resources.xanh;
             this.adminToolStripMenuItem.Enabled = false;
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(64, 36);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(64, 17);
             this.adminToolStripMenuItem.Text = "               ";
             this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
             // 
@@ -479,7 +479,7 @@
             this.thôngTinTàiKhoảnToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thôngTinTàiKhoảnToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.thôngTinTàiKhoảnToolStripMenuItem.Name = "thôngTinTàiKhoảnToolStripMenuItem";
-            this.thôngTinTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(124, 36);
+            this.thôngTinTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(124, 17);
             this.thôngTinTàiKhoảnToolStripMenuItem.Text = "Thông tin tài khoản";
             this.thôngTinTàiKhoảnToolStripMenuItem.Click += new System.EventHandler(this.thôngTinTàiKhoảnToolStripMenuItem_Click);
             // 
@@ -508,7 +508,7 @@
             this.adminToolStripMenuItem1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adminToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.adminToolStripMenuItem1.Name = "adminToolStripMenuItem1";
-            this.adminToolStripMenuItem1.Size = new System.Drawing.Size(54, 36);
+            this.adminToolStripMenuItem1.Size = new System.Drawing.Size(54, 17);
             this.adminToolStripMenuItem1.Text = "Admin";
             this.adminToolStripMenuItem1.Click += new System.EventHandler(this.adminToolStripMenuItem1_Click);
             // 
