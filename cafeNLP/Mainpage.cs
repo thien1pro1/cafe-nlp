@@ -47,7 +47,21 @@ namespace cafeNLP
 
         public void setColor(string id)
         {
-            btnTable1.BackColor = System.Drawing.Color.LightGray;
+            btnTable1.BackColor = id == "1" ?  System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
+            btnTable2.BackColor = id == "2" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
+            btnTable3.BackColor = id == "3" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
+            btnTable4.BackColor = id == "4" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
+            btnTable5.BackColor = id == "5" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
+            btnTable6.BackColor = id == "6" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
+            btnTable7.BackColor = id == "7" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
+            btnTable8.BackColor = id == "8" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
+            btnTable9.BackColor = id == "9" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
+            btnTable10.BackColor = id == "10" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
+            btnTable11.BackColor = id == "11" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
+            btnTable12.BackColor = id == "12" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
+            btnTable13.BackColor = id == "13" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
+            btnTable14.BackColor = id == "14" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
+            btnTable15.BackColor = id == "15" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

@@ -35,7 +35,6 @@
             this.btnAddFood = new System.Windows.Forms.Button();
             this.cbbFood = new System.Windows.Forms.ComboBox();
             this.cbbCatelory = new System.Windows.Forms.ComboBox();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.btnCheckOut = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.listOrder = new System.Windows.Forms.ListView();
@@ -72,7 +71,6 @@
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnQty)).BeginInit();
-            this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -87,14 +85,11 @@
             this.panel2.BackgroundImage = global::cafeNLP.Properties.Resources.bgnlp4;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Controls.Add(this.lbShowName);
-            this.panel2.Controls.Add(this.panel5);
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Location = new System.Drawing.Point(0, 28);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1236, 658);
+            this.panel2.Size = new System.Drawing.Size(1564, 867);
             this.panel2.TabIndex = 52;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -115,7 +110,7 @@
             this.panel5.Controls.Add(this.btnAddFood);
             this.panel5.Controls.Add(this.cbbFood);
             this.panel5.Controls.Add(this.cbbCatelory);
-            this.panel5.Location = new System.Drawing.Point(629, 114);
+            this.panel5.Location = new System.Drawing.Point(608, 19);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(595, 86);
             this.panel5.TabIndex = 5;
@@ -170,17 +165,11 @@
             this.cbbCatelory.TabIndex = 2;
             this.cbbCatelory.SelectedIndexChanged += new System.EventHandler(this.cbbCatelory_SelectedIndexChanged);
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.btnCheckOut);
-            this.panel4.Location = new System.Drawing.Point(629, 557);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(595, 82);
-            this.panel4.TabIndex = 4;
-            // 
             // btnCheckOut
             // 
-            this.btnCheckOut.Location = new System.Drawing.Point(237, 18);
+            this.btnCheckOut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCheckOut.Location = new System.Drawing.Point(368, 320);
             this.btnCheckOut.Name = "btnCheckOut";
             this.btnCheckOut.Size = new System.Drawing.Size(128, 47);
             this.btnCheckOut.TabIndex = 5;
@@ -190,15 +179,20 @@
             // 
             // panel3
             // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.btnCheckOut);
             this.panel3.Controls.Add(this.listOrder);
-            this.panel3.Location = new System.Drawing.Point(629, 215);
+            this.panel3.Location = new System.Drawing.Point(608, 140);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(595, 336);
+            this.panel3.Size = new System.Drawing.Size(864, 381);
             this.panel3.TabIndex = 4;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // listOrder
             // 
+            this.listOrder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listOrder.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.stt,
             this.nameOfFood,
@@ -210,10 +204,10 @@
             this.listOrder.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listOrder.HideSelection = false;
             this.listOrder.LabelWrap = false;
-            this.listOrder.Location = new System.Drawing.Point(3, 3);
+            this.listOrder.Location = new System.Drawing.Point(3, 10);
             this.listOrder.MultiSelect = false;
             this.listOrder.Name = "listOrder";
-            this.listOrder.Size = new System.Drawing.Size(589, 330);
+            this.listOrder.Size = new System.Drawing.Size(836, 291);
             this.listOrder.TabIndex = 0;
             this.listOrder.UseCompatibleStateImageBehavior = false;
             this.listOrder.View = System.Windows.Forms.View.Details;
@@ -245,10 +239,11 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.btnTable16);
+            this.panel1.Controls.Add(this.panel5);
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.btnTable14);
             this.panel1.Controls.Add(this.btnTable15);
             this.panel1.Controls.Add(this.btnTable13);
@@ -264,169 +259,185 @@
             this.panel1.Controls.Add(this.btnTable2);
             this.panel1.Controls.Add(this.btnTable3);
             this.panel1.Controls.Add(this.btnTable1);
-            this.panel1.Location = new System.Drawing.Point(12, 114);
+            this.panel1.Location = new System.Drawing.Point(24, 146);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(611, 530);
+            this.panel1.Size = new System.Drawing.Size(1521, 739);
             this.panel1.TabIndex = 3;
             // 
             // btnTable16
             // 
+            this.btnTable16.BackColor = System.Drawing.Color.LightGray;
             this.btnTable16.Location = new System.Drawing.Point(446, 381);
             this.btnTable16.Name = "btnTable16";
             this.btnTable16.Size = new System.Drawing.Size(123, 86);
             this.btnTable16.TabIndex = 15;
             this.btnTable16.Text = "Bàn 16";
-            this.btnTable16.UseVisualStyleBackColor = true;
+            this.btnTable16.UseVisualStyleBackColor = false;
             this.btnTable16.Click += new System.EventHandler(this.btnTable16_Click);
             // 
             // btnTable14
             // 
+            this.btnTable14.BackColor = System.Drawing.Color.LightGray;
             this.btnTable14.Location = new System.Drawing.Point(165, 381);
             this.btnTable14.Name = "btnTable14";
             this.btnTable14.Size = new System.Drawing.Size(123, 86);
             this.btnTable14.TabIndex = 14;
             this.btnTable14.Text = "Bàn 14";
-            this.btnTable14.UseVisualStyleBackColor = true;
+            this.btnTable14.UseVisualStyleBackColor = false;
             this.btnTable14.Click += new System.EventHandler(this.btnTable14_Click);
             // 
             // btnTable15
             // 
+            this.btnTable15.BackColor = System.Drawing.Color.LightGray;
             this.btnTable15.Location = new System.Drawing.Point(305, 381);
             this.btnTable15.Name = "btnTable15";
             this.btnTable15.Size = new System.Drawing.Size(123, 86);
             this.btnTable15.TabIndex = 13;
             this.btnTable15.Text = "Bàn 15";
-            this.btnTable15.UseVisualStyleBackColor = true;
+            this.btnTable15.UseVisualStyleBackColor = false;
             this.btnTable15.Click += new System.EventHandler(this.btnTable15_Click);
             // 
             // btnTable13
             // 
+            this.btnTable13.BackColor = System.Drawing.Color.LightGray;
             this.btnTable13.Location = new System.Drawing.Point(24, 381);
             this.btnTable13.Name = "btnTable13";
             this.btnTable13.Size = new System.Drawing.Size(123, 86);
             this.btnTable13.TabIndex = 12;
             this.btnTable13.Text = "Bàn 13";
-            this.btnTable13.UseVisualStyleBackColor = true;
+            this.btnTable13.UseVisualStyleBackColor = false;
             this.btnTable13.Click += new System.EventHandler(this.btnTable13_Click);
             // 
             // btnTable12
             // 
+            this.btnTable12.BackColor = System.Drawing.Color.LightGray;
             this.btnTable12.Location = new System.Drawing.Point(446, 264);
             this.btnTable12.Name = "btnTable12";
             this.btnTable12.Size = new System.Drawing.Size(123, 86);
             this.btnTable12.TabIndex = 11;
             this.btnTable12.Text = "Bàn 12";
-            this.btnTable12.UseVisualStyleBackColor = true;
+            this.btnTable12.UseVisualStyleBackColor = false;
             this.btnTable12.Click += new System.EventHandler(this.btnTable12_Click);
             // 
             // btnTable10
             // 
+            this.btnTable10.BackColor = System.Drawing.Color.LightGray;
             this.btnTable10.Location = new System.Drawing.Point(165, 264);
             this.btnTable10.Name = "btnTable10";
             this.btnTable10.Size = new System.Drawing.Size(123, 86);
             this.btnTable10.TabIndex = 10;
             this.btnTable10.Text = "Bàn 10";
-            this.btnTable10.UseVisualStyleBackColor = true;
+            this.btnTable10.UseVisualStyleBackColor = false;
             this.btnTable10.Click += new System.EventHandler(this.btnTable10_Click);
             // 
             // btnTable11
             // 
+            this.btnTable11.BackColor = System.Drawing.Color.LightGray;
             this.btnTable11.Location = new System.Drawing.Point(305, 264);
             this.btnTable11.Name = "btnTable11";
             this.btnTable11.Size = new System.Drawing.Size(123, 86);
             this.btnTable11.TabIndex = 9;
             this.btnTable11.Text = "Bàn 11";
-            this.btnTable11.UseVisualStyleBackColor = true;
+            this.btnTable11.UseVisualStyleBackColor = false;
             this.btnTable11.Click += new System.EventHandler(this.btnTable11_Click);
             // 
             // btnTable9
             // 
+            this.btnTable9.BackColor = System.Drawing.Color.LightGray;
             this.btnTable9.Location = new System.Drawing.Point(24, 264);
             this.btnTable9.Name = "btnTable9";
             this.btnTable9.Size = new System.Drawing.Size(123, 86);
             this.btnTable9.TabIndex = 8;
             this.btnTable9.Text = "Bàn 9";
-            this.btnTable9.UseVisualStyleBackColor = true;
+            this.btnTable9.UseVisualStyleBackColor = false;
             this.btnTable9.Click += new System.EventHandler(this.btnTable9_Click);
             // 
             // btnTable8
             // 
+            this.btnTable8.BackColor = System.Drawing.Color.LightGray;
             this.btnTable8.Location = new System.Drawing.Point(446, 141);
             this.btnTable8.Name = "btnTable8";
             this.btnTable8.Size = new System.Drawing.Size(123, 86);
             this.btnTable8.TabIndex = 7;
             this.btnTable8.Text = "Bàn 8";
-            this.btnTable8.UseVisualStyleBackColor = true;
+            this.btnTable8.UseVisualStyleBackColor = false;
             this.btnTable8.Click += new System.EventHandler(this.btnTable8_Click);
             // 
             // btnTable6
             // 
+            this.btnTable6.BackColor = System.Drawing.Color.LightGray;
             this.btnTable6.Location = new System.Drawing.Point(165, 141);
             this.btnTable6.Name = "btnTable6";
             this.btnTable6.Size = new System.Drawing.Size(123, 86);
             this.btnTable6.TabIndex = 6;
             this.btnTable6.Text = "Bàn 6";
-            this.btnTable6.UseVisualStyleBackColor = true;
+            this.btnTable6.UseVisualStyleBackColor = false;
             this.btnTable6.Click += new System.EventHandler(this.btnTable6_Click);
             // 
             // btnTable7
             // 
+            this.btnTable7.BackColor = System.Drawing.Color.LightGray;
             this.btnTable7.Location = new System.Drawing.Point(305, 141);
             this.btnTable7.Name = "btnTable7";
             this.btnTable7.Size = new System.Drawing.Size(123, 86);
             this.btnTable7.TabIndex = 5;
             this.btnTable7.Text = "Bàn 7";
-            this.btnTable7.UseVisualStyleBackColor = true;
+            this.btnTable7.UseVisualStyleBackColor = false;
             this.btnTable7.Click += new System.EventHandler(this.btnTable7_Click);
             // 
             // btnTable5
             // 
+            this.btnTable5.BackColor = System.Drawing.Color.LightGray;
             this.btnTable5.Location = new System.Drawing.Point(24, 141);
             this.btnTable5.Name = "btnTable5";
             this.btnTable5.Size = new System.Drawing.Size(123, 86);
             this.btnTable5.TabIndex = 4;
             this.btnTable5.Text = "Bàn 5";
-            this.btnTable5.UseVisualStyleBackColor = true;
+            this.btnTable5.UseVisualStyleBackColor = false;
             this.btnTable5.Click += new System.EventHandler(this.btnTable5_Click);
             // 
             // btnTable4
             // 
+            this.btnTable4.BackColor = System.Drawing.Color.LightGray;
             this.btnTable4.Location = new System.Drawing.Point(446, 19);
             this.btnTable4.Name = "btnTable4";
             this.btnTable4.Size = new System.Drawing.Size(123, 86);
             this.btnTable4.TabIndex = 3;
             this.btnTable4.Text = "Bàn 4";
-            this.btnTable4.UseVisualStyleBackColor = true;
+            this.btnTable4.UseVisualStyleBackColor = false;
             this.btnTable4.Click += new System.EventHandler(this.btnTable4_Click);
             // 
             // btnTable2
             // 
+            this.btnTable2.BackColor = System.Drawing.Color.LightGray;
             this.btnTable2.Location = new System.Drawing.Point(165, 19);
             this.btnTable2.Name = "btnTable2";
             this.btnTable2.Size = new System.Drawing.Size(123, 86);
             this.btnTable2.TabIndex = 2;
             this.btnTable2.Text = "Bàn 2";
-            this.btnTable2.UseVisualStyleBackColor = true;
+            this.btnTable2.UseVisualStyleBackColor = false;
             this.btnTable2.Click += new System.EventHandler(this.btnTable2_Click);
             // 
             // btnTable3
             // 
+            this.btnTable3.BackColor = System.Drawing.Color.LightGray;
             this.btnTable3.Location = new System.Drawing.Point(305, 19);
             this.btnTable3.Name = "btnTable3";
             this.btnTable3.Size = new System.Drawing.Size(123, 86);
             this.btnTable3.TabIndex = 1;
             this.btnTable3.Text = "Bàn 3";
-            this.btnTable3.UseVisualStyleBackColor = true;
+            this.btnTable3.UseVisualStyleBackColor = false;
             this.btnTable3.Click += new System.EventHandler(this.btnTable3_Click);
             // 
             // btnTable1
             // 
+            this.btnTable1.BackColor = System.Drawing.Color.LightGray;
             this.btnTable1.Location = new System.Drawing.Point(24, 19);
             this.btnTable1.Name = "btnTable1";
             this.btnTable1.Size = new System.Drawing.Size(123, 86);
             this.btnTable1.TabIndex = 0;
             this.btnTable1.Text = "Bàn 1";
-            this.btnTable1.UseVisualStyleBackColor = true;
+            this.btnTable1.UseVisualStyleBackColor = false;
             this.btnTable1.Click += new System.EventHandler(this.btnTable1_Click);
             // 
             // label6
@@ -456,7 +467,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuStrip1.Size = new System.Drawing.Size(1545, 21);
+            this.menuStrip1.Size = new System.Drawing.Size(1545, 25);
             this.menuStrip1.TabIndex = 53;
             this.menuStrip1.Text = "Menu";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -530,7 +541,6 @@
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnQty)).EndInit();
-            this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
@@ -549,7 +559,6 @@
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel5;
