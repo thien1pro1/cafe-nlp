@@ -43,10 +43,9 @@
             // chbshowpwd
             // 
             chbshowpwd.AutoSize = true;
-            chbshowpwd.Location = new System.Drawing.Point(89, 278);
-            chbshowpwd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            chbshowpwd.Location = new System.Drawing.Point(67, 226);
             chbshowpwd.Name = "chbshowpwd";
-            chbshowpwd.Size = new System.Drawing.Size(121, 21);
+            chbshowpwd.Size = new System.Drawing.Size(95, 17);
             chbshowpwd.TabIndex = 5;
             chbshowpwd.Text = "Hiện mật khẩu";
             chbshowpwd.UseVisualStyleBackColor = true;
@@ -57,10 +56,9 @@
             this.btnLogin.BackgroundImage = global::cafeNLP.Properties.Resources.xanh;
             this.btnLogin.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogin.Location = new System.Drawing.Point(413, 278);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Location = new System.Drawing.Point(310, 226);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(220, 65);
+            this.btnLogin.Size = new System.Drawing.Size(165, 53);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -73,21 +71,19 @@
             this.panel1.Controls.Add(this.txtPwd);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnLogin);
-            this.panel1.Location = new System.Drawing.Point(0, 135);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(1, 109);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(797, 430);
+            this.panel1.Size = new System.Drawing.Size(598, 349);
             this.panel1.TabIndex = 2;
             // 
             // txtUserName
             // 
             this.txtUserName.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(89, 92);
-            this.txtUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUserName.Location = new System.Drawing.Point(67, 75);
             this.txtUserName.Multiline = true;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.PasswordChar = '*';
-            this.txtUserName.Size = new System.Drawing.Size(543, 54);
+            this.txtUserName.Size = new System.Drawing.Size(408, 45);
             this.txtUserName.TabIndex = 4;
             this.txtUserName.UseSystemPasswordChar = true;
             this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
@@ -95,11 +91,11 @@
             // txtPwd
             // 
             this.txtPwd.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPwd.Location = new System.Drawing.Point(89, 182);
-            this.txtPwd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPwd.Location = new System.Drawing.Point(67, 148);
             this.txtPwd.Multiline = true;
             this.txtPwd.Name = "txtPwd";
-            this.txtPwd.Size = new System.Drawing.Size(543, 54);
+            this.txtPwd.PasswordChar = '*';
+            this.txtPwd.Size = new System.Drawing.Size(408, 45);
             this.txtPwd.TabIndex = 3;
             this.txtPwd.UseSystemPasswordChar = true;
             this.txtPwd.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -107,10 +103,9 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(81, 28);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(61, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(291, 60);
+            this.label1.Size = new System.Drawing.Size(218, 49);
             this.label1.TabIndex = 1;
             this.label1.Text = "ĐĂNG NHẬP";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -123,14 +118,13 @@
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::cafeNLP.Properties.Resources.càfenpvuong;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(796, 566);
+            this.ClientSize = new System.Drawing.Size(597, 460);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";

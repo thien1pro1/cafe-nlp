@@ -80,11 +80,11 @@ namespace cafeNLP
                 return;
             }
 
-
+            SqlCommand com = new SqlCommand("select * FROM Account where username = '" + txtUserName.Text + "' and pwd ='" + txtPwd.Text + "'", ConDB.con);
             try
             {
             
-                SqlCommand com = new SqlCommand("select * FROM Account where username = '" + txtUserName.Text + "' and pwd ='"+txtPwd.Text+"'", ConDB.con);
+                //SqlCommand com = new SqlCommand("select * FROM Account where username = '" + txtUserName.Text + "' and pwd ='"+txtPwd.Text+"'", ConDB.con);
                 SqlDataReader dr1 = com.ExecuteReader();
 
               
@@ -105,7 +105,7 @@ namespace cafeNLP
                     this.Hide();
                     mb.ShowDialog();
                     this.Show();
-                    
+                     
                 }
 
                
