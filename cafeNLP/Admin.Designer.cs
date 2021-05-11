@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem25 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem26 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem27 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem28 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem29 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem30 = new System.Windows.Forms.ListViewItem("");
             this.tcAccount = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -107,11 +107,18 @@
             this.txtFoodName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.txtCateloryFood = new System.Windows.Forms.TextBox();
+            this.cbbCatelory = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.txtFoodID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.listFood = new System.Windows.Forms.ListView();
+            this.colSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCodeFood = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colNameFood = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCatelogy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtFoodSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -127,13 +134,6 @@
             this.dtpkTo = new System.Windows.Forms.DateTimePicker();
             this.dtpkFrom = new System.Windows.Forms.DateTimePicker();
             this.tcBill = new System.Windows.Forms.TabControl();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.listFood = new System.Windows.Forms.ListView();
-            this.colSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colCodeFood = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colNameFood = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colCatelogy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tcAccount.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -168,6 +168,7 @@
             this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel10.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.tcAdmin.SuspendLayout();
@@ -175,7 +176,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).BeginInit();
             this.panel4.SuspendLayout();
             this.tcBill.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcAccount
@@ -849,21 +849,21 @@
             // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.txtCateloryFood);
+            this.panel11.Controls.Add(this.cbbCatelory);
             this.panel11.Controls.Add(this.label1);
             this.panel11.Location = new System.Drawing.Point(13, 131);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(487, 55);
             this.panel11.TabIndex = 4;
             // 
-            // txtCateloryFood
+            // cbbCatelory
             // 
-            this.txtCateloryFood.Font = new System.Drawing.Font("Calibri Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCateloryFood.Location = new System.Drawing.Point(162, 16);
-            this.txtCateloryFood.Multiline = true;
-            this.txtCateloryFood.Name = "txtCateloryFood";
-            this.txtCateloryFood.Size = new System.Drawing.Size(312, 28);
-            this.txtCateloryFood.TabIndex = 1;
+            this.cbbCatelory.FormattingEnabled = true;
+            this.cbbCatelory.Location = new System.Drawing.Point(162, 12);
+            this.cbbCatelory.Name = "cbbCatelory";
+            this.cbbCatelory.Size = new System.Drawing.Size(312, 27);
+            this.cbbCatelory.TabIndex = 1;
+            this.cbbCatelory.DataSourceChanged += new System.EventHandler(this.comboBox1_DataSourceChanged);
             // 
             // label1
             // 
@@ -903,6 +903,69 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "ID:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.listFood);
+            this.panel8.Location = new System.Drawing.Point(6, 239);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(496, 316);
+            this.panel8.TabIndex = 1;
+            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
+            // 
+            // listFood
+            // 
+            this.listFood.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colSTT,
+            this.colCodeFood,
+            this.colNameFood,
+            this.colCatelogy,
+            this.colPrice});
+            listViewItem30.IndentCount = 1;
+            this.listFood.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem21,
+            listViewItem22,
+            listViewItem23,
+            listViewItem24,
+            listViewItem25,
+            listViewItem26,
+            listViewItem27,
+            listViewItem28,
+            listViewItem29,
+            listViewItem30});
+            this.listFood.Location = new System.Drawing.Point(0, 6);
+            this.listFood.Name = "listFood";
+            this.listFood.Size = new System.Drawing.Size(478, 288);
+            this.listFood.TabIndex = 0;
+            this.listFood.UseCompatibleStateImageBehavior = false;
+            this.listFood.View = System.Windows.Forms.View.Details;
+            // 
+            // colSTT
+            // 
+            this.colSTT.Text = "STT";
+            // 
+            // colCodeFood
+            // 
+            this.colCodeFood.Text = "Mã món";
+            this.colCodeFood.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.colCodeFood.Width = 70;
+            // 
+            // colNameFood
+            // 
+            this.colNameFood.Text = "Tên món";
+            this.colNameFood.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.colNameFood.Width = 150;
+            // 
+            // colCatelogy
+            // 
+            this.colCatelogy.Text = "Danh mục";
+            this.colCatelogy.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.colCatelogy.Width = 150;
+            // 
+            // colPrice
+            // 
+            this.colPrice.Text = "Giá";
+            this.colPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel7
             // 
@@ -967,6 +1030,7 @@
             this.btnAddFood.TabIndex = 0;
             this.btnAddFood.Text = "Thêm";
             this.btnAddFood.UseVisualStyleBackColor = true;
+            this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
             // tcAdmin
             // 
@@ -1047,69 +1111,7 @@
             this.tcBill.Size = new System.Drawing.Size(1036, 587);
             this.tcBill.TabIndex = 1;
             this.tcBill.SelectedIndexChanged += new System.EventHandler(this.tcBill_SelectedIndexChanged);
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.listFood);
-            this.panel8.Location = new System.Drawing.Point(6, 239);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(496, 316);
-            this.panel8.TabIndex = 1;
-            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
-            // 
-            // listFood
-            // 
-            this.listFood.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colSTT,
-            this.colCodeFood,
-            this.colNameFood,
-            this.colCatelogy,
-            this.colPrice});
-            listViewItem10.IndentCount = 1;
-            this.listFood.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8,
-            listViewItem9,
-            listViewItem10});
-            this.listFood.Location = new System.Drawing.Point(0, 6);
-            this.listFood.Name = "listFood";
-            this.listFood.Size = new System.Drawing.Size(478, 288);
-            this.listFood.TabIndex = 0;
-            this.listFood.UseCompatibleStateImageBehavior = false;
-            this.listFood.View = System.Windows.Forms.View.Details;
-            // 
-            // colSTT
-            // 
-            this.colSTT.Text = "STT";
-            // 
-            // colCodeFood
-            // 
-            this.colCodeFood.Text = "Mã món";
-            this.colCodeFood.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colCodeFood.Width = 70;
-            // 
-            // colNameFood
-            // 
-            this.colNameFood.Text = "Tên món";
-            this.colNameFood.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colNameFood.Width = 150;
-            // 
-            // colCatelogy
-            // 
-            this.colCatelogy.Text = "Danh mục";
-            this.colCatelogy.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colCatelogy.Width = 150;
-            // 
-            // colPrice
-            // 
-            this.colPrice.Text = "Giá";
-            this.colPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tcBill.TabIndexChanged += new System.EventHandler(this.tcBill_TabIndexChanged);
             // 
             // Admin
             // 
@@ -1163,9 +1165,9 @@
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            this.panel8.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -1174,7 +1176,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
             this.panel4.ResumeLayout(false);
             this.tcBill.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1250,7 +1251,6 @@
         private System.Windows.Forms.TextBox txtFoodName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.TextBox txtCateloryFood;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.TextBox txtFoodID;
@@ -1277,6 +1277,7 @@
         private System.Windows.Forms.ColumnHeader colNameFood;
         private System.Windows.Forms.ColumnHeader colCatelogy;
         private System.Windows.Forms.ColumnHeader colPrice;
+        private System.Windows.Forms.ComboBox cbbCatelory;
 
     }
 }

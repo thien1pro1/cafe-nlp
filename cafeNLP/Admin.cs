@@ -103,5 +103,66 @@ namespace cafeNLP
             }
             
         }
+
+        private void btnAddFood_Click(object sender, EventArgs e)
+        {
+            public int newCode;
+            SqlCommand cmd = new SqlCommand("Select count(*) from Food", ConDB.con);
+            try
+            {
+                newCode = Convert.ToInt32(cmd.ExecuteScalar())+1;
+                cmd.Dispose();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            SqlCommand com = new SqlCommand("Insert into Foode nameFood Value ( '"+ newCode.ToString() +"', '"+ txtFoodName.ToString() + "', '" + nbudPrice.ToString() +"', '" +cbbCatelory.SelectedItem.ToString()+"')", ConDB.con);
+            try
+            {
+                com.ExecuteNonQuery();
+                MessageBox.Show("Thêm thành công", "Thông báo");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void comboBox1_DataSourceChanged(object sender, EventArgs e)
+        {
+            SqlCommand com = new SqlCommand("Select * FROM Catelory", ConDB.con);
+            SqlDataReader dr = com.ExecuteReader();
+            cbbCatelory.DisplayMember = "Text";
+            cbbCatelory.ValueMember = "Value";
+            while (dr.Read())
+            {
+
+                cbbCatelory.Items.Add(new SelectBox { Text = dr.GetString(1), Value = dr.GetString(0) });
+
+            }
+            dr.Dispose();
+        }
+
+
+
+        private void tcBill_TabIndexChanged(object sender, EventArgs e)
+        {
+            SqlCommand com = new SqlCommand("Select * FROM Catelory", ConDB.con);
+            SqlDataReader dr = com.ExecuteReader();
+            cbbCatelory.DisplayMember = "Text";
+            cbbCatelory.ValueMember = "Value";
+            while (dr.Read())
+            {
+
+                cbbCatelory.Items.Add(new SelectBox { Text = dr.GetString(1), Value = dr.GetString(0) });
+
+            }
+            dr.Dispose();
+            
+        }
     }
 }
