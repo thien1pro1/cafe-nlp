@@ -14,7 +14,7 @@ namespace cafeNLP
         }
         public void reloadListItem(string id)
         {
-            SqlCommand comOrder = new SqlCommand("select f.nameFood, f.priceFood, t.SL from TempOrder as t join Food as f on t.idSP = f.codeFood where t.idTable = @id", ConDB.con);
+            SqlCommand comOrder = new SqlCommand("select f.nameFood, f.priceFood, t.SL, f.codeFood from TempOrder as t join Food as f on t.idSP = f.codeFood where t.idTable = @id", ConDB.con);
             comOrder.Parameters.AddWithValue("@id", id);
             // show list order
             listOrder.Items.Clear();
@@ -22,13 +22,15 @@ namespace cafeNLP
             {
                 SqlDataReader dr = comOrder.ExecuteReader();
                 int index = 1;
+                int totalOrder = 0;
                 while (dr.Read())
                 {
-                    listOrder.Items.Add(new ListViewItem(new string[] { index.ToString(), dr.GetString(0), dr.GetInt32(1).ToString(), dr.GetInt32(2).ToString(), (dr.GetInt32(1) * dr.GetInt32(2)).ToString() }));
+                    listOrder.Items.Add(new ListViewItem(new string[] { index.ToString(), dr.GetString(3), dr.GetString(0), dr.GetInt32(1).ToString(), dr.GetInt32(2).ToString(), (dr.GetInt32(1) * dr.GetInt32(2)).ToString() }));
+                    totalOrder += dr.GetInt32(1) * dr.GetInt32(2);
                     index += 1;
                 }
                 dr.Dispose();
-
+                btnTotalOrder.Text = "Tổng thanh toán: " + totalOrder;
             }
             catch (Exception ex)
             {
@@ -47,7 +49,7 @@ namespace cafeNLP
 
         public void setColor(string id)
         {
-            btnTable1.BackColor = id == "1" ?  System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
+            btnTable1.BackColor = id == "1" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
             btnTable2.BackColor = id == "2" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
             btnTable3.BackColor = id == "3" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
             btnTable4.BackColor = id == "4" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
@@ -99,12 +101,12 @@ namespace cafeNLP
 
             }
             dr.Dispose();
-            
+
         }
 
         private void thôngTinTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -191,7 +193,7 @@ namespace cafeNLP
 
         private void cbbFood_SelectedIndexChanged(object sender, EventArgs e)
         {
-       
+
             if (cbbFood.SelectedText != null)
             {
                 btnAddFood.Enabled = true;
@@ -272,7 +274,7 @@ namespace cafeNLP
             }
             SelectBox selectedFood = cbbFood.Items[cbbFood.SelectedIndex] as SelectBox;
             int qty = Int32.Parse(btnQty.Value.ToString());
-      
+
             // get price of food
             SqlCommand com2 = new SqlCommand("Select * from Food where codeFood = @id", ConDB.con);
             com2.Parameters.AddWithValue("@id", selectedFood.Value);
@@ -280,7 +282,7 @@ namespace cafeNLP
             try
             {
                 SqlDataReader drFood = com2.ExecuteReader();
-        
+
                 if (!drFood.Read())
                 {
                     throw new Exception("Error fetch price of this food");
@@ -296,7 +298,7 @@ namespace cafeNLP
                 return;
             }
 
-    
+
             try
             {
                 //get if exist food in tempOrder
@@ -317,9 +319,10 @@ namespace cafeNLP
 
                         SqlDataReader dr = com.ExecuteReader();
 
-                        listOrder.Items.Add(new ListViewItem(new string[] { (listOrder.Items.Count + 1).ToString(), selectedFood.Text, priceFood.ToString(), qty.ToString(), (priceFood * qty).ToString() }));
-
-
+                        listOrder.Items.Add(new ListViewItem(new string[] { (listOrder.Items.Count + 1).ToString(), selectedFood.Value.ToString(), selectedFood.Text, priceFood.ToString(), qty.ToString(), (priceFood * qty).ToString() }));
+                        int totalPrice = Int32.Parse(btnTotalOrder.Text.Replace("Tổng thanh toán: ", ""));
+                 
+                        btnTotalOrder.Text = "Tổng thanh toán: " + ((priceFood * qty) + totalPrice).ToString();
                         dr.Dispose();
 
                     }
@@ -380,13 +383,13 @@ namespace cafeNLP
 
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
-            
-            if(this.orderI == null)
+
+            if (this.orderI == null)
             {
                 MessageBox.Show("Vui lòng chọn bàn cần thanh toán", "Thông báo");
                 return;
             }
-            if(listOrder.Items.Count == 0)
+            if (listOrder.Items.Count == 0)
             {
                 MessageBox.Show("Vui lòng đặt món trước khi thanh toán", "Thông báo");
                 return;
@@ -394,7 +397,7 @@ namespace cafeNLP
             // get ID Order
             int idTable = Int32.Parse(this.orderI.idTable);
             SqlCommand newOrder = new SqlCommand("Insert into [Order](date, idTable) output inserted.idOrder values (@date, @idTable)", ConDB.con);
-            newOrder.Parameters.AddWithValue("@date",  DateTime.UtcNow.Date.ToString("yyyy/MM/dd"));
+            newOrder.Parameters.AddWithValue("@date", DateTime.UtcNow.Date.ToString("yyyy/MM/dd"));
             newOrder.Parameters.AddWithValue("@idTable", idTable);
             int idOrder = 0;
             try
@@ -414,14 +417,14 @@ namespace cafeNLP
             {
                 string sql = "Insert into DetailOrder(idOrder, idSP, SL) values";
                 SqlDataReader dr = comUp.ExecuteReader();
-              
+
 
                 while (dr.Read())
                 {
                     sql += "(" + idOrder + "," + dr.GetInt32(1) + "," + dr.GetInt32(2) + "),";
-          
+
                 }
-           
+
                 dr.Dispose();
                 sql = sql.Remove(sql.Length - 1);
                 SqlCommand insertDetail = new SqlCommand(sql, ConDB.con);
@@ -442,7 +445,34 @@ namespace cafeNLP
                 Console.WriteLine(ex.Message);
             }
 
-          
+
+        }
+
+      
+        private void listOrder_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Delete == e.KeyCode)
+            {
+                foreach (ListViewItem listViewItem in ((ListView)sender).SelectedItems)
+                {
+                    ListViewItem item = listOrder.SelectedItems[0];
+                    SqlCommand deleteItem = new SqlCommand("delete from temporder where idTable = @id and idSP = @idSP ", ConDB.con);
+                    deleteItem.Parameters.AddWithValue("@id", this.orderI.idTable);
+                    deleteItem.Parameters.AddWithValue("@idSP", listViewItem.SubItems[1].Text);
+                    int price = Int32.Parse(item.SubItems[5].Text);
+                    int totalPrice = Int32.Parse(btnTotalOrder.Text.Replace("Tổng thanh toán: ", ""));
+                    btnTotalOrder.Text = "Tổng thanh toán: " + (totalPrice - price).ToString();
+                    try
+                    {
+                        deleteItem.ExecuteNonQuery();
+                        listViewItem.Remove();
+                    }catch(SqlException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                 
+                }
+            }
         }
     }
 }

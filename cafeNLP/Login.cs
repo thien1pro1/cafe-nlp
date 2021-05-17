@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -66,6 +67,18 @@ namespace cafeNLP
         {
 
         }
+        public static string MD5Hash(string input)
+        {
+            StringBuilder hash = new StringBuilder();
+            MD5CryptoServiceProvider md5provider = new MD5CryptoServiceProvider();
+            byte[] bytes = md5provider.ComputeHash(new UTF8Encoding().GetBytes(input));
+
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                hash.Append(bytes[i].ToString("x2"));
+            }
+            return hash.ToString();
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -83,18 +96,16 @@ namespace cafeNLP
 
             try
             {
-            
-                SqlCommand com = new SqlCommand("select * FROM Account where username = '" + txtUserName.Text + "' and pwd ='"+txtPwd.Text+"'", ConDB.con);
+
+                SqlCommand com = new SqlCommand("select * FROM Account where username = '" + txtUserName.Text + "' and pwd ='"+ MD5Hash(txtPwd.Text)+"'", ConDB.con);
                 SqlDataReader dr1 = com.ExecuteReader();
 
               
                 if (!dr1.Read())
                 {
-                    //check da nhap thong tin chua
-                    //Console.WriteLine(":)))))))))))))");
                     MessageBox.Show("Sai tài khoản hoặc mật khẩu!", "Thông báo");
                     dr1.Dispose();
-                    
+              
                 }
                 else
                 {
