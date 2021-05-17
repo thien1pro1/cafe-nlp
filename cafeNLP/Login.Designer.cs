@@ -52,7 +52,7 @@
             this.btnLogin.Location = new System.Drawing.Point(188, 197);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(220, 65);
+            this.btnLogin.Size = new System.Drawing.Size(165, 53);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -145,7 +145,7 @@
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::cafeNLP.Properties.Resources.càfenpvuong;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;

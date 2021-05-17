@@ -93,7 +93,6 @@ namespace cafeNLP
                 return;
             }
 
-
             try
             {
 
@@ -116,7 +115,7 @@ namespace cafeNLP
                     this.Hide();
                     mb.ShowDialog();
                     this.Show();
-                    
+                     
                 }
 
                
