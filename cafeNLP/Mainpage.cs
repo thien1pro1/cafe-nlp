@@ -437,7 +437,9 @@ namespace cafeNLP
                 com.ExecuteNonQuery();
                 com.Dispose();
                 listOrder.Items.Clear();
-                MessageBox.Show("Thanh toán thàn công đơn hàng bàn " + idTable, "Thông báo");
+                int totalPrice = Int32.Parse(btnTotalOrder.Text.Replace("Tổng thanh toán: ", ""));
+                btnTotalOrder.Text = "Tổng thanh toán: 0";
+                MessageBox.Show("Thanh toán thàn công đơn hàng bàn " + idTable + "\nTổng tiền: " + totalPrice, "Thông báo");
             }
 
             catch (Exception ex)

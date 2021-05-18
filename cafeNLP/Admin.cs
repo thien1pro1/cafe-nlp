@@ -50,7 +50,18 @@ namespace cafeNLP
 
         private void tcBill_SelectedIndexChanged(object sender, EventArgs e)
         {
+            SqlCommand com = new SqlCommand("Select * FROM Catelory", ConDB.con);
+            SqlDataReader dr = com.ExecuteReader();
+            cbbCatelory.DisplayMember = "Text";
+            cbbCatelory.ValueMember = "Value";
+            cbbCatelory.Items.Clear();
+            while (dr.Read())
+            {
 
+                cbbCatelory.Items.Add(new SelectBox { Text = dr.GetString(1), Value = dr.GetString(0) });
+
+            }
+            dr.Dispose();
         }
 
         private void dtgvFood_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -134,17 +145,7 @@ namespace cafeNLP
 
         private void comboBox1_DataSourceChanged(object sender, EventArgs e)
         {
-            SqlCommand com = new SqlCommand("Select * FROM Catelory", ConDB.con);
-            SqlDataReader dr = com.ExecuteReader();
-            cbbCatelory.DisplayMember = "Text";
-            cbbCatelory.ValueMember = "Value";
-            while (dr.Read())
-            {
-
-                cbbCatelory.Items.Add(new SelectBox { Text = dr.GetString(1), Value = dr.GetString(0) });
-
-            }
-            dr.Dispose();
+           
         }
 
 

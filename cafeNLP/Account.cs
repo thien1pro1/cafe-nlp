@@ -44,7 +44,6 @@ namespace cafeNLP
 
                 txtUserName.Text = dr.GetString(3);
                 txtAccount.Text  = dr.GetString(1);
-                txtPassword.Text = dr.GetString(2);
             }
             dr.Dispose();
         }
@@ -56,11 +55,7 @@ namespace cafeNLP
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (txtPassword.Text.Equals(""))
-            {
-                MessageBox.Show("Vui lòng nhập mật khẩu", "Thông báo");
-                return;
-            }
+        
             if (txtNewPass.Text.Equals(""))
             {
                 MessageBox.Show("Vui lòng nhập mật khẩu mới", "Thông báo");
@@ -72,16 +67,20 @@ namespace cafeNLP
                 return;
             }
 
-            SqlCommand com = new SqlCommand("Update Account set pwd = '" + txtNewPass.Text + "' where username = '" + txtAccount.Text + "'", ConDB.con);
+            if (!txtNewPass.Text.Equals(txtRePass.Text))
+            {
+                MessageBox.Show("Mật khẩu mới và nhập lại mật khẩu không khớp", "Thông báo");
+                return;
+            }
+
+
+            SqlCommand com = new SqlCommand("Update Account set pwd = '" + UserInfo.MD5Hash(txtNewPass.Text) + "' where username = '" + txtAccount.Text + "'", ConDB.con);
             try
             {
 
                 com.ExecuteNonQuery();
                 
                 MessageBox.Show("Cập nhập thành công", "Thông báo");
-                
-                
-
                 
             }
             catch (Exception ex)
