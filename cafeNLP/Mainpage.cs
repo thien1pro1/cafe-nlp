@@ -25,7 +25,7 @@ namespace cafeNLP
                 int totalOrder = 0;
                 while (dr.Read())
                 {
-                    listOrder.Items.Add(new ListViewItem(new string[] { index.ToString(), dr.GetString(3), dr.GetString(0), dr.GetInt32(1).ToString(), dr.GetInt32(2).ToString(), (dr.GetInt32(1) * dr.GetInt32(2)).ToString() }));
+                    listOrder.Items.Add(new ListViewItem(new string[] { index.ToString(), dr.GetInt32(3).ToString(), dr.GetString(0), dr.GetInt32(1).ToString(), dr.GetInt32(2).ToString(), (dr.GetInt32(1) * dr.GetInt32(2)).ToString() }));
                     totalOrder += dr.GetInt32(1) * dr.GetInt32(2);
                     index += 1;
                 }
@@ -157,7 +157,7 @@ namespace cafeNLP
                 while (dr1.Read())
                 {
 
-                    cbbFood.Items.Add(new SelectBox { Text = dr1.GetString(1), Value = dr1.GetString(0) });
+                    cbbFood.Items.Add(new SelectBox { Text = dr1.GetString(1), Value = dr1.GetInt32(0).ToString() });
 
                 }
                 dr1.Dispose();

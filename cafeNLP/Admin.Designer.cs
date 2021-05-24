@@ -73,10 +73,10 @@
             this.btnAddCatelory = new System.Windows.Forms.Button();
             this.tcMenu = new System.Windows.Forms.TabPage();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.btnAddFood = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.nbudPrice = new System.Windows.Forms.NumericUpDown();
+            this.txtPrice = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.txtFoodName = new System.Windows.Forms.TextBox();
@@ -128,7 +128,7 @@
             this.tcMenu.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nbudPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).BeginInit();
             this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -567,7 +567,7 @@
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.button1);
+            this.panel9.Controls.Add(this.btnRemove);
             this.panel9.Controls.Add(this.btnAddFood);
             this.panel9.Controls.Add(this.panel13);
             this.panel9.Controls.Add(this.panel12);
@@ -578,21 +578,23 @@
             this.panel9.Size = new System.Drawing.Size(512, 310);
             this.panel9.TabIndex = 2;
             // 
-            // button1
+            // btnRemove
             // 
-            this.button1.Location = new System.Drawing.Point(284, 263);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(68, 32);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Bỏ chọn";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnAddFood_Click);
+            this.btnRemove.Location = new System.Drawing.Point(379, 324);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(90, 40);
+            this.btnRemove.TabIndex = 0;
+            this.btnRemove.Text = "Bỏ chọn";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnAddFood
             // 
-            this.btnAddFood.Location = new System.Drawing.Point(191, 263);
+            this.btnAddFood.Location = new System.Drawing.Point(255, 324);
+            this.btnAddFood.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddFood.Name = "btnAddFood";
-            this.btnAddFood.Size = new System.Drawing.Size(68, 32);
+            this.btnAddFood.Size = new System.Drawing.Size(90, 40);
             this.btnAddFood.TabIndex = 0;
             this.btnAddFood.Text = "Thêm";
             this.btnAddFood.UseVisualStyleBackColor = true;
@@ -600,29 +602,30 @@
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.nbudPrice);
+            this.panel13.Controls.Add(this.txtPrice);
             this.panel13.Controls.Add(this.label3);
             this.panel13.Location = new System.Drawing.Point(13, 200);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(487, 55);
             this.panel13.TabIndex = 5;
             // 
-            // nbudPrice
+            // txtPrice
             // 
-            this.nbudPrice.Increment = new decimal(new int[] {
+            this.txtPrice.Increment = new decimal(new int[] {
             500,
             0,
             0,
             0});
-            this.nbudPrice.Location = new System.Drawing.Point(162, 17);
-            this.nbudPrice.Maximum = new decimal(new int[] {
+            this.txtPrice.Location = new System.Drawing.Point(216, 21);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPrice.Maximum = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
-            this.nbudPrice.Name = "nbudPrice";
-            this.nbudPrice.Size = new System.Drawing.Size(312, 27);
-            this.nbudPrice.TabIndex = 1;
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(416, 32);
+            this.txtPrice.TabIndex = 1;
             // 
             // label3
             // 
@@ -744,6 +747,7 @@
             this.listFood.TabIndex = 0;
             this.listFood.UseCompatibleStateImageBehavior = false;
             this.listFood.View = System.Windows.Forms.View.Details;
+            this.listFood.SelectedIndexChanged += new System.EventHandler(this.listFood_SelectedIndexChanged);
             this.listFood.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listFood_KeyDown);
             // 
             // colSTT
@@ -944,7 +948,7 @@
             this.tcMenu.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nbudPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel11.ResumeLayout(false);
@@ -1007,7 +1011,7 @@
         private System.Windows.Forms.TabPage tcMenu;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.NumericUpDown nbudPrice;
+        private System.Windows.Forms.NumericUpDown txtPrice;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.TextBox txtFoodName;
@@ -1037,7 +1041,6 @@
         private System.Windows.Forms.DateTimePicker dtpkTo;
         private System.Windows.Forms.DateTimePicker dtpkFrom;
         private System.Windows.Forms.TabControl tcBill;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListView listAccount;
         private System.Windows.Forms.ColumnHeader STT;
         private System.Windows.Forms.ColumnHeader TaiKhoan;
@@ -1046,5 +1049,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox txtAccountID;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnRemove;
     }
 }
