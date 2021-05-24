@@ -30,7 +30,7 @@ namespace cafeNLP
                 int index = 1;
                 while (dr.Read())
                 {
-                    listFood.Items.Add(new ListViewItem(new string[] { index.ToString(), dr.GetString(2), dr.GetString(0), dr.GetString(3), dr.GetInt32(1).ToString() }));
+                    listFood.Items.Add(new ListViewItem(new string[] { index.ToString(), dr.GetInt32(2).ToString(), dr.GetString(0), dr.GetString(3), dr.GetInt32(1).ToString() }));
 
                     index += 1;
                 }
@@ -97,7 +97,7 @@ namespace cafeNLP
         private void btnEditFood_Click(object sender, EventArgs e)
         {
             
-            SqlCommand com = new SqlCommand("Update Food set nameFood = '" + txtFoodName.Text + "' cateloryFood = '"+txtNameCatelory.Text +"' priceFood ='"+nbudPrice.Text+"' where codeName = '" +txtFoodID.Text + "'", ConDB.con);
+            SqlCommand com = new SqlCommand("Update Food set nameFood = '" + txtFoodName.Text + "' cateloryFood = '"+txtNameCatelory.Text +"' priceFood ='"+txtPrice.Text+"' where codeName = '" +txtFoodID.Text + "'", ConDB.con);
             try
             {
 
@@ -142,30 +142,26 @@ namespace cafeNLP
 
         private void btnAddFood_Click(object sender, EventArgs e)
         {
-            int newCode = 0;
-            SqlCommand cmd = new SqlCommand("Select count(*) from Food", ConDB.con);
-            try
+            if(txtFoodID.Text != null)
             {
-                newCode = Convert.ToInt32(cmd.ExecuteScalar())+1;
-                cmd.Dispose();
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
 
 
-            SqlCommand com = new SqlCommand("Insert into Foode nameFood Value ( '"+ newCode.ToString() +"', '"+ txtFoodName.ToString() + "', '" + nbudPrice.ToString() +"', '" +cbbCatelory.SelectedItem.ToString()+"')", ConDB.con);
-            try
-            {
-                com.ExecuteNonQuery();
-                MessageBox.Show("Thêm thành công", "Thông báo");
+                SqlCommand com = new SqlCommand("update food set nameFood = @nameFood, priceFood = @price, caletoryFood = @category where codeFood = @id", ConDB.con);
+                com.Parameters.AddWithValue("@nameFood", txtFoodName.Text);
+                com.Parameters.AddWithValue("@price", txtPrice.Value);
+                com.Parameters.AddWithValue("@category", (cbbCatelory.SelectedItem as SelectBox).Value);
+                com.Parameters.AddWithValue("@id", txtFoodID.Text);
+                try
+                {
+                    com.ExecuteNonQuery();
+                    MessageBox.Show("Cập nhật thành công", "Thông báo");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+          
         }
 
         private void comboBox1_DataSourceChanged(object sender, EventArgs e)
@@ -213,6 +209,49 @@ namespace cafeNLP
 
                 }
             }
+        }
+
+        private void listFood_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listFood.SelectedItems.Count > 0)
+                {
+                    String id = listFood.SelectedItems[0].SubItems[1].Text;
+                    String foodName = listFood.SelectedItems[0].SubItems[2].Text;
+                    String cateName = listFood.SelectedItems[0].SubItems[3].Text;
+                    String price = listFood.SelectedItems[0].SubItems[4].Text;
+                    txtFoodID.Text = id;
+                    txtFoodName.Text = foodName;
+                    for (int i = 0; i < cbbCatelory.Items.Count; i++)
+                    {
+                        Console.WriteLine((cbbCatelory.Items[i] as SelectBox).Value);
+                        if ((cbbCatelory.Items[i] as SelectBox).Text == cateName)
+                        {
+                            cbbCatelory.SelectedIndex = i;
+                        }
+                    }
+
+                    btnAddFood.Text = "Lưu";
+                    txtPrice.Value = Int32.Parse(price);
+
+
+                }
+            }catch(Exception error)
+            {
+                Console.WriteLine(error);
+            }
+          
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            txtFoodID.Text = null;
+            txtFoodName.Text = null;
+            txtPrice.Value = 0;
+            cbbCatelory.SelectedIndex = -1;
+            listFood.SelectedItems.Clear();
+            btnAddFood.Text = "Thêm";
         }
     }
 }

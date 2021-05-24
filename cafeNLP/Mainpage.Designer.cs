@@ -37,6 +37,7 @@
             this.cbbFood = new System.Windows.Forms.ComboBox();
             this.cbbCatelory = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnTotalOrder = new System.Windows.Forms.Label();
             this.btnCheckOut = new System.Windows.Forms.Button();
             this.listOrder = new System.Windows.Forms.ListView();
             this.stt = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -67,7 +68,6 @@
             this.thôngTinCáNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnTotalOrder = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -204,6 +204,15 @@
             this.panel3.TabIndex = 4;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
+            // btnTotalOrder
+            // 
+            this.btnTotalOrder.AutoSize = true;
+            this.btnTotalOrder.Location = new System.Drawing.Point(14, 327);
+            this.btnTotalOrder.Name = "btnTotalOrder";
+            this.btnTotalOrder.Size = new System.Drawing.Size(193, 33);
+            this.btnTotalOrder.TabIndex = 6;
+            this.btnTotalOrder.Text = "Tổng thanh toán";
+            // 
             // btnCheckOut
             // 
             this.btnCheckOut.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -259,6 +268,7 @@
             // price
             // 
             this.price.Text = "Giá";
+            this.price.Width = 120;
             // 
             // qty
             // 
@@ -511,15 +521,6 @@
             this.adminToolStripMenuItem1.Size = new System.Drawing.Size(70, 16);
             this.adminToolStripMenuItem1.Text = "Admin";
             this.adminToolStripMenuItem1.Click += new System.EventHandler(this.adminToolStripMenuItem1_Click);
-            // 
-            // btnTotalOrder
-            // 
-            this.btnTotalOrder.AutoSize = true;
-            this.btnTotalOrder.Location = new System.Drawing.Point(14, 327);
-            this.btnTotalOrder.Name = "btnTotalOrder";
-            this.btnTotalOrder.Size = new System.Drawing.Size(193, 33);
-            this.btnTotalOrder.TabIndex = 6;
-            this.btnTotalOrder.Text = "Tổng thanh toán";
             // 
             // Mainpage
             // 

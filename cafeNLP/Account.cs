@@ -74,7 +74,9 @@ namespace cafeNLP
             }
 
 
-            SqlCommand com = new SqlCommand("Update Account set pwd = '" + UserInfo.MD5Hash(txtNewPass.Text) + "' where username = '" + txtAccount.Text + "'", ConDB.con);
+            SqlCommand com = new SqlCommand("Update Account set pwd = @password, showname=@showname where username = '" + txtAccount.Text + "'", ConDB.con);
+            com.Parameters.AddWithValue("@showname", txtUserName.Text);
+            com.Parameters.AddWithValue("@password", UserInfo.MD5Hash(txtNewPass.Text));
             try
             {
 
@@ -87,6 +89,11 @@ namespace cafeNLP
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void txtUserName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
