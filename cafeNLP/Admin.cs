@@ -18,6 +18,7 @@ namespace cafeNLP
             InitializeComponent();
             LoadAccountList();
             fetchListFood();
+            fetchListAccount();
         }
 
         void fetchListFood ()
@@ -31,6 +32,36 @@ namespace cafeNLP
                 while (dr.Read())
                 {
                     listFood.Items.Add(new ListViewItem(new string[] { index.ToString(), dr.GetString(2), dr.GetString(0), dr.GetString(3), dr.GetInt32(1).ToString() }));
+
+                    index += 1;
+                }
+                dr.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " Thông Báo");
+            }
+        }
+
+        void fetchListAccount()
+        {
+            SqlCommand comOrder = new SqlCommand("select * from Account", ConDB.con);
+            listAccount.Items.Clear();
+            try
+            {
+
+                SqlDataReader dr = comOrder.ExecuteReader();
+                int index = 1;
+                while (dr.Read())
+                {
+                    String r;
+                    if (dr.GetInt32(4) == 0)
+                    {
+                        r = "Nhân viên";
+                    }
+                    else r = "Admin";
+
+                    listAccount.Items.Add(new ListViewItem(new string[] { index.ToString(), dr.GetString(1), dr.GetString(3),r }));
 
                     index += 1;
                 }
@@ -214,5 +245,99 @@ namespace cafeNLP
                 }
             }
         }
+
+        private void listAcount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearchAccount_Click(object sender, EventArgs e)
+        {
+            SqlCommand comOrder = new SqlCommand("select * from Account where username  LIKE @username or showname LIKE N'%"+txtAccountSearch.Text+"%'", ConDB.con);
+            comOrder.Parameters.AddWithValue("@username", "%" + txtAccountSearch.Text + "%");
+            
+
+            // show list order
+            listAccount.Items.Clear();
+            try
+            {
+                SqlDataReader dr = comOrder.ExecuteReader();
+                int index = 1;
+                while (dr.Read())
+                {
+                    listAccount.Items.Add(new ListViewItem(new string[] { index.ToString(), dr.GetString(1), dr.GetString(3), dr.GetInt32(4).ToString() }));
+                    index += 1;
+                }
+                dr.Dispose();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " Thông Báo");
+            }
+        }
+
+        private void txtSearchAccount_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listAccount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listAccount.SelectedItems.Count > 0)
+                {
+                    String user = listAccount.SelectedItems[0].SubItems[1].Text;
+                    String name = listAccount.SelectedItems[0].SubItems[2].Text;
+                    String role = listAccount.SelectedItems[0].SubItems[3].Text;
+                    txtAccountuser.Text = user;
+                    txtAccountName.Text = name;
+                    cbbAccountType.Text = role;
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            
+        }
+
+        private void btnEditAccount_Click(object sender, EventArgs e)
+        {
+            String user = txtAccountuser.Text;
+            String name = txtAccountName.Text;
+            String role = cbbAccountType.Text;
+            int r = 0;
+            if (role == "Admin") r = 1;
+            else r = 0;
+            SqlCommand com = new SqlCommand("Update Account set username = @username , showname = @showname, role = @r where username = @username", ConDB.con);
+            try
+            {
+
+                com.ExecuteNonQuery();
+
+                MessageBox.Show("Cập nhập thành công", "Thông báo");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnAddAccount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }
