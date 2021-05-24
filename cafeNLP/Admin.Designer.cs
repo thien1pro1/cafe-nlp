@@ -31,6 +31,9 @@
             this.tcAccount = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.txtAccountID = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel31 = new System.Windows.Forms.Panel();
             this.cbbAccountType = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -105,12 +108,11 @@
             this.dtpkTo = new System.Windows.Forms.DateTimePicker();
             this.dtpkFrom = new System.Windows.Forms.DateTimePicker();
             this.tcBill = new System.Windows.Forms.TabControl();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.txtAccountID = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.tcAccount.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel31.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel26.SuspendLayout();
@@ -139,7 +141,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).BeginInit();
             this.panel4.SuspendLayout();
             this.tcBill.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcAccount
@@ -176,6 +177,35 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(512, 310);
             this.panel2.TabIndex = 10;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.txtAccountID);
+            this.panel6.Controls.Add(this.label4);
+            this.panel6.Location = new System.Drawing.Point(16, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(487, 55);
+            this.panel6.TabIndex = 6;
+            // 
+            // txtAccountID
+            // 
+            this.txtAccountID.Font = new System.Drawing.Font("Calibri Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAccountID.Location = new System.Drawing.Point(163, 16);
+            this.txtAccountID.Multiline = true;
+            this.txtAccountID.Name = "txtAccountID";
+            this.txtAccountID.Size = new System.Drawing.Size(311, 28);
+            this.txtAccountID.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(19, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(138, 41);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "ID Tài Khoản";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // panel31
             // 
@@ -567,6 +597,7 @@
             // 
             // panel9
             // 
+            this.panel9.Controls.Add(this.btnAdd);
             this.panel9.Controls.Add(this.btnRemove);
             this.panel9.Controls.Add(this.btnAddFood);
             this.panel9.Controls.Add(this.panel13);
@@ -616,7 +647,7 @@
             0,
             0,
             0});
-            this.txtPrice.Location = new System.Drawing.Point(216, 21);
+            this.txtPrice.Location = new System.Drawing.Point(162, 13);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrice.Maximum = new decimal(new int[] {
             1000000,
@@ -624,7 +655,7 @@
             0,
             0});
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(416, 32);
+            this.txtPrice.Size = new System.Drawing.Size(312, 27);
             this.txtPrice.TabIndex = 1;
             // 
             // label3
@@ -884,34 +915,15 @@
             this.tcBill.SelectedIndexChanged += new System.EventHandler(this.tcBill_SelectedIndexChanged);
             this.tcBill.TabIndexChanged += new System.EventHandler(this.tcBill_TabIndexChanged);
             // 
-            // panel6
+            // btnAdd
             // 
-            this.panel6.Controls.Add(this.txtAccountID);
-            this.panel6.Controls.Add(this.label4);
-            this.panel6.Location = new System.Drawing.Point(16, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(487, 55);
-            this.panel6.TabIndex = 6;
-            // 
-            // txtAccountID
-            // 
-            this.txtAccountID.Font = new System.Drawing.Font("Calibri Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAccountID.Location = new System.Drawing.Point(163, 16);
-            this.txtAccountID.Multiline = true;
-            this.txtAccountID.Name = "txtAccountID";
-            this.txtAccountID.Size = new System.Drawing.Size(311, 28);
-            this.txtAccountID.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(19, 3);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(138, 41);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "ID Tài Khoản";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.btnAdd.Location = new System.Drawing.Point(153, 271);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 6;
+            this.btnAdd.Text = "button1";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
             // Admin
             // 
@@ -925,6 +937,8 @@
             this.tcAccount.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.panel31.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -962,8 +976,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
             this.panel4.ResumeLayout(false);
             this.tcBill.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1050,5 +1062,6 @@
         private System.Windows.Forms.TextBox txtAccountID;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Button btnAdd;
     }
 }
