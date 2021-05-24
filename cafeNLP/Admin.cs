@@ -17,6 +17,29 @@ namespace cafeNLP
         {
             InitializeComponent();
             LoadAccountList();
+            fetchListFood();
+        }
+
+        void fetchListFood ()
+        {
+            SqlCommand comOrder = new SqlCommand("select f.nameFood, f.priceFood, f.codeFood, c.nameCatelory from Food as f join Catelory as c on c.codeCatelory = f.caletoryFood order by c.nameCatelory", ConDB.con);
+            listFood.Items.Clear();
+            try
+            {
+                SqlDataReader dr = comOrder.ExecuteReader();
+                int index = 1;
+                while (dr.Read())
+                {
+                    listFood.Items.Add(new ListViewItem(new string[] { index.ToString(), dr.GetString(2), dr.GetString(0), dr.GetString(3), dr.GetInt32(1).ToString() }));
+
+                    index += 1;
+                }
+                dr.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " Thông Báo");
+            }
         }
         void LoadAccountList()
         {
@@ -55,6 +78,7 @@ namespace cafeNLP
             cbbCatelory.DisplayMember = "Text";
             cbbCatelory.ValueMember = "Value";
             cbbCatelory.Items.Clear();
+           
             while (dr.Read())
             {
 
@@ -62,6 +86,7 @@ namespace cafeNLP
 
             }
             dr.Dispose();
+            fetchListFood();
         }
 
         private void dtgvFood_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -164,6 +189,30 @@ namespace cafeNLP
             }
             dr.Dispose();
             
+        }
+
+        private void listFood_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Delete == e.KeyCode)
+            {
+                foreach (ListViewItem listViewItem in ((ListView)sender).SelectedItems)
+                {
+                    ListViewItem item = listFood.SelectedItems[0];
+                    SqlCommand deleteItem = new SqlCommand("delete from food where codeFood = @idSP", ConDB.con);
+                    deleteItem.Parameters.AddWithValue("@idSP", listViewItem.SubItems[1].Text);
+             
+                    try
+                    {
+                        deleteItem.ExecuteNonQuery();
+                        listViewItem.Remove();
+                    }
+                    catch (SqlException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+
+                }
+            }
         }
     }
 }
