@@ -174,10 +174,30 @@ namespace cafeNLP
 
         private void btnAddFood_Click(object sender, EventArgs e)
         {
-            if(txtFoodID.Text != null)
+            if(txtFoodID.Text == "" || txtFoodID.Text == null)
             {
+                SqlCommand com = new SqlCommand("insert into food  (nameFood,priceFood,caletoryFood) values ( @nameFood, @price, @category ) ", ConDB.con);
+                com.Parameters.AddWithValue("@nameFood", txtFoodName.Text);
+                com.Parameters.AddWithValue("@price", txtPrice.Value);
+                com.Parameters.AddWithValue("@category", (cbbCatelory.SelectedItem as SelectBox).Value);
+
+                try
+                {
+                    com.ExecuteNonQuery();
+                    MessageBox.Show("Thêm thức uống thành công", "Thông báo");
+                    fetchListFood();
+                    resetForm();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
 
+              
+            }
+            else
+            {
                 SqlCommand com = new SqlCommand("update food set nameFood = @nameFood, priceFood = @price, caletoryFood = @category where codeFood = @id", ConDB.con);
                 com.Parameters.AddWithValue("@nameFood", txtFoodName.Text);
                 com.Parameters.AddWithValue("@price", txtPrice.Value);
@@ -187,6 +207,7 @@ namespace cafeNLP
                 {
                     com.ExecuteNonQuery();
                     MessageBox.Show("Cập nhật thành công", "Thông báo");
+                    fetchListFood();
                 }
                 catch (Exception ex)
                 {
@@ -233,6 +254,7 @@ namespace cafeNLP
                     {
                         deleteItem.ExecuteNonQuery();
                         listViewItem.Remove();
+                        resetForm();
                     }
                     catch (SqlException ex)
                     {
@@ -350,14 +372,14 @@ namespace cafeNLP
                     txtFoodName.Text = foodName;
                     for (int i = 0; i < cbbCatelory.Items.Count; i++)
                     {
-                        Console.WriteLine((cbbCatelory.Items[i] as SelectBox).Value);
+                      
                         if ((cbbCatelory.Items[i] as SelectBox).Text == cateName)
                         {
                             cbbCatelory.SelectedIndex = i;
                         }
                     }
 
-                    btnAddFood.Text = "Lưu";
+                    btnAdd.Text = "Lưu";
                     txtPrice.Value = Int32.Parse(price);
 
 
@@ -371,12 +393,17 @@ namespace cafeNLP
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
+            resetForm();
+        }
+
+        public void resetForm()
+        {
             txtFoodID.Text = null;
             txtFoodName.Text = null;
             txtPrice.Value = 0;
             cbbCatelory.SelectedIndex = -1;
             listFood.SelectedItems.Clear();
-            btnAddFood.Text = "Thêm";
+            btnAdd.Text = "Thêm";
         }
     }
 }
