@@ -405,5 +405,31 @@ namespace cafeNLP
             listFood.SelectedItems.Clear();
             btnAdd.Text = "Thêm";
         }
+
+        private void btnViewBill_Click(object sender, EventArgs e)
+        {
+            listAnalyst.Items.Clear();
+            string minDay = txtMinDay.Value.ToString("yyyy-MM-dd");
+            string maxDay = txtMaxDay.Value.ToString("yyyy-MM-dd");
+            Console.WriteLine(minDay + "   " + maxDay);
+            SqlCommand com = new SqlCommand("select ta.date, ta.total_money, tb.total_SL from (select date, sum(o.money) as 'total_money' from[Order] as o where date between @min and @max group by date)AS ta join(select  o.date, sum(d.SL) as 'total_SL' from[Order] as o join DetailOrder as d on o.idOrder = d.idOrder where date between @min and @max group by o.date) AS tb on ta.date = tb.date", ConDB.con);
+            com.Parameters.AddWithValue("@min", minDay);
+            com.Parameters.AddWithValue("@max", maxDay);
+            try
+            {
+                SqlDataReader dr = com.ExecuteReader();
+       
+                while (dr.Read())
+                {
+                    listAnalyst.Items.Add(new ListViewItem(new string[] {  dr.GetDateTime(0).ToString("yyyy-MM-dd"),  dr.GetInt32(2).ToString(), dr.GetInt32(1).ToString(), }));
+          
+                }
+                dr.Dispose();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }
