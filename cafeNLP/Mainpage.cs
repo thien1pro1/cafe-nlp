@@ -97,7 +97,7 @@ namespace cafeNLP
             while (dr.Read())
             {
 
-                cbbCatelory.Items.Add(new SelectBox { Text = dr.GetString(1), Value = dr.GetString(0) });
+                cbbCatelory.Items.Add(new SelectBox { Text = dr.GetString(1), Value = dr.GetInt32(0).ToString() });
 
             }
             dr.Dispose();
@@ -150,13 +150,14 @@ namespace cafeNLP
             cbbFood.Enabled = true;
             if (obj != null)
             {
-                SqlCommand com = new SqlCommand("Select * FROM Food where caletoryFood ='" + obj.Value + "'", ConDB.con);
+                SqlCommand com = new SqlCommand("Select * FROM Food where caletoryFood = @id", ConDB.con);
+                com.Parameters.AddWithValue("@id", obj.Value);
                 SqlDataReader dr1 = com.ExecuteReader();
                 cbbFood.DisplayMember = "Text";
                 cbbFood.ValueMember = "Value";
                 while (dr1.Read())
                 {
-
+                    Console.WriteLine(dr1.GetString(1));
                     cbbFood.Items.Add(new SelectBox { Text = dr1.GetString(1), Value = dr1.GetInt32(0).ToString() });
 
                 }
@@ -396,9 +397,11 @@ namespace cafeNLP
             }
             // get ID Order
             int idTable = Int32.Parse(this.orderI.idTable);
-            SqlCommand newOrder = new SqlCommand("Insert into [Order](date, idTable) output inserted.idOrder values (@date, @idTable)", ConDB.con);
+            int totalPrice = Int32.Parse(btnTotalOrder.Text.Replace("Tổng thanh toán: ", ""));
+            SqlCommand newOrder = new SqlCommand("Insert into [Order](date, idTable, money) output inserted.idOrder values (@date, @idTable, @money)", ConDB.con);
             newOrder.Parameters.AddWithValue("@date", DateTime.UtcNow.Date.ToString("yyyy/MM/dd"));
             newOrder.Parameters.AddWithValue("@idTable", idTable);
+            newOrder.Parameters.AddWithValue("@money", totalPrice);
             int idOrder = 0;
             try
             {
@@ -437,7 +440,7 @@ namespace cafeNLP
                 com.ExecuteNonQuery();
                 com.Dispose();
                 listOrder.Items.Clear();
-                int totalPrice = Int32.Parse(btnTotalOrder.Text.Replace("Tổng thanh toán: ", ""));
+              
                 btnTotalOrder.Text = "Tổng thanh toán: 0";
                 MessageBox.Show("Thanh toán thàn công đơn hàng bàn " + idTable + "\nTổng tiền: " + totalPrice, "Thông báo");
             }
