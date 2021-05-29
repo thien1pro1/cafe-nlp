@@ -67,6 +67,11 @@ namespace cafeNLP
                 return;
             }
 
+            if(txtNewPass.Text.Length < 8)
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu ít nhất 8 kí tự", "Thông báo");
+                return;
+            }
             if (!txtNewPass.Text.Equals(txtRePass.Text))
             {
                 MessageBox.Show("Mật khẩu mới và nhập lại mật khẩu không khớp", "Thông báo");

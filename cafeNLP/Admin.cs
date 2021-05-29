@@ -131,6 +131,9 @@ namespace cafeNLP
 
         private void tcBill_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtAccountSearch.Text = null;
+            txtFoodSearch.Text = null;
+            txtCatelogy.Text = null;
             SqlCommand com = new SqlCommand("Select * FROM Catelory", ConDB.con);
             SqlDataReader dr = com.ExecuteReader();
             cbbCatelory.DisplayMember = "Text";
@@ -178,7 +181,10 @@ namespace cafeNLP
         {
             SqlCommand comOrder = new SqlCommand("select f.nameFood, f.priceFood, f.codeFood, c.nameCatelory from Food as f join Catelory as c on c.codeCatelory = f.caletoryFood  where nameFood like @food order by c.nameCatelory", ConDB.con);
             comOrder.Parameters.AddWithValue("@food", "%" + txtFoodSearch.Text + "%");
+<<<<<<< HEAD
             
+=======
+>>>>>>> 111ab48a62fd9345dbf87c74f80805cb1047363c
             
             // show list order
             listFood.Items.Clear();
@@ -256,6 +262,7 @@ namespace cafeNLP
 
         private void tcBill_TabIndexChanged(object sender, EventArgs e)
         {
+
             try
             {
                 SqlCommand com = new SqlCommand("Select * FROM Catelory", ConDB.con);
@@ -555,7 +562,42 @@ namespace cafeNLP
 
         private void btnAddCatelory_Click(object sender, EventArgs e)
         {
+            if (txtCateloryID.Text == "" || txtCateloryID.Text == null)
+            {
+                SqlCommand com = new SqlCommand("insert into catelory  (nameCatelory) values ( @nameCategory ) ", ConDB.con);
+                com.Parameters.AddWithValue("@nameCategory", txtNameCatelory.Text);
 
+                try
+                {
+                    com.ExecuteNonQuery();
+                    MessageBox.Show("Thêm danh mục thành công", "Thông báo");
+                    fetchListCategory();
+                    resetForm();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+
+
+            }
+            else
+            {
+                SqlCommand com = new SqlCommand("update catelory set nameCatelory = @nameCategory where codeCatelory = @id", ConDB.con);
+                com.Parameters.AddWithValue("@nameCategory", txtNameCatelory.Text);
+                com.Parameters.AddWithValue("@id", txtCateloryID.Text);
+                try
+                {
+                    com.ExecuteNonQuery();
+                    MessageBox.Show("Cập nhật thành công", "Thông báo");
+                    fetchListCategory();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         private void btnSearchCatelory_Click(object sender, EventArgs e)
