@@ -336,12 +336,36 @@ namespace cafeNLP
             {
                 if (listAccount.SelectedItems.Count > 0)
                 {
+
+
+
+                    String id = "";
                     String user = listAccount.SelectedItems[0].SubItems[1].Text;
+                  
                     String name = listAccount.SelectedItems[0].SubItems[2].Text;
                     String role = listAccount.SelectedItems[0].SubItems[3].Text;
+
+                    SqlCommand comOrder = new SqlCommand("select * from Account where username = @username", ConDB.con);
+                    comOrder.Parameters.AddWithValue("@username", user);
+                    try
+                    {
+                        SqlDataReader dr = comOrder.ExecuteReader();
+                     
+                        while (dr.Read())
+                        {
+                            id = dr.GetInt32(0).ToString();
+                        }
+                        dr.Dispose();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, " Thông Báo");
+                    }
                     txtAccountuser.Text = user;
                     txtAccountName.Text = name;
                     cbbAccountType.Text = role;
+                    txtAccountID.Text = id;
 
                 }
 
@@ -583,32 +607,25 @@ namespace cafeNLP
             {
                 foreach (ListViewItem listViewItem in ((ListView)sender).SelectedItems)
                 {
-                    ListViewItem item = listCategogy.SelectedItems[0];
-                    if (listViewItem.SubItems[3].Text == "0")
+           
+                    SqlCommand deleteItem = new SqlCommand("delete from Account where username = @idSP", ConDB.con);
+        
+
+                    deleteItem.Parameters.AddWithValue("@idSP", listViewItem.SubItems[1].Text);
+
+                    try
                     {
-                        SqlCommand deleteItem = new SqlCommand("delete from Account where username = @idSP", ConDB.con);
-                        deleteItem.Parameters.AddWithValue("@idSP", listViewItem.SubItems[2].Text);
-
-                        try
-                        {
-                            deleteItem.ExecuteNonQuery();
-                            listViewItem.Remove();
-                            resetForm();
-                        }
-                        catch (SqlException ex)
-                        {
-                            Console.WriteLine("listAccount_KeyDown" + ex.Message);
-                        }
-
+                        deleteItem.ExecuteNonQuery();
+                        listViewItem.Remove();
+                        resetForm();
                     }
-                    else
+                    catch (SqlException ex)
                     {
-                        MessageBox.Show("Vui lòng xóa hết thức uông thuộc danh mục " + listViewItem.SubItems[2].Text, "Thông báo");
+                        Console.WriteLine("listAccount_KeyDown" + ex.Message);
                     }
-
 
                 }
             }
-            }
         }
+    }
 }
