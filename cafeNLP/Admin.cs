@@ -176,7 +176,9 @@ namespace cafeNLP
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            SqlCommand comOrder = new SqlCommand("select * from Food where nameFood ='"+txtFoodSearch.Text+"'", ConDB.con);
+            SqlCommand comOrder = new SqlCommand("select f.nameFood, f.priceFood, f.codeFood, c.nameCatelory from Food as f join Catelory as c on c.codeCatelory = f.caletoryFood  where nameFood like @food order by c.nameCatelory", ConDB.con);
+            comOrder.Parameters.AddWithValue("@food", "%" + txtFoodSearch.Text + "%");
+            
             
             // show list order
             listFood.Items.Clear();
@@ -186,7 +188,8 @@ namespace cafeNLP
                 int index = 1;
                 while (dr.Read())
                 {
-                    listFood.Items.Add(new ListViewItem(new string[] { index.ToString(), dr.GetString(0), dr.GetString(3), dr.GetString(1), dr.GetInt32(2).ToString() }));
+                    listFood.Items.Add(new ListViewItem(new string[] { index.ToString(), dr.GetInt32(2).ToString(), dr.GetString(0), dr.GetString(3), dr.GetInt32(1).ToString() }));
+
                     index += 1;
                 }
                 dr.Dispose();
@@ -626,7 +629,50 @@ namespace cafeNLP
 
         private void btnAddAcc_Click(object sender, EventArgs e)
         {
+            int r = 0;
+            if (txtAccountID.Text == "" || txtAccountID.Text == null)
+            {
+                
+                if (cbbAccountType.Text == "Admin") r = 1;
+                SqlCommand com = new SqlCommand("insert into Account  (username,showname,pwd,role) values ( @username, @showname, 1, @r ) ", ConDB.con);
+                com.Parameters.AddWithValue("@username",txtAccountuser.Text);
+                com.Parameters.AddWithValue("@showname", txtAccountName.Text);
+                com.Parameters.AddWithValue("@r", r);
 
+                try
+                {
+                    com.ExecuteNonQuery();
+                    MessageBox.Show("Thêm tài khoản thành công", "Thông báo");
+                    fetchListAccount();
+                    resetForm();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+
+
+            }
+            else
+            {
+                SqlCommand com = new SqlCommand("update Account set username = @user, showname = @showname, role = @role where id = @id", ConDB.con);
+                com.Parameters.AddWithValue("@username", txtAccountuser.Text);
+                com.Parameters.AddWithValue("@showname", txtAccountName.Text);
+                com.Parameters.AddWithValue("@role", r);
+                com.Parameters.AddWithValue("@id", txtAccountID.Text);
+                try
+                {
+                    com.ExecuteNonQuery();
+                    MessageBox.Show("Cập nhật thành công", "Thông báo");
+                    fetchListFood();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+          
         }
     }
 }
