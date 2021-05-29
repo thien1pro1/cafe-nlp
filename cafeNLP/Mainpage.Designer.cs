@@ -68,6 +68,7 @@
             this.thôngTinCáNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbname = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -84,6 +85,7 @@
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel2.BackgroundImage = global::cafeNLP.Properties.Resources.bgnlp4;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.lbname);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Location = new System.Drawing.Point(0, 28);
@@ -150,7 +152,7 @@
             0,
             0});
             this.btnQty.Name = "btnQty";
-            this.btnQty.Size = new System.Drawing.Size(63, 40);
+            this.btnQty.Size = new System.Drawing.Size(63, 33);
             this.btnQty.TabIndex = 5;
             this.btnQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnQty.Value = new decimal(new int[] {
@@ -176,7 +178,7 @@
             this.cbbFood.FormattingEnabled = true;
             this.cbbFood.Location = new System.Drawing.Point(3, 43);
             this.cbbFood.Name = "cbbFood";
-            this.cbbFood.Size = new System.Drawing.Size(331, 40);
+            this.cbbFood.Size = new System.Drawing.Size(331, 34);
             this.cbbFood.TabIndex = 3;
             this.cbbFood.SelectedIndexChanged += new System.EventHandler(this.cbbFood_SelectedIndexChanged);
             // 
@@ -187,7 +189,7 @@
             this.cbbCatelory.FormattingEnabled = true;
             this.cbbCatelory.Location = new System.Drawing.Point(3, 4);
             this.cbbCatelory.Name = "cbbCatelory";
-            this.cbbCatelory.Size = new System.Drawing.Size(331, 40);
+            this.cbbCatelory.Size = new System.Drawing.Size(331, 34);
             this.cbbCatelory.TabIndex = 2;
             this.cbbCatelory.SelectedIndexChanged += new System.EventHandler(this.cbbCatelory_SelectedIndexChanged);
             // 
@@ -209,7 +211,7 @@
             this.btnTotalOrder.AutoSize = true;
             this.btnTotalOrder.Location = new System.Drawing.Point(14, 327);
             this.btnTotalOrder.Name = "btnTotalOrder";
-            this.btnTotalOrder.Size = new System.Drawing.Size(193, 33);
+            this.btnTotalOrder.Size = new System.Drawing.Size(151, 26);
             this.btnTotalOrder.TabIndex = 6;
             this.btnTotalOrder.Text = "Tổng thanh toán";
             // 
@@ -483,7 +485,7 @@
             this.adminToolStripMenuItem.BackgroundImage = global::cafeNLP.Properties.Resources.xanh;
             this.adminToolStripMenuItem.Enabled = false;
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(83, 16);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(64, 16);
             this.adminToolStripMenuItem.Text = "               ";
             this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
             // 
@@ -495,21 +497,21 @@
             this.thôngTinTàiKhoảnToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thôngTinTàiKhoảnToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.thôngTinTàiKhoảnToolStripMenuItem.Name = "thôngTinTàiKhoảnToolStripMenuItem";
-            this.thôngTinTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(158, 16);
+            this.thôngTinTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(124, 16);
             this.thôngTinTàiKhoảnToolStripMenuItem.Text = "Thông tin tài khoản";
             this.thôngTinTàiKhoảnToolStripMenuItem.Click += new System.EventHandler(this.thôngTinTàiKhoảnToolStripMenuItem_Click);
             // 
             // thôngTinCáNhânToolStripMenuItem
             // 
             this.thôngTinCáNhânToolStripMenuItem.Name = "thôngTinCáNhânToolStripMenuItem";
-            this.thôngTinCáNhânToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.thôngTinCáNhânToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.thôngTinCáNhânToolStripMenuItem.Text = "Thông tin cá nhân";
             this.thôngTinCáNhânToolStripMenuItem.Click += new System.EventHandler(this.thôngTinCáNhânToolStripMenuItem_Click);
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
@@ -518,14 +520,25 @@
             this.adminToolStripMenuItem1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adminToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.adminToolStripMenuItem1.Name = "adminToolStripMenuItem1";
-            this.adminToolStripMenuItem1.Size = new System.Drawing.Size(70, 16);
+            this.adminToolStripMenuItem1.Size = new System.Drawing.Size(54, 16);
             this.adminToolStripMenuItem1.Text = "Admin";
             this.adminToolStripMenuItem1.Click += new System.EventHandler(this.adminToolStripMenuItem1_Click);
             // 
+            // lbname
+            // 
+            this.lbname.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbname.Image = global::cafeNLP.Properties.Resources.sanh;
+            this.lbname.Location = new System.Drawing.Point(1300, 22);
+            this.lbname.Name = "lbname";
+            this.lbname.Size = new System.Drawing.Size(196, 35);
+            this.lbname.TabIndex = 4;
+            this.lbname.Click += new System.EventHandler(this.label4_Click);
+            // 
             // Mainpage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::cafeNLP.Properties.Resources.xanh;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1545, 848);
             this.Controls.Add(this.panel2);
@@ -594,5 +607,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ColumnHeader codeFood;
         private System.Windows.Forms.Label btnTotalOrder;
+        private System.Windows.Forms.Label lbname;
     }
 }

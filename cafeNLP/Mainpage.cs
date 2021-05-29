@@ -89,11 +89,30 @@ namespace cafeNLP
 
         private void Mainpage_Load(object sender, EventArgs e)
         {
+            SqlCommand com1 = new SqlCommand("select showname from Account where username = @username", ConDB.con);
+            com1.Parameters.AddWithValue("@username", UserInfo.userName);
+            try
+            {
+                SqlDataReader dr1 = com1.ExecuteReader();
+                
+                while (dr1.Read())
+                {
+                    lbname.Text = dr1.GetString(0);
+                }
+                dr1.Dispose();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " Thông Báo");
+            }
+
             btnAddFood.Enabled = false;
             SqlCommand com = new SqlCommand("Select * FROM Catelory", ConDB.con);
             SqlDataReader dr = com.ExecuteReader();
             cbbCatelory.DisplayMember = "Text";
             cbbCatelory.ValueMember = "Value";
+            
             while (dr.Read())
             {
 
@@ -137,8 +156,32 @@ namespace cafeNLP
 
         private void adminToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Admin ad = new Admin();
-            ad.ShowDialog();
+            int ROLE = 0;
+            SqlCommand com1 = new SqlCommand("select role from Account where username = @username", ConDB.con);
+            com1.Parameters.AddWithValue("@username", UserInfo.userName);
+            try
+            {
+                SqlDataReader dr1 = com1.ExecuteReader();
+
+                while (dr1.Read())
+                {
+                    ROLE = dr1.GetInt32(0);
+                }
+                dr1.Dispose();
+
+                if (ROLE == 1)
+                {
+                    Admin ad = new Admin();
+                    ad.ShowDialog();
+
+                }
+                else MessageBox.Show("Bạn không có quyền Admin để truy cập!", " Thông Báo");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " Thông Báo");
+            }
+
         }
 
         private void cbbCatelory_SelectedIndexChanged(object sender, EventArgs e)
@@ -478,6 +521,11 @@ namespace cafeNLP
                  
                 }
             }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
