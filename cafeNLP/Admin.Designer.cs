@@ -53,8 +53,7 @@
             this.txtAccountSearch = new System.Windows.Forms.TextBox();
             this.btnSearchAccount = new System.Windows.Forms.Button();
             this.panel29 = new System.Windows.Forms.Panel();
-            this.btnEditAccount = new System.Windows.Forms.Button();
-            this.btnAddAccount = new System.Windows.Forms.Button();
+            this.btnAddAcc = new System.Windows.Forms.Button();
             this.tcCatelory = new System.Windows.Forms.TabPage();
             this.panel14 = new System.Windows.Forms.Panel();
             this.btnDeleteCatelory = new System.Windows.Forms.Button();
@@ -115,6 +114,7 @@
             this.txtMaxDay = new System.Windows.Forms.DateTimePicker();
             this.txtMinDay = new System.Windows.Forms.DateTimePicker();
             this.tcBill = new System.Windows.Forms.TabControl();
+            this.btnReAccount = new System.Windows.Forms.Button();
             this.tcAccount.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -124,7 +124,6 @@
             this.panel26.SuspendLayout();
             this.panel27.SuspendLayout();
             this.panel28.SuspendLayout();
-            this.panel29.SuspendLayout();
             this.tcCatelory.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel16.SuspendLayout();
@@ -176,6 +175,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnReAccount);
+            this.panel2.Controls.Add(this.btnAddAcc);
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.panel31);
             this.panel2.Controls.Add(this.panel3);
@@ -235,7 +236,6 @@
             this.cbbAccountType.FormattingEnabled = true;
             this.cbbAccountType.Items.AddRange(new object[] {
             "Nhân Viên",
-            "Quản lý",
             "Quản trị viên"});
             this.cbbAccountType.Location = new System.Drawing.Point(217, 15);
             this.cbbAccountType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -398,35 +398,22 @@
             // 
             // panel29
             // 
-            this.panel29.Controls.Add(this.btnEditAccount);
-            this.panel29.Controls.Add(this.btnAddAccount);
             this.panel29.Location = new System.Drawing.Point(5, 14);
             this.panel29.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel29.Name = "panel29";
             this.panel29.Size = new System.Drawing.Size(661, 97);
             this.panel29.TabIndex = 7;
             // 
-            // btnEditAccount
+            // btnAddAcc
             // 
-            this.btnEditAccount.Location = new System.Drawing.Point(226, 4);
-            this.btnEditAccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnEditAccount.Name = "btnEditAccount";
-            this.btnEditAccount.Size = new System.Drawing.Size(210, 90);
-            this.btnEditAccount.TabIndex = 1;
-            this.btnEditAccount.Text = "Sửa";
-            this.btnEditAccount.UseVisualStyleBackColor = true;
-            this.btnEditAccount.Click += new System.EventHandler(this.btnEditAccount_Click);
-            // 
-            // btnAddAccount
-            // 
-            this.btnAddAccount.Location = new System.Drawing.Point(4, 4);
-            this.btnAddAccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnAddAccount.Name = "btnAddAccount";
-            this.btnAddAccount.Size = new System.Drawing.Size(145, 90);
-            this.btnAddAccount.TabIndex = 0;
-            this.btnAddAccount.Text = "Thêm";
-            this.btnAddAccount.UseVisualStyleBackColor = true;
-            this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
+            this.btnAddAcc.Location = new System.Drawing.Point(261, 338);
+            this.btnAddAcc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddAcc.Name = "btnAddAcc";
+            this.btnAddAcc.Size = new System.Drawing.Size(73, 33);
+            this.btnAddAcc.TabIndex = 1;
+            this.btnAddAcc.Text = "Thêm";
+            this.btnAddAcc.UseVisualStyleBackColor = true;
+            this.btnAddAcc.Click += new System.EventHandler(this.btnAddAcc_Click);
             // 
             // tcCatelory
             // 
@@ -1051,6 +1038,17 @@
             this.tcBill.SelectedIndexChanged += new System.EventHandler(this.tcBill_SelectedIndexChanged);
             this.tcBill.TabIndexChanged += new System.EventHandler(this.tcBill_TabIndexChanged);
             // 
+            // btnReAccount
+            // 
+            this.btnReAccount.Location = new System.Drawing.Point(365, 338);
+            this.btnReAccount.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReAccount.Name = "btnReAccount";
+            this.btnReAccount.Size = new System.Drawing.Size(124, 33);
+            this.btnReAccount.TabIndex = 1;
+            this.btnReAccount.Text = "Bỏ chọn";
+            this.btnReAccount.UseVisualStyleBackColor = true;
+            this.btnReAccount.Click += new System.EventHandler(this.btnReAccount_Click);
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1074,7 +1072,6 @@
             this.panel27.ResumeLayout(false);
             this.panel28.ResumeLayout(false);
             this.panel28.PerformLayout();
-            this.panel29.ResumeLayout(false);
             this.tcCatelory.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
@@ -1125,8 +1122,7 @@
         private System.Windows.Forms.TextBox txtAccountSearch;
         private System.Windows.Forms.Button btnSearchAccount;
         private System.Windows.Forms.Panel panel29;
-        private System.Windows.Forms.Button btnEditAccount;
-        private System.Windows.Forms.Button btnAddAccount;
+        private System.Windows.Forms.Button btnAddAcc;
         private System.Windows.Forms.TabPage tcCatelory;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel16;
@@ -1195,5 +1191,6 @@
         private System.Windows.Forms.ColumnHeader madanhmuc;
         private System.Windows.Forms.ColumnHeader tendanhmuc;
         private System.Windows.Forms.ColumnHeader sosanpham;
+        private System.Windows.Forms.Button btnReAccount;
     }
 }

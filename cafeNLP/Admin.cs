@@ -76,12 +76,7 @@ namespace cafeNLP
                 int index = 1;
                 while (dr.Read())
                 {
-                    String r;
-                    if (dr.GetInt32(4) == 0)
-                    {
-                        r = "Nhân viên";
-                    }
-                    else r = "Admin";
+                    String r = formatTypAcc(dr.GetInt32(4));
 
                     listAccount.Items.Add(new ListViewItem(new string[] { index.ToString(), dr.GetString(1), dr.GetString(3),r }));
 
@@ -98,6 +93,15 @@ namespace cafeNLP
         void LoadAccountList()
         {
 
+        }
+        string formatTypAcc (int type) {
+              String r;
+              if (type == 0)
+                    {
+                        r = "Nhân viên";
+                    }
+             else r = "Quản trị viên";
+             return r;
         }
 
         private void tcMenu_Click(object sender, EventArgs e)
@@ -366,6 +370,7 @@ namespace cafeNLP
                     txtAccountName.Text = name;
                     cbbAccountType.Text = role;
                     txtAccountID.Text = id;
+                    btnAddAcc.Text = "Lưu";
 
                 }
 
@@ -379,25 +384,7 @@ namespace cafeNLP
 
         private void btnEditAccount_Click(object sender, EventArgs e)
         {
-            String user = txtAccountuser.Text;
-            String name = txtAccountName.Text;
-            String role = cbbAccountType.Text;
-            int r = 0;
-            if (role == "Admin") r = 1;
-            else r = 0;
-            SqlCommand com = new SqlCommand("Update Account set username = @username , showname = @showname, role = @r where username = @username", ConDB.con);
-            try
-            {
 
-                com.ExecuteNonQuery();
-
-                MessageBox.Show("Cập nhập thành công", "Thông báo");
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private void btnAddAccount_Click(object sender, EventArgs e)
@@ -476,6 +463,10 @@ namespace cafeNLP
             txtAccountuser.Text = null;
             txtAccountSearch.Text = null;
             cbbAccountType.Text = null;
+            listAccount.SelectedItems.Clear();
+            btnAddAcc.Text = "Thêm";
+
+
         }
 
         private void btnViewBill_Click(object sender, EventArgs e)
@@ -626,6 +617,16 @@ namespace cafeNLP
 
                 }
             }
+        }
+
+        private void btnReAccount_Click(object sender, EventArgs e)
+        {
+            resetForm();
+        }
+
+        private void btnAddAcc_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
