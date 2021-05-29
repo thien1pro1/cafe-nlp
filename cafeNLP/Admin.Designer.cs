@@ -58,6 +58,8 @@
             this.btnAddAccount = new System.Windows.Forms.Button();
             this.tcCatelory = new System.Windows.Forms.TabPage();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.btnDeleteCatelory = new System.Windows.Forms.Button();
+            this.btnAddCatelory = new System.Windows.Forms.Button();
             this.panel16 = new System.Windows.Forms.Panel();
             this.txtNameCatelory = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -65,12 +67,15 @@
             this.txtCateloryID = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
+            this.listCategogy = new System.Windows.Forms.ListView();
+            this.sttdanhmuc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.madanhmuc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tendanhmuc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.sosanpham = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel20 = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtCatelogy = new System.Windows.Forms.TextBox();
             this.btnSearchCatelory = new System.Windows.Forms.Button();
-            this.btnDeleteCatelory = new System.Windows.Forms.Button();
-            this.btnAddCatelory = new System.Windows.Forms.Button();
             this.tcMenu = new System.Windows.Forms.TabPage();
             this.panel9 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -111,11 +116,6 @@
             this.txtMaxDay = new System.Windows.Forms.DateTimePicker();
             this.txtMinDay = new System.Windows.Forms.DateTimePicker();
             this.tcBill = new System.Windows.Forms.TabControl();
-            this.listCategory = new System.Windows.Forms.ListView();
-            this.sttdanhmuc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.madanhmuc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tendanhmuc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.sosanpham = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tcAccount.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -393,6 +393,7 @@
             this.btnDeleteAcount.TabIndex = 2;
             this.btnDeleteAcount.Text = "Xóa";
             this.btnDeleteAcount.UseVisualStyleBackColor = true;
+            this.btnDeleteAcount.Click += new System.EventHandler(this.btnDeleteAcount_Click);
             // 
             // btnEditAccount
             // 
@@ -439,6 +440,26 @@
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(512, 310);
             this.panel14.TabIndex = 6;
+            // 
+            // btnDeleteCatelory
+            // 
+            this.btnDeleteCatelory.Location = new System.Drawing.Point(311, 183);
+            this.btnDeleteCatelory.Name = "btnDeleteCatelory";
+            this.btnDeleteCatelory.Size = new System.Drawing.Size(109, 73);
+            this.btnDeleteCatelory.TabIndex = 2;
+            this.btnDeleteCatelory.Text = "Bỏ chọn";
+            this.btnDeleteCatelory.UseVisualStyleBackColor = true;
+            this.btnDeleteCatelory.Click += new System.EventHandler(this.btnDeleteCatelory_Click);
+            // 
+            // btnAddCatelory
+            // 
+            this.btnAddCatelory.Location = new System.Drawing.Point(103, 183);
+            this.btnAddCatelory.Name = "btnAddCatelory";
+            this.btnAddCatelory.Size = new System.Drawing.Size(109, 73);
+            this.btnAddCatelory.TabIndex = 0;
+            this.btnAddCatelory.Text = "Thêm";
+            this.btnAddCatelory.UseVisualStyleBackColor = true;
+            this.btnAddCatelory.Click += new System.EventHandler(this.btnAddCatelory_Click);
             // 
             // panel16
             // 
@@ -499,12 +520,50 @@
             // 
             // panel19
             // 
-            this.panel19.Controls.Add(this.listCategory);
+            this.panel19.Controls.Add(this.listCategogy);
             this.panel19.Controls.Add(this.dataGridView1);
             this.panel19.Location = new System.Drawing.Point(0, 227);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(496, 326);
             this.panel19.TabIndex = 4;
+            // 
+            // listCategogy
+            // 
+            this.listCategogy.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.sttdanhmuc,
+            this.madanhmuc,
+            this.tendanhmuc,
+            this.sosanpham});
+            this.listCategogy.FullRowSelect = true;
+            this.listCategogy.HideSelection = false;
+            this.listCategogy.Location = new System.Drawing.Point(10, 12);
+            this.listCategogy.Name = "listCategogy";
+            this.listCategogy.Size = new System.Drawing.Size(480, 307);
+            this.listCategogy.TabIndex = 1;
+            this.listCategogy.UseCompatibleStateImageBehavior = false;
+            this.listCategogy.View = System.Windows.Forms.View.Details;
+            this.listCategogy.SelectedIndexChanged += new System.EventHandler(this.listCategory_SelectedIndexChanged);
+            this.listCategogy.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listCategory_KeyDown);
+            // 
+            // sttdanhmuc
+            // 
+            this.sttdanhmuc.Text = "STT";
+            this.sttdanhmuc.Width = 50;
+            // 
+            // madanhmuc
+            // 
+            this.madanhmuc.Text = "Mã danh mục";
+            this.madanhmuc.Width = 120;
+            // 
+            // tendanhmuc
+            // 
+            this.tendanhmuc.Text = "Tên danh mục";
+            this.tendanhmuc.Width = 200;
+            // 
+            // sosanpham
+            // 
+            this.sosanpham.Text = "Số sản phẩm thuộc danh mục";
+            this.sosanpham.Width = 300;
             // 
             // dataGridView1
             // 
@@ -517,19 +576,20 @@
             // 
             // panel20
             // 
-            this.panel20.Controls.Add(this.textBox5);
+            this.panel20.Controls.Add(this.txtCatelogy);
             this.panel20.Controls.Add(this.btnSearchCatelory);
             this.panel20.Location = new System.Drawing.Point(10, 145);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(1001, 79);
             this.panel20.TabIndex = 5;
             // 
-            // textBox5
+            // txtCatelogy
             // 
-            this.textBox5.Location = new System.Drawing.Point(16, 27);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(378, 27);
-            this.textBox5.TabIndex = 5;
+            this.txtCatelogy.Location = new System.Drawing.Point(16, 27);
+            this.txtCatelogy.Name = "txtCatelogy";
+            this.txtCatelogy.Size = new System.Drawing.Size(378, 27);
+            this.txtCatelogy.TabIndex = 5;
+            this.txtCatelogy.TextChanged += new System.EventHandler(this.txtCatelogy_TextChanged);
             // 
             // btnSearchCatelory
             // 
@@ -539,26 +599,7 @@
             this.btnSearchCatelory.TabIndex = 4;
             this.btnSearchCatelory.Text = "Tìm";
             this.btnSearchCatelory.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteCatelory
-            // 
-            this.btnDeleteCatelory.Location = new System.Drawing.Point(311, 183);
-            this.btnDeleteCatelory.Name = "btnDeleteCatelory";
-            this.btnDeleteCatelory.Size = new System.Drawing.Size(109, 73);
-            this.btnDeleteCatelory.TabIndex = 2;
-            this.btnDeleteCatelory.Text = "Bỏ chọn";
-            this.btnDeleteCatelory.UseVisualStyleBackColor = true;
-            this.btnDeleteCatelory.Click += new System.EventHandler(this.btnDeleteCatelory_Click);
-            // 
-            // btnAddCatelory
-            // 
-            this.btnAddCatelory.Location = new System.Drawing.Point(103, 183);
-            this.btnAddCatelory.Name = "btnAddCatelory";
-            this.btnAddCatelory.Size = new System.Drawing.Size(109, 73);
-            this.btnAddCatelory.TabIndex = 0;
-            this.btnAddCatelory.Text = "Thêm";
-            this.btnAddCatelory.UseVisualStyleBackColor = true;
-            this.btnAddCatelory.Click += new System.EventHandler(this.btnAddCatelory_Click);
+            this.btnSearchCatelory.Click += new System.EventHandler(this.btnSearchCatelory_Click);
             // 
             // tcMenu
             // 
@@ -952,44 +993,6 @@
             this.tcBill.SelectedIndexChanged += new System.EventHandler(this.tcBill_SelectedIndexChanged);
             this.tcBill.TabIndexChanged += new System.EventHandler(this.tcBill_TabIndexChanged);
             // 
-            // listCategory
-            // 
-            this.listCategory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.sttdanhmuc,
-            this.madanhmuc,
-            this.tendanhmuc,
-            this.sosanpham});
-            this.listCategory.FullRowSelect = true;
-            this.listCategory.HideSelection = false;
-            this.listCategory.Location = new System.Drawing.Point(10, 12);
-            this.listCategory.Name = "listCategory";
-            this.listCategory.Size = new System.Drawing.Size(480, 307);
-            this.listCategory.TabIndex = 1;
-            this.listCategory.UseCompatibleStateImageBehavior = false;
-            this.listCategory.View = System.Windows.Forms.View.Details;
-            this.listCategory.SelectedIndexChanged += new System.EventHandler(this.listCategory_SelectedIndexChanged);
-            this.listCategory.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listCategory_KeyDown);
-            // 
-            // sttdanhmuc
-            // 
-            this.sttdanhmuc.Text = "STT";
-            this.sttdanhmuc.Width = 50;
-            // 
-            // madanhmuc
-            // 
-            this.madanhmuc.Text = "Mã danh mục";
-            this.madanhmuc.Width = 120;
-            // 
-            // tendanhmuc
-            // 
-            this.tendanhmuc.Text = "Tên danh mục";
-            this.tendanhmuc.Width = 200;
-            // 
-            // sosanpham
-            // 
-            this.sosanpham.Text = "Số sản phẩm thuộc danh mục";
-            this.sosanpham.Width = 300;
-            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1077,7 +1080,7 @@
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel20;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtCatelogy;
         private System.Windows.Forms.Button btnSearchCatelory;
         private System.Windows.Forms.Button btnDeleteCatelory;
         private System.Windows.Forms.Button btnAddCatelory;
@@ -1129,7 +1132,7 @@
         private System.Windows.Forms.ColumnHeader day;
         private System.Windows.Forms.ColumnHeader item;
         private System.Windows.Forms.ColumnHeader money;
-        private System.Windows.Forms.ListView listCategory;
+        private System.Windows.Forms.ListView listCategogy;
         private System.Windows.Forms.ColumnHeader sttdanhmuc;
         private System.Windows.Forms.ColumnHeader madanhmuc;
         private System.Windows.Forms.ColumnHeader tendanhmuc;

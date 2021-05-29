@@ -46,14 +46,14 @@ namespace cafeNLP
         void fetchListCategory()
         {
             SqlCommand comOrder = new SqlCommand("select c.codeCatelory, c.nameCatelory , count(f.codeFood) as 'sumFood' from Catelory as c left join Food as f on c.codeCatelory = f.caletoryFood group by c.codeCatelory, c.nameCatelory order by c.nameCatelory", ConDB.con);
-            listCategory.Items.Clear();
+            listCategogy.Items.Clear();
             try
             {
                 SqlDataReader dr = comOrder.ExecuteReader();
                 int index = 1;
                 while (dr.Read())
                 {
-                    listCategory.Items.Add(new ListViewItem(new string[] { index.ToString(), dr.GetInt32(0).ToString(), dr.GetString(1), dr.GetInt32(2).ToString() }));
+                    listCategogy.Items.Add(new ListViewItem(new string[] { index.ToString(), dr.GetInt32(0).ToString(), dr.GetString(1), dr.GetInt32(2).ToString() }));
 
                     index += 1;
                 }
@@ -443,8 +443,15 @@ namespace cafeNLP
             // reset tab category
             txtCateloryID.Text = null;
             txtNameCatelory.Text = null;
-            listCategory.SelectedItems.Clear();
+            listCategogy.SelectedItems.Clear();
             btnAddCatelory.Text = "Thêm";
+
+            // reset tab Account
+            txtAccountID.Text = null;
+            txtAccountName.Text = null;
+            txtAccountuser.Text = null;
+            txtAccountSearch.Text = null;
+            cbbAccountType.Text = null;
         }
 
         private void btnViewBill_Click(object sender, EventArgs e)
@@ -477,10 +484,10 @@ namespace cafeNLP
         {
             try
             {
-                if (listCategory.SelectedItems.Count > 0)
+                if (listCategogy.SelectedItems.Count > 0)
                 {
-                    String id = listCategory.SelectedItems[0].SubItems[1].Text;
-                    String cateName = listCategory.SelectedItems[0].SubItems[2].Text;
+                    String id = listCategogy.SelectedItems[0].SubItems[1].Text;
+                    String cateName = listCategogy.SelectedItems[0].SubItems[2].Text;
 
                     txtCateloryID.Text = id;
                     txtNameCatelory.Text = cateName;
@@ -499,7 +506,7 @@ namespace cafeNLP
             {
                 foreach (ListViewItem listViewItem in ((ListView)sender).SelectedItems)
                 {
-                    ListViewItem item = listCategory.SelectedItems[0];
+                    ListViewItem item = listCategogy.SelectedItems[0];
                     if (listViewItem.SubItems[3].Text == "0")
                     {
                         SqlCommand deleteItem = new SqlCommand("delete from catelory where codeCatelory = @idSP", ConDB.con);
@@ -527,9 +534,81 @@ namespace cafeNLP
             }
         }
 
+
         private void btnAddCatelory_Click(object sender, EventArgs e)
         {
 
         }
-    }
+
+        private void btnSearchCatelory_Click(object sender, EventArgs e)
+        {
+            SqlCommand comOrder = new SqlCommand("select c.codeCatelory, c.nameCatelory , count(f.codeFood) as 'sumFood' from Catelory as c left join Food as f on c.codeCatelory = f.caletoryFood where (c.nameCatelory LIKE @name or c.codeCatelory LIKE @name) group by c.codeCatelory, c.nameCatelory order by c.nameCatelory ", ConDB.con);
+            comOrder.Parameters.AddWithValue("@name", "%" + txtCatelogy.Text + "%");
+
+
+            // show list order
+            listCategogy.Items.Clear();
+            try
+            {
+                SqlDataReader dr = comOrder.ExecuteReader();
+                int index = 1;
+                while (dr.Read())
+                {
+                    listCategogy.Items.Add(new ListViewItem(new string[] { index.ToString(), dr.GetInt32(0).ToString(), dr.GetString(1), dr.GetInt32(2).ToString() }));
+
+                    index += 1;
+                }
+                dr.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " Thông Báo");
+            }
+        }
+
+        private void txtCatelogy_TextChanged(object sender, EventArgs e)
+        {
+        
+        }
+
+        private void btnDeleteAcount_Click(object sender, EventArgs e)
+        {
+
+            
+        }
+
+        private void listAccount_keydown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Delete == e.KeyCode)
+            {
+                foreach (ListViewItem listViewItem in ((ListView)sender).SelectedItems)
+                {
+                    ListViewItem item = listCategogy.SelectedItems[0];
+                    if (listViewItem.SubItems[3].Text == "0")
+                    {
+                        SqlCommand deleteItem = new SqlCommand("delete from Account where username = @idSP", ConDB.con);
+                        deleteItem.Parameters.AddWithValue("@idSP", listViewItem.SubItems[2].Text);
+
+                        try
+                        {
+                            deleteItem.ExecuteNonQuery();
+                            listViewItem.Remove();
+                            resetForm();
+                        }
+                        catch (SqlException ex)
+                        {
+                            Console.WriteLine("listAccount_KeyDown" + ex.Message);
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui lòng xóa hết thức uông thuộc danh mục " + listViewItem.SubItems[2].Text, "Thông báo");
+                    }
+
+
+                }
+            }
+            }
+        }
 }
