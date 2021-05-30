@@ -21,6 +21,7 @@ namespace cafeNLP
             fetchListAccount();
             fetchListCategory();
             txtMaxDay.MaxDate = DateTime.Now;
+            txtMinDay.MaxDate = DateTime.Now;
         }
 
         void fetchListFood ()
@@ -150,6 +151,7 @@ namespace cafeNLP
             dr.Dispose();
             fetchListFood();
             fetchListCategory();
+            fetchListAccount();
         }
 
         private void dtgvFood_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -207,8 +209,15 @@ namespace cafeNLP
 
         private void btnAddFood_Click(object sender, EventArgs e)
         {
-            if(txtFoodID.Text == "" || txtFoodID.Text == null)
+            if (txtFoodName.Text == "" || txtFoodName.Text == null || txtPrice.Value == 0 || txtPrice.Value == null || cbbCatelory.SelectedIndex == -1)
             {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo");
+                return;
+            }
+
+                if (txtFoodID.Text == "" || txtFoodID.Text == null)
+            {
+                
                 SqlCommand com = new SqlCommand("insert into food  (nameFood,priceFood,caletoryFood) values ( @nameFood, @price, @category ) ", ConDB.con);
                 com.Parameters.AddWithValue("@nameFood", txtFoodName.Text);
                 com.Parameters.AddWithValue("@price", txtPrice.Value);
@@ -482,7 +491,7 @@ namespace cafeNLP
             listAnalyst.Items.Clear();
             string minDay = txtMinDay.Value.ToString("yyyy-MM-dd");
             string maxDay = txtMaxDay.Value.ToString("yyyy-MM-dd");
-            Console.WriteLine(minDay + "   " + maxDay);
+        
             SqlCommand com = new SqlCommand("select ta.date, ta.total_money, tb.total_SL from (select date, sum(o.money) as 'total_money' from[Order] as o where date between @min and @max group by date)AS ta join(select  o.date, sum(d.SL) as 'total_SL' from[Order] as o join DetailOrder as d on o.idOrder = d.idOrder where date between @min and @max group by o.date) AS tb on ta.date = tb.date", ConDB.con);
             com.Parameters.AddWithValue("@min", minDay);
             com.Parameters.AddWithValue("@max", maxDay);
@@ -560,6 +569,12 @@ namespace cafeNLP
 
         private void btnAddCatelory_Click(object sender, EventArgs e)
         {
+            if(txtNameCatelory.Text == "" || txtNameCatelory.Text == null)
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ tên danh mục", "Thông báo");
+                return;
+            }
+
             if (txtCateloryID.Text == "" || txtCateloryID.Text == null)
             {
                 SqlCommand com = new SqlCommand("insert into catelory  (nameCatelory) values ( @nameCategory ) ", ConDB.con);
@@ -669,12 +684,42 @@ namespace cafeNLP
 
         private void btnAddAcc_Click(object sender, EventArgs e)
         {
+            // check availabe
+            if (txtAccountName.Text == "" || txtAccountName.Text == null ||
+                txtAccountuser.Text == "" || txtAccountuser.Text == null ||
+                cbbAccountType.Text == "" || cbbAccountType.Text == null)
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo");
+                return;
+            }
+            // check exist user
+           
+             SqlCommand comExist = new SqlCommand("select count(*) from Account  where username =  @username", ConDB.con);
+            comExist.Parameters.AddWithValue("@username", txtAccountuser.Text);
+
+            try
+            {
+                int a = (int)comExist.ExecuteScalar();
+                if(a == 1)
+                {
+                    MessageBox.Show("Tài khoản " + txtAccountuser.Text+ " đã tồn tại" + a, "Thông báo");
+                    return;
+                }
+             
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("btnAddAcc_Click" + ex.Message, "Thông báo");
+                return;
+            }
+
+
             String mk = UserInfo.MD5Hash("12345678");
             int r = 0;
             if (txtAccountID.Text == "" || txtAccountID.Text == null)
             {
                 
-                if (cbbAccountType.Text == "Admin") r = 1;
+                if (cbbAccountType.Text == "Quản trị viên") r = 1;
                 SqlCommand com = new SqlCommand("insert into Account  (username,showname,pwd,role) values ( @username, @showname, @mk , @r ) ", ConDB.con);
                 com.Parameters.AddWithValue("@username",txtAccountuser.Text);
                 com.Parameters.AddWithValue("@showname", txtAccountName.Text);
