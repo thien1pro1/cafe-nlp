@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbname = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnTable16 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -68,7 +69,6 @@
             this.thôngTinCáNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.lbname = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -93,6 +93,17 @@
             this.panel2.Size = new System.Drawing.Size(1564, 867);
             this.panel2.TabIndex = 52;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // lbname
+            // 
+            this.lbname.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbname.Image = global::cafeNLP.Properties.Resources.sanh;
+            this.lbname.Location = new System.Drawing.Point(1142, 0);
+            this.lbname.Name = "lbname";
+            this.lbname.Size = new System.Drawing.Size(354, 35);
+            this.lbname.TabIndex = 4;
+            this.lbname.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbname.Click += new System.EventHandler(this.label4_Click);
             // 
             // panel1
             // 
@@ -120,6 +131,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1521, 739);
             this.panel1.TabIndex = 3;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
             // 
             // btnTable16
             // 
@@ -142,6 +154,7 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(595, 86);
             this.panel5.TabIndex = 5;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // btnQty
             // 
@@ -160,6 +173,7 @@
             0,
             0,
             0});
+            this.btnQty.ValueChanged += new System.EventHandler(this.btnQty_ValueChanged);
             // 
             // btnAddFood
             // 
@@ -214,6 +228,7 @@
             this.btnTotalOrder.Size = new System.Drawing.Size(151, 26);
             this.btnTotalOrder.TabIndex = 6;
             this.btnTotalOrder.Text = "Tổng thanh toán";
+            this.btnTotalOrder.Click += new System.EventHandler(this.btnTotalOrder_Click);
             // 
             // btnCheckOut
             // 
@@ -255,17 +270,16 @@
             // stt
             // 
             this.stt.Text = "STT";
-            this.stt.Width = 100;
             // 
             // codeFood
             // 
             this.codeFood.Text = "Code Food";
-            this.codeFood.Width = 100;
+            this.codeFood.Width = 160;
             // 
             // nameOfFood
             // 
             this.nameOfFood.Text = "Tên món";
-            this.nameOfFood.Width = 160;
+            this.nameOfFood.Width = 240;
             // 
             // price
             // 
@@ -461,6 +475,7 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "TRANG CHỦ NLP";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // menuStrip1
             // 
@@ -523,16 +538,6 @@
             this.adminToolStripMenuItem1.Size = new System.Drawing.Size(54, 16);
             this.adminToolStripMenuItem1.Text = "Admin";
             this.adminToolStripMenuItem1.Click += new System.EventHandler(this.adminToolStripMenuItem1_Click);
-            // 
-            // lbname
-            // 
-            this.lbname.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbname.Image = global::cafeNLP.Properties.Resources.sanh;
-            this.lbname.Location = new System.Drawing.Point(1300, 22);
-            this.lbname.Name = "lbname";
-            this.lbname.Size = new System.Drawing.Size(196, 35);
-            this.lbname.TabIndex = 4;
-            this.lbname.Click += new System.EventHandler(this.label4_Click);
             // 
             // Mainpage
             // 

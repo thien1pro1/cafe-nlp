@@ -181,11 +181,7 @@ namespace cafeNLP
         {
             SqlCommand comOrder = new SqlCommand("select f.nameFood, f.priceFood, f.codeFood, c.nameCatelory from Food as f join Catelory as c on c.codeCatelory = f.caletoryFood  where nameFood like @food order by c.nameCatelory", ConDB.con);
             comOrder.Parameters.AddWithValue("@food", "%" + txtFoodSearch.Text + "%");
-<<<<<<< HEAD
-            
-=======
->>>>>>> 111ab48a62fd9345dbf87c74f80805cb1047363c
-            
+
             // show list order
             listFood.Items.Clear();
             try
@@ -313,6 +309,7 @@ namespace cafeNLP
 
         }
 
+
         private void btnSearchAccount_Click(object sender, EventArgs e)
         {
             SqlCommand comOrder = new SqlCommand("select * from Account where username  LIKE @username or showname LIKE N'%"+txtAccountSearch.Text+"%'", ConDB.con);
@@ -327,7 +324,7 @@ namespace cafeNLP
                 int index = 1;
                 while (dr.Read())
                 {
-                    listAccount.Items.Add(new ListViewItem(new string[] { index.ToString(), dr.GetString(1), dr.GetString(3), dr.GetInt32(4).ToString() }));
+                    listAccount.Items.Add(new ListViewItem(new string[] { index.ToString(), dr.GetString(1), dr.GetString(3), formatTypAcc(dr.GetInt32(4)) }));
                     index += 1;
                 }
                 dr.Dispose();
@@ -671,15 +668,17 @@ namespace cafeNLP
 
         private void btnAddAcc_Click(object sender, EventArgs e)
         {
+            String mk = UserInfo.MD5Hash("12345678");
             int r = 0;
             if (txtAccountID.Text == "" || txtAccountID.Text == null)
             {
                 
                 if (cbbAccountType.Text == "Admin") r = 1;
-                SqlCommand com = new SqlCommand("insert into Account  (username,showname,pwd,role) values ( @username, @showname, 1, @r ) ", ConDB.con);
+                SqlCommand com = new SqlCommand("insert into Account  (username,showname,pwd,role) values ( @username, @showname, @mk , @r ) ", ConDB.con);
                 com.Parameters.AddWithValue("@username",txtAccountuser.Text);
                 com.Parameters.AddWithValue("@showname", txtAccountName.Text);
                 com.Parameters.AddWithValue("@r", r);
+                com.Parameters.AddWithValue("@mk", mk);
 
                 try
                 {
@@ -715,6 +714,22 @@ namespace cafeNLP
                 }
             }
           
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            SqlCommand com = new SqlCommand("Select * FROM Catelory", ConDB.con);
+            SqlDataReader dr = com.ExecuteReader();
+            cbbCategogyFind.DisplayMember = "Text";
+            cbbCategogyFind.ValueMember = "Value";
+
+            while (dr.Read())
+            {
+
+                cbbCategogyFind.Items.Add(new SelectBox { Text = dr.GetString(1), Value = dr.GetInt32(0).ToString() });
+
+            }
+            dr.Dispose();
         }
     }
 }

@@ -114,6 +114,7 @@
             this.txtMaxDay = new System.Windows.Forms.DateTimePicker();
             this.txtMinDay = new System.Windows.Forms.DateTimePicker();
             this.tcBill = new System.Windows.Forms.TabControl();
+            this.cbbCategogyFind = new System.Windows.Forms.ComboBox();
             this.tcAccount.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -216,9 +217,8 @@
             this.txtAccountID.Enabled = false;
             this.txtAccountID.Font = new System.Drawing.Font("Calibri Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAccountID.Location = new System.Drawing.Point(163, 16);
-            this.txtAccountID.Multiline = true;
             this.txtAccountID.Name = "txtAccountID";
-            this.txtAccountID.Size = new System.Drawing.Size(311, 28);
+            this.txtAccountID.Size = new System.Drawing.Size(311, 21);
             this.txtAccountID.TabIndex = 1;
             // 
             // label4
@@ -276,9 +276,8 @@
             // 
             this.txtAccountName.Font = new System.Drawing.Font("Calibri Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAccountName.Location = new System.Drawing.Point(163, 16);
-            this.txtAccountName.Multiline = true;
             this.txtAccountName.Name = "txtAccountName";
-            this.txtAccountName.Size = new System.Drawing.Size(311, 28);
+            this.txtAccountName.Size = new System.Drawing.Size(311, 21);
             this.txtAccountName.TabIndex = 1;
             // 
             // label9
@@ -304,9 +303,8 @@
             // 
             this.txtAccountuser.Font = new System.Drawing.Font("Calibri Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAccountuser.Location = new System.Drawing.Point(163, 16);
-            this.txtAccountuser.Multiline = true;
             this.txtAccountuser.Name = "txtAccountuser";
-            this.txtAccountuser.Size = new System.Drawing.Size(311, 28);
+            this.txtAccountuser.Size = new System.Drawing.Size(311, 21);
             this.txtAccountuser.TabIndex = 1;
             // 
             // label10
@@ -353,7 +351,7 @@
             // 
             this.TaiKhoan.Text = "Tài khoản";
             this.TaiKhoan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TaiKhoan.Width = 150;
+            this.TaiKhoan.Width = 120;
             // 
             // TenHienThi
             // 
@@ -453,9 +451,8 @@
             // 
             this.txtNameCatelory.Font = new System.Drawing.Font("Calibri Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNameCatelory.Location = new System.Drawing.Point(163, 16);
-            this.txtNameCatelory.Multiline = true;
             this.txtNameCatelory.Name = "txtNameCatelory";
-            this.txtNameCatelory.Size = new System.Drawing.Size(311, 28);
+            this.txtNameCatelory.Size = new System.Drawing.Size(311, 21);
             this.txtNameCatelory.TabIndex = 1;
             // 
             // label6
@@ -481,10 +478,9 @@
             // 
             this.txtCateloryID.Font = new System.Drawing.Font("Calibri Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCateloryID.Location = new System.Drawing.Point(163, 16);
-            this.txtCateloryID.Multiline = true;
             this.txtCateloryID.Name = "txtCateloryID";
             this.txtCateloryID.ReadOnly = true;
-            this.txtCateloryID.Size = new System.Drawing.Size(311, 28);
+            this.txtCateloryID.Size = new System.Drawing.Size(311, 21);
             this.txtCateloryID.TabIndex = 1;
             // 
             // label8
@@ -590,7 +586,7 @@
             this.tcMenu.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcMenu.Location = new System.Drawing.Point(4, 22);
             this.tcMenu.Name = "tcMenu";
-            this.tcMenu.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tcMenu.Padding = new System.Windows.Forms.Padding(3);
             this.tcMenu.Size = new System.Drawing.Size(1028, 561);
             this.tcMenu.TabIndex = 1;
             this.tcMenu.Text = "Thực đơn";
@@ -635,7 +631,7 @@
             // btnRemove
             // 
             this.btnRemove.Location = new System.Drawing.Point(379, 324);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(90, 40);
             this.btnRemove.TabIndex = 0;
@@ -646,7 +642,7 @@
             // btnAddFood
             // 
             this.btnAddFood.Location = new System.Drawing.Point(255, 324);
-            this.btnAddFood.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddFood.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddFood.Name = "btnAddFood";
             this.btnAddFood.Size = new System.Drawing.Size(90, 40);
             this.btnAddFood.TabIndex = 0;
@@ -671,7 +667,7 @@
             0,
             0});
             this.txtPrice.Location = new System.Drawing.Point(162, 13);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrice.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -702,10 +698,10 @@
             // 
             // txtFoodName
             // 
-            this.txtFoodName.Font = new System.Drawing.Font("Calibri Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFoodName.Location = new System.Drawing.Point(162, 16);
+            this.txtFoodName.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFoodName.Location = new System.Drawing.Point(162, 11);
             this.txtFoodName.Name = "txtFoodName";
-            this.txtFoodName.Size = new System.Drawing.Size(312, 21);
+            this.txtFoodName.Size = new System.Drawing.Size(312, 26);
             this.txtFoodName.TabIndex = 1;
             // 
             // label2
@@ -730,10 +726,11 @@
             // cbbCatelory
             // 
             this.cbbCatelory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCatelory.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbCatelory.FormattingEnabled = true;
             this.cbbCatelory.Location = new System.Drawing.Point(162, 12);
             this.cbbCatelory.Name = "cbbCatelory";
-            this.cbbCatelory.Size = new System.Drawing.Size(312, 27);
+            this.cbbCatelory.Size = new System.Drawing.Size(312, 28);
             this.cbbCatelory.TabIndex = 1;
             this.cbbCatelory.DataSourceChanged += new System.EventHandler(this.comboBox1_DataSourceChanged);
             // 
@@ -758,12 +755,11 @@
             // 
             // txtFoodID
             // 
-            this.txtFoodID.Font = new System.Drawing.Font("Calibri Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFoodID.Location = new System.Drawing.Point(162, 16);
-            this.txtFoodID.Multiline = true;
+            this.txtFoodID.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFoodID.Location = new System.Drawing.Point(162, 11);
             this.txtFoodID.Name = "txtFoodID";
             this.txtFoodID.ReadOnly = true;
-            this.txtFoodID.Size = new System.Drawing.Size(312, 28);
+            this.txtFoodID.Size = new System.Drawing.Size(312, 26);
             this.txtFoodID.TabIndex = 1;
             // 
             // label5
@@ -833,6 +829,7 @@
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.cbbCategogyFind);
             this.panel7.Controls.Add(this.txtFoodSearch);
             this.panel7.Controls.Add(this.btnSearch);
             this.panel7.Location = new System.Drawing.Point(7, 147);
@@ -866,7 +863,7 @@
             this.tcAdmin.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcAdmin.Location = new System.Drawing.Point(4, 22);
             this.tcAdmin.Name = "tcAdmin";
-            this.tcAdmin.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tcAdmin.Padding = new System.Windows.Forms.Padding(3);
             this.tcAdmin.Size = new System.Drawing.Size(1028, 561);
             this.tcAdmin.TabIndex = 0;
             this.tcAdmin.Text = "Doanh thu";
@@ -971,6 +968,15 @@
             this.tcBill.TabIndex = 1;
             this.tcBill.SelectedIndexChanged += new System.EventHandler(this.tcBill_SelectedIndexChanged);
             this.tcBill.TabIndexChanged += new System.EventHandler(this.tcBill_TabIndexChanged);
+            // 
+            // cbbCategogyFind
+            // 
+            this.cbbCategogyFind.FormattingEnabled = true;
+            this.cbbCategogyFind.Location = new System.Drawing.Point(501, 32);
+            this.cbbCategogyFind.Name = "cbbCategogyFind";
+            this.cbbCategogyFind.Size = new System.Drawing.Size(395, 27);
+            this.cbbCategogyFind.TabIndex = 6;
+            this.cbbCategogyFind.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // Admin
             // 
@@ -1113,5 +1119,6 @@
         private System.Windows.Forms.ColumnHeader tendanhmuc;
         private System.Windows.Forms.ColumnHeader sosanpham;
         private System.Windows.Forms.Button btnReAccount;
+        private System.Windows.Forms.ComboBox cbbCategogyFind;
     }
 }

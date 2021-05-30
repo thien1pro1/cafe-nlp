@@ -527,5 +527,30 @@ namespace cafeNLP
         {
 
         }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnQty_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTotalOrder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
