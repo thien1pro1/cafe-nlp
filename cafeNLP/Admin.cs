@@ -180,8 +180,9 @@ namespace cafeNLP
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            SqlCommand comOrder = new SqlCommand("select f.nameFood, f.priceFood, f.codeFood, c.nameCatelory from Food as f join Catelory as c on c.codeCatelory = f.caletoryFood  where nameFood like @food order by c.nameCatelory", ConDB.con);
+            SqlCommand comOrder = new SqlCommand("select f.nameFood, f.priceFood, f.codeFood, c.nameCatelory from Food as f join Catelory as c on c.codeCatelory = f.caletoryFood  where nameFood like @food or c.nameCatelory = @cate order by c.nameCatelory", ConDB.con);
             comOrder.Parameters.AddWithValue("@food", "%" + txtFoodSearch.Text + "%");
+            comOrder.Parameters.AddWithValue("@cate", "%" + txtFoodSearch.Text + "%");
             // show list order
             listFood.Items.Clear();
             try
@@ -718,22 +719,16 @@ namespace cafeNLP
 
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            SqlCommand com = new SqlCommand("Select * FROM Catelory", ConDB.con);
-            SqlDataReader dr = com.ExecuteReader();
-            cbbCategogyFind.DisplayMember = "Text";
-            cbbCategogyFind.ValueMember = "Value";
 
-            while (dr.Read())
-            {
-
-                cbbCategogyFind.Items.Add(new SelectBox { Text = dr.GetString(1), Value = dr.GetInt32(0).ToString() });
-
-            }
-            dr.Dispose();
         }
         private void txtMinDay_ValueChanged(object sender, EventArgs e)
         {
             txtMaxDay.MinDate = txtMinDay.Value;
+        }
+
+        private void txtFoodSearch_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
