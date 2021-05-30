@@ -20,6 +20,7 @@ namespace cafeNLP
             fetchListFood();
             fetchListAccount();
             fetchListCategory();
+            txtMaxDay.MaxDate = DateTime.Now;
         }
 
         void fetchListFood ()
@@ -181,7 +182,6 @@ namespace cafeNLP
         {
             SqlCommand comOrder = new SqlCommand("select f.nameFood, f.priceFood, f.codeFood, c.nameCatelory from Food as f join Catelory as c on c.codeCatelory = f.caletoryFood  where nameFood like @food order by c.nameCatelory", ConDB.con);
             comOrder.Parameters.AddWithValue("@food", "%" + txtFoodSearch.Text + "%");
-
             // show list order
             listFood.Items.Clear();
             try
@@ -730,6 +730,10 @@ namespace cafeNLP
 
             }
             dr.Dispose();
+        }
+        private void txtMinDay_ValueChanged(object sender, EventArgs e)
+        {
+            txtMaxDay.MinDate = txtMinDay.Value;
         }
     }
 }
