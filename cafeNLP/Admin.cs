@@ -20,6 +20,7 @@ namespace cafeNLP
             fetchListFood();
             fetchListAccount();
             fetchListCategory();
+            txtMaxDay.MaxDate = DateTime.Now;
         }
 
         void fetchListFood ()
@@ -711,6 +712,11 @@ namespace cafeNLP
                 }
             }
           
+        }
+
+        private void txtMinDay_ValueChanged(object sender, EventArgs e)
+        {
+            txtMaxDay.MinDate = txtMinDay.Value;
         }
     }
 }
