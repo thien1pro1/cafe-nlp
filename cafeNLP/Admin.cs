@@ -181,10 +181,6 @@ namespace cafeNLP
         {
             SqlCommand comOrder = new SqlCommand("select f.nameFood, f.priceFood, f.codeFood, c.nameCatelory from Food as f join Catelory as c on c.codeCatelory = f.caletoryFood  where nameFood like @food order by c.nameCatelory", ConDB.con);
             comOrder.Parameters.AddWithValue("@food", "%" + txtFoodSearch.Text + "%");
-<<<<<<< HEAD
-            
-=======
->>>>>>> 111ab48a62fd9345dbf87c74f80805cb1047363c
             
             // show list order
             listFood.Items.Clear();
