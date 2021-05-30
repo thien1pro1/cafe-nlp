@@ -11,6 +11,144 @@ namespace cafeNLP
         public Mainpage()
         {
             InitializeComponent();
+            checkTableHavePeople();
+        }
+        int oldSelect = 0;
+        void checkTableHavePeople()
+        {
+           
+            SqlCommand comOrder = new SqlCommand("select distinct(idTable) from TempOrder", ConDB.con);
+    
+            try
+            {
+                SqlDataReader dr = comOrder.ExecuteReader();
+  
+                while (dr.Read())
+                {
+                    int tableHavePeople = dr.GetInt32(0);
+  
+                        setColorTable(dr.GetInt32(0));
+                   
+                   
+                }
+                dr.Dispose();
+              
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("checkTableHavePeople "+ ex.Message, " Thông Báo");
+            }
+            
+        }
+        void setColorTable(int table)
+        {
+            switch (table)
+            {
+                case 1:
+                    btnTable1.BackColor = System.Drawing.Color.OrangeRed;
+                    break;
+                case 2:
+                    btnTable2.BackColor = System.Drawing.Color.OrangeRed;
+                    break;
+                case 3:
+                    btnTable3.BackColor = System.Drawing.Color.OrangeRed;
+                    break;
+                case 4:
+                    btnTable4.BackColor = System.Drawing.Color.OrangeRed;
+                    break;
+                case 5:
+                    btnTable5.BackColor = System.Drawing.Color.OrangeRed;
+                    break;
+                case 6:
+                    btnTable6.BackColor = System.Drawing.Color.OrangeRed;
+                    break;
+                case 7:
+                    btnTable7.BackColor = System.Drawing.Color.OrangeRed;
+                    break;
+                case 8:
+                    btnTable8.BackColor = System.Drawing.Color.OrangeRed;
+                    break;
+                case 9:
+                    btnTable9.BackColor = System.Drawing.Color.OrangeRed;
+                    break;
+                case 10:
+                    btnTable10.BackColor = System.Drawing.Color.OrangeRed;
+                    break;
+                case 11:
+                    btnTable11.BackColor = System.Drawing.Color.OrangeRed;
+                    break;
+                case 12:
+                    btnTable12.BackColor = System.Drawing.Color.OrangeRed;
+                    break;
+                case 13:
+                    btnTable13.BackColor = System.Drawing.Color.OrangeRed;
+                    break;
+                case 14:
+                    btnTable14.BackColor = System.Drawing.Color.OrangeRed;
+                    break;
+                case 15:
+                    btnTable15.BackColor = System.Drawing.Color.OrangeRed;
+                    break;
+                case 16:
+                    btnTable16.BackColor = System.Drawing.Color.OrangeRed;
+                    break;
+            }
+        }
+
+        void setColorGrayTable(int table)
+        {
+            switch (table)
+            {
+                case 1:
+                    btnTable1.BackColor = System.Drawing.Color.LightGray;
+                    break;
+                case 2:
+                    btnTable2.BackColor = System.Drawing.Color.LightGray;
+                    break;
+                case 3:
+                    btnTable3.BackColor = System.Drawing.Color.LightGray;
+                    break;
+                case 4:
+                    btnTable4.BackColor = System.Drawing.Color.LightGray;
+                    break;
+                case 5:
+                    btnTable5.BackColor = System.Drawing.Color.LightGray;
+                    break;
+                case 6:
+                    btnTable6.BackColor = System.Drawing.Color.LightGray;
+                    break;
+                case 7:
+                    btnTable7.BackColor = System.Drawing.Color.LightGray;
+                    break;
+                case 8:
+                    btnTable8.BackColor = System.Drawing.Color.LightGray;
+                    break;
+                case 9:
+                    btnTable9.BackColor = System.Drawing.Color.LightGray;
+                    break;
+                case 10:
+                    btnTable10.BackColor = System.Drawing.Color.LightGray;
+                    break;
+                case 11:
+                    btnTable11.BackColor = System.Drawing.Color.LightGray;
+                    break;
+                case 12:
+                    btnTable12.BackColor = System.Drawing.Color.LightGray;
+                    break;
+                case 13:
+                    btnTable13.BackColor = System.Drawing.Color.LightGray;
+                    break;
+                case 14:
+                    btnTable14.BackColor = System.Drawing.Color.LightGray;
+                    break;
+                case 15:
+                    btnTable15.BackColor = System.Drawing.Color.LightGray;
+                    break;
+                case 16:
+                    btnTable16.BackColor = System.Drawing.Color.LightGray;
+                    break;
+            }
         }
         public void reloadListItem(string id)
         {
@@ -45,26 +183,68 @@ namespace cafeNLP
             cbbFood.Enabled = false;
             setColor(id);
             reloadListItem(id);
+           
         }
 
         public void setColor(string id)
         {
-            btnTable1.BackColor = id == "1" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
-            btnTable2.BackColor = id == "2" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
-            btnTable3.BackColor = id == "3" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
-            btnTable4.BackColor = id == "4" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
-            btnTable5.BackColor = id == "5" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
-            btnTable6.BackColor = id == "6" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
-            btnTable7.BackColor = id == "7" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
-            btnTable8.BackColor = id == "8" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
-            btnTable9.BackColor = id == "9" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
-            btnTable10.BackColor = id == "10" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
-            btnTable11.BackColor = id == "11" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
-            btnTable12.BackColor = id == "12" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
-            btnTable13.BackColor = id == "13" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
-            btnTable14.BackColor = id == "14" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
-            btnTable15.BackColor = id == "15" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
-            btnTable16.BackColor = id == "16" ? System.Drawing.Color.SeaGreen : System.Drawing.Color.LightGray;
+            setColorGrayTable(oldSelect);
+            checkTableHavePeople();
+            int idTable = Int32.Parse(id);
+    
+            oldSelect = idTable;
+            switch (idTable)
+            {
+                case 1:
+                    btnTable1.BackColor = System.Drawing.Color.SeaGreen;
+                    break;
+                case 2:
+                    btnTable2.BackColor = System.Drawing.Color.SeaGreen;
+                    break;
+                case 3:
+                    btnTable3.BackColor = System.Drawing.Color.SeaGreen;
+                    break;
+                case 4:
+                    btnTable4.BackColor = System.Drawing.Color.SeaGreen;
+                    break;
+                case 5:
+                    btnTable5.BackColor = System.Drawing.Color.SeaGreen;
+                    break;
+                case 6:
+                    btnTable6.BackColor = System.Drawing.Color.SeaGreen;
+                    break;
+                case 7:
+                    btnTable7.BackColor = System.Drawing.Color.SeaGreen;
+                    break;
+                case 8:
+                    btnTable8.BackColor = System.Drawing.Color.SeaGreen;
+                    break;
+                case 9:
+                    btnTable9.BackColor = System.Drawing.Color.SeaGreen;
+                    break;
+                case 10:
+                    btnTable10.BackColor = System.Drawing.Color.SeaGreen;
+                    break;
+                case 11:
+                    btnTable11.BackColor = System.Drawing.Color.SeaGreen;
+                    break;
+                case 12:
+                    btnTable12.BackColor = System.Drawing.Color.SeaGreen;
+                    break;
+                case 13:
+                    btnTable13.BackColor = System.Drawing.Color.SeaGreen;
+                    break;
+                case 14:
+                    btnTable14.BackColor = System.Drawing.Color.SeaGreen;
+                    break;
+                case 15:
+                    btnTable15.BackColor = System.Drawing.Color.SeaGreen;
+                    break;
+                case 16:
+                    btnTable16.BackColor = System.Drawing.Color.SeaGreen;
+                    break;
+            }
+           
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -222,6 +402,7 @@ namespace cafeNLP
         private void btnTable1_Click(object sender, EventArgs e)
         {
             setOrder("1");
+           
         }
 
         private void btnTable2_Click(object sender, EventArgs e)
@@ -247,10 +428,12 @@ namespace cafeNLP
         private void btnTable4_Click(object sender, EventArgs e)
         {
             setOrder("4");
+          
         }
 
         private void btnTable5_Click(object sender, EventArgs e)
         {
+         
             setOrder("5");
         }
 
