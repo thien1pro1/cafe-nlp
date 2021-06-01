@@ -55,6 +55,11 @@ namespace cafeNLP
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (txtUserName.Text == String.Empty)
+            {
+                MessageBox.Show("Tên hiển thị không được trống!", "Thông báo");
+                return;
+            }
         
             if (txtNewPass.Text.Equals(""))
             {

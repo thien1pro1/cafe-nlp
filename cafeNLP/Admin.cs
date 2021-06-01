@@ -694,30 +694,31 @@ namespace cafeNLP
             }
             // check exist user
            
-             SqlCommand comExist = new SqlCommand("select count(*) from Account  where username =  @username", ConDB.con);
-            comExist.Parameters.AddWithValue("@username", txtAccountuser.Text);
 
-            try
-            {
-                int a = (int)comExist.ExecuteScalar();
-                if(a == 1)
-                {
-                    MessageBox.Show("Tài khoản " + txtAccountuser.Text+ " đã tồn tại" + a, "Thông báo");
-                    return;
-                }
-             
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("btnAddAcc_Click" + ex.Message, "Thông báo");
-                return;
-            }
 
 
             String mk = UserInfo.MD5Hash("12345678");
             int r = 0;
             if (txtAccountID.Text == "" || txtAccountID.Text == null)
             {
+                SqlCommand comExist = new SqlCommand("select count(*) from Account  where username =  @username", ConDB.con);
+                comExist.Parameters.AddWithValue("@username", txtAccountuser.Text);
+
+                try
+                {
+                    int a = (int)comExist.ExecuteScalar();
+                    if (a == 1)
+                    {
+                        MessageBox.Show("Tài khoản " + txtAccountuser.Text + " đã tồn tại" + a, "Thông báo");
+                        return;
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("btnAddAcc_Click" + ex.Message, "Thông báo");
+                    return;
+                }
                 
                 if (cbbAccountType.Text == "Quản trị viên") r = 1;
                 SqlCommand com = new SqlCommand("insert into Account  (username,showname,pwd,role) values ( @username, @showname, @mk , @r ) ", ConDB.con);
@@ -743,7 +744,9 @@ namespace cafeNLP
             }
             else
             {
-                SqlCommand com = new SqlCommand("update Account set username = @user, showname = @showname, role = @role where id = @id", ConDB.con);
+
+                if (cbbAccountType.Text == "Quản trị viên") r = 1;
+                SqlCommand com = new SqlCommand("update Account set username = @username, showname = @showname, role = @role where id = @id", ConDB.con);
                 com.Parameters.AddWithValue("@username", txtAccountuser.Text);
                 com.Parameters.AddWithValue("@showname", txtAccountName.Text);
                 com.Parameters.AddWithValue("@role", r);
@@ -752,7 +755,8 @@ namespace cafeNLP
                 {
                     com.ExecuteNonQuery();
                     MessageBox.Show("Cập nhật thành công", "Thông báo");
-                    fetchListFood();
+                    fetchListAccount();
+                    resetForm();
                 }
                 catch (Exception ex)
                 {
@@ -772,6 +776,11 @@ namespace cafeNLP
         }
 
         private void txtFoodSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFoodID_TextChanged(object sender, EventArgs e)
         {
 
         }
